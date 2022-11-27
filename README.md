@@ -7,10 +7,9 @@ Tutorial playlist, kudvenkat: https://www.youtube.com/playlist?list=PL6n9fhu94yh
 ## Goal
  
 - Implement the solution over:
-  - .NET Framework 4.7
-  - .NET Core 5
-  - .NET Core 6
-  - .NET Core 7
+  - .NET Core 6 - LTS
+  - .NET Core 5 - Out of Support
+  - .NET Framework 4.7.2 - Maybe LTS
 
 # TODO
 
