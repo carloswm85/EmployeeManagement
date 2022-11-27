@@ -4,12 +4,20 @@ Every new commit follows the tutorial playlist order.
 
 Tutorial playlist, kudvenkat: https://www.youtube.com/playlist?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU
 
-## Goal
+## Goals
  
 - Implement the solution over:
   - .NET Core 6 - LTS
   - .NET Core 5 - Out of Support
   - .NET Framework 4.7.2 - Maybe LTS
+
+## Lifecycle Explained
+
+![1](images/1_net_framework.png)
+![2](images/2_net_core.png)
+![3](images/3_net_core_beyond.png)
+
+
 
 # TODO
 
