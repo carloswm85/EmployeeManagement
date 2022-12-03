@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagementCore5", "EmployeeManagementCore5\EmployeeManagementCore5.csproj", "{29FED8E1-84F1-4D22-8D69-37F656C89D94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore5", "EmployeeManagementCore5\EmployeeManagementCore5.csproj", "{29FED8E1-84F1-4D22-8D69-37F656C89D94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagementCore6", "EmployeeManagementCore6\EmployeeManagementCore6.csproj", "{A92A171C-2FE3-45F9-B972-7E24C55715DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore6", "EmployeeManagementCore6\EmployeeManagementCore6.csproj", "{A92A171C-2FE3-45F9-B972-7E24C55715DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagementNet472", "EmployeeManagementNet472\EmployeeManagementNet472.csproj", "{E72680EC-C579-4010-9966-05109B0151BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyCore5", "EmptyCore5\EmptyCore5.csproj", "{66C159D1-FA1F-4140-AA14-5A873E05A40F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E72680EC-C579-4010-9966-05109B0151BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E72680EC-C579-4010-9966-05109B0151BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E72680EC-C579-4010-9966-05109B0151BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C159D1-FA1F-4140-AA14-5A873E05A40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C159D1-FA1F-4140-AA14-5A873E05A40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C159D1-FA1F-4140-AA14-5A873E05A40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C159D1-FA1F-4140-AA14-5A873E05A40F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
