@@ -33,21 +33,26 @@ namespace EmployeeManagementCore22
         // PIPELINE CONFIGURATION
         // This method gets called by the runtime. Use this method to configure the HTTP request processing pipeline.
         // MIDDLEWARE SERV
-        // Every MW is registered in the pipeline.
+        // Every MW is registered in the pipeline. 
+        /*
+         * app: 
+         * env: Environment: Development, Staging, Production
+         * logger: 
+         */
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger) // Services injection
         {
             // logger is initially set in the WebHost class, inside Program.cs See: https://github.com/aspnet/MetaPackages/blob/release/2.2/src/Microsoft.AspNetCore/WebHost.cs
 
             if (env.IsDevelopment())
             {
-                // MIDDLEWARE
                 DeveloperExceptionPageOptions depo = new DeveloperExceptionPageOptions()
                 {
                     SourceCodeLineCount = 10
                 };
 
-                app.UseDeveloperExceptionPage(depo);
-                //app.UseDeveloperExceptionPage( ); 
+                // MIDDLEWARE
+                //app.UseDeveloperExceptionPage(depo);
+                app.UseDeveloperExceptionPage( ); 
             }
 
             // MIDDLEWARE
@@ -67,12 +72,12 @@ namespace EmployeeManagementCore22
             fso.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
             // Used for displaying the directory. Disable UseDefaultFiles and UseStaticFiles before using it.
             // It combines, UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser
-            app.UseFileServer();
+            //app.UseFileServer();
             //app.UseFileServer(fso);
             
             
             // MIDDLEWARE, static files are NOT served by default
-            //app.UseStaticFiles(); // Register it before other MW, it serves CSS, JS and images from wwwroot, and any other document
+            app.UseStaticFiles(); // Register it before other MW, it serves CSS, JS and images from wwwroot, and any other document
 
 
             // MIDDLEWARE
@@ -89,9 +94,9 @@ namespace EmployeeManagementCore22
             //{
             //    string value1 = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
             //    string value2 = _config["MyTestKey"];
-                
+
             //    string myString = $"Hello World! \n{value1} \n{value2}";                
-                 
+
             //    await context.Response.WriteAsync(myString);
             //    await next();
             //});
@@ -100,8 +105,8 @@ namespace EmployeeManagementCore22
             // MIDDLEWARE, terminal
             app.Run(async (context) => // This last MW is a terminal MW in the pipeline
             {
-                throw new Exception("Exception thrown."); // sed in UseDeveloperExceptionPage
-                await context.Response.WriteAsync("\nTerminal Middleware.");
+                //throw new Exception("Exception thrown."); // sed in UseDeveloperExceptionPage
+                await context.Response.WriteAsync("\nTerminal Middleware  + " + env.EnvironmentName);
                 logger.LogInformation("Request handled and response produced.");
 
             });
