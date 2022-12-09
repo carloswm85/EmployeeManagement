@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33027.164
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore5", "EmployeeManagementCore5\EmployeeManagementCore5.csproj", "{29FED8E1-84F1-4D22-8D69-37F656C89D94}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore6", "EmployeeManagementCore6\EmployeeManagementCore6.csproj", "{A92A171C-2FE3-45F9-B972-7E24C55715DF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagementNet472", "EmployeeManagementNet472\EmployeeManagementNet472.csproj", "{E72680EC-C579-4010-9966-05109B0151BB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmptyCore5", "EmptyCore5\EmptyCore5.csproj", "{66C159D1-FA1F-4140-AA14-5A873E05A40F}"
 EndProject
@@ -17,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore21", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore7", "EmployeeManagementCore7\EmployeeManagementCore7.csproj", "{2171BA82-E4ED-4601-B9EE-D05A49EB940C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagementCore22", "EmployeeManagementCore22\EmployeeManagementCore22.csproj", "{A072BD0A-13CF-49EC-A21F-8CAA50172D6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore22", "EmployeeManagementCore22\EmployeeManagementCore22.csproj", "{A072BD0A-13CF-49EC-A21F-8CAA50172D6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +31,6 @@ Global
 		{A92A171C-2FE3-45F9-B972-7E24C55715DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A92A171C-2FE3-45F9-B972-7E24C55715DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A92A171C-2FE3-45F9-B972-7E24C55715DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E72680EC-C579-4010-9966-05109B0151BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E72680EC-C579-4010-9966-05109B0151BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E72680EC-C579-4010-9966-05109B0151BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E72680EC-C579-4010-9966-05109B0151BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66C159D1-FA1F-4140-AA14-5A873E05A40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66C159D1-FA1F-4140-AA14-5A873E05A40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66C159D1-FA1F-4140-AA14-5A873E05A40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
