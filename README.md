@@ -7,8 +7,13 @@ Tutorial playlist, kudvenkat: https://www.youtube.com/playlist?list=PL6n9fhu94yh
 ## Goals
  
 - Implement the solution over:
-  - .NET Core 6 - LTS
+  - .NET Core 2.1 - LTS
+  - .NET Core 2.2 - Out of Support
+  - .NET Core 3.1 - LTS
   - .NET Core 5 - Out of Support
+  - .NET Core 6 - LTS
+  - .NET Core 7 - Current
+  - .NET Core 8 - LTS, release on November 2023
   - .NET Framework 4.7.2 - Maybe LTS
 
 ## Lifecycle Explained
