@@ -4,7 +4,8 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        //"ASPNETCORE_ENVIRONMENT": "Development" // Staging, Production
+          // Development, Staging, Production (default)
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "EmployeeManagementCore22": {

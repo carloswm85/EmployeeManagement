@@ -53,6 +53,9 @@ namespace EmployeeManagementCore22
                 // MIDDLEWARE
                 //app.UseDeveloperExceptionPage(depo);
                 app.UseDeveloperExceptionPage( ); 
+
+            } else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT")) {
+                app.UseExceptionHandler("/Error");
             }
 
             // MIDDLEWARE
