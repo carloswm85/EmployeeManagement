@@ -47,7 +47,7 @@ namespace EmployeeManagementCore22
             {
                 DeveloperExceptionPageOptions depo = new DeveloperExceptionPageOptions()
                 {
-                    SourceCodeLineCount = 10
+                    SourceCodeLineCount = 10 // display the selected amount of source code in the browser.
                 };
 
                 // MIDDLEWARE
