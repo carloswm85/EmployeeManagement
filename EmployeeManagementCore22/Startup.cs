@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using EmployeeManagementCore22.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -11,13 +12,20 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementCore22
 {
+    /*
+     * MAIN PIECES:
+     *  (1) ConfigureServices()
+     *      - For application services set up.
+     *  (2) Configure()
+     *      - For application request processing pipeline set up.
+     */
     public class Startup
     {
         // Store the injected service
         private IConfiguration _config;
 
 
-        // Inject IConfigurationService, dependency injection
+        // CTOR: Inject IConfigurationService, dependency injection
         public Startup(IConfiguration  config)
         {
             // Different configuration providers are set here.
@@ -28,7 +36,24 @@ namespace EmployeeManagementCore22
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore(); //  AddMvc internally calls AddMvcCore https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs and 
+            //  AddMvc internally calls AddMvcCore https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs and 
+            services.AddMvcCore(); // This is a default service.
+
+            /* For custom servicesL
+             * How to register with Dependency Injection Container: Use AddSingleton, AddTransient or AddScoped
+             */
+
+            // SINGLETON: Interface + Implementation = Singleton
+            /* What does this do? If someone (Eg: HomeController) request IEmployeeRepository service, then create an
+             * instance of MockEmployeeRepository and inject that instance to HomeController.
+             * Why do it like this? This way, in case I use IEmployeeRepository in 100 controllers, I'll have to change
+             * only this one line of code, change MockEmployeeRepository class for, let's say, SqlEmployeeRepository class
+             */
+            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            
+            // Other examples:
+            //services.AddScoped<ILogger, ILogger>();
+            //services.AddTransient<ILogger, ILogger>();
         }
 
         /* ================= PIPELINE CONFIGURATION ================= */

@@ -26,4 +26,3 @@ namespace EmployeeManagementCore22.Controllers
         }
     }
 }
-
