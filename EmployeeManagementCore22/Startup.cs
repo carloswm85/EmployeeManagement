@@ -28,9 +28,10 @@ namespace EmployeeManagementCore22
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(); // .AddMvcCore(); is something else different.
         }
 
-        // PIPELINE CONFIGURATION
+        /* ================= PIPELINE CONFIGURATION ================= */
         // This method gets called by the runtime. Use this method to configure the HTTP request processing pipeline.
         // MIDDLEWARE SERV
         // Every MW is registered in the pipeline. 
@@ -82,6 +83,10 @@ namespace EmployeeManagementCore22
             // MIDDLEWARE, static files are NOT served by default
             app.UseStaticFiles(); // Register it before other MW, it serves CSS, JS and images from wwwroot, and any other document
 
+            // MIDDLEWARE, before UseStaticFiles(), see method implementation
+            // It redirects to '{controller=Home}/{action=Index}/{id?}' controllers.//
+            // If the controller does not exist, it will redirect to the terminal MW
+            app.UseMvcWithDefaultRoute();
 
             // MIDDLEWARE
             //app.Use(async (context, next) => // next variable calls next MW in the pipeline
@@ -106,13 +111,13 @@ namespace EmployeeManagementCore22
 
 
             // MIDDLEWARE, terminal
-            app.Run(async (context) => // This last MW is a terminal MW in the pipeline
-            {
-                //throw new Exception("Exception thrown."); // sed in UseDeveloperExceptionPage
-                await context.Response.WriteAsync("\nTerminal Middleware  + " + env.EnvironmentName);
-                logger.LogInformation("Request handled and response produced.");
+            //app.Run(async (context) => // This last MW is a terminal MW in the pipeline
+            //{
+            //    //throw new Exception("Exception thrown."); // sed in UseDeveloperExceptionPage
+            //    await context.Response.WriteAsync("\nTerminal Middleware  + " + env.EnvironmentName);
+            //    //logger.LogInformation("Request handled and response produced.");
 
-            });
+            //});
         }
     }
 }
