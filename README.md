@@ -8,7 +8,7 @@ Tutorial playlist, kudvenkat: https://www.youtube.com/playlist?list=PL6n9fhu94yh
  
 - Implement the solution over:
   - .NET Core 2.1 - LTS
-  - .NET Core 2.2 - Out of Support
+  - .NET Core 2.2 - Out of Support, https://github.com/aspnet/Mvc/tree/release/2.2
   - .NET Core 3.1 - LTS
   - .NET Core 5 - Out of Support
   - .NET Core 6 - LTS

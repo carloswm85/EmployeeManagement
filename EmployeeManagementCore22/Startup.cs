@@ -22,13 +22,13 @@ namespace EmployeeManagementCore22
         {
             // Different configuration providers are set here.
             _config = config;
-        }
+        } 
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(); // .AddMvcCore(); is something else different.
+            services.AddMvcCore(); //  AddMvc internally calls AddMvcCore https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs and 
         }
 
         /* ================= PIPELINE CONFIGURATION ================= */
