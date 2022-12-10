@@ -26,18 +26,20 @@ namespace EmployeeManagementCore22
 
 
         // CTOR: Inject IConfigurationService, dependency injection
-        public Startup(IConfiguration  config)
+        public Startup(IConfiguration config)
         {
             // Different configuration providers are set here.
             _config = config;
-        } 
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //  AddMvc internally calls AddMvcCore https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs and 
-            services.AddMvcCore(); // This is a default service.
+            //  AddMvc internally calls AddMvcCore
+            //  https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs
+            services.AddMvcCore(); // This is a default service from the framework Microsoft.Extensions.DependencyInjection
+
 
             /* For custom servicesL
              * How to register with Dependency Injection Container: Use AddSingleton, AddTransient or AddScoped
@@ -50,7 +52,7 @@ namespace EmployeeManagementCore22
              * only this one line of code, change MockEmployeeRepository class for, let's say, SqlEmployeeRepository class
              */
             services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
-            
+
             // Other examples:
             //services.AddScoped<ILogger, ILogger>();
             //services.AddTransient<ILogger, ILogger>();
@@ -78,9 +80,11 @@ namespace EmployeeManagementCore22
 
                 // MIDDLEWARE
                 //app.UseDeveloperExceptionPage(depo);
-                app.UseDeveloperExceptionPage( ); 
+                app.UseDeveloperExceptionPage();
 
-            } else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT")) {
+            }
+            else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT"))
+            {
                 app.UseExceptionHandler("/Error");
             }
 
@@ -103,13 +107,13 @@ namespace EmployeeManagementCore22
             // It combines, UseStaticFiles, UseDefaultFiles, and UseDirectoryBrowser
             //app.UseFileServer();
             //app.UseFileServer(fso);
-            
-            
+
+
             // MIDDLEWARE, static files are NOT served by default
             app.UseStaticFiles(); // Register it before other MW, it serves CSS, JS and images from wwwroot, and any other document
 
             // MIDDLEWARE, before UseStaticFiles(), see method implementation
-            // It redirects to '{controller=Home}/{action=Index}/{id?}' controllers.//
+            // It redirects to controller of the form: '{controller=Home}/{action=Index}/{id?}'
             // If the controller does not exist, it will redirect to the terminal MW
             app.UseMvcWithDefaultRoute();
 
