@@ -4,7 +4,8 @@ using System.Linq;
 namespace EmployeeManagementCore22.Models
 {
     
-    public class MockEmployeeRepository : IEmployeeRepository // Why use IEmployeeRepository? For using dependency injection, not use concrete implementations
+    // Why use IEmployeeRepository? For using dependency injection, not use concrete implementations
+    public class MockEmployeeRepository : IEmployeeRepository
     {
         private List<Employee> _employeeList;
         public MockEmployeeRepository()
@@ -23,3 +24,4 @@ namespace EmployeeManagementCore22.Models
         }
     }
 }
+
