@@ -2,7 +2,9 @@ Every new commit follows the tutorial playlist order.
 
 # EmployeeManagement
 
-Tutorial playlist, kudvenkat: https://www.youtube.com/playlist?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU
+## Tutorials Playlist
+- kudvenkat: ASP.NET core tutorial for beginners: https://www.youtube.com/playlist?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU
+- dotnet: Web APIs for Beginners: https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVjOKgzsWqdFVvzGL2_d72v 
 
 ## Goals
  
