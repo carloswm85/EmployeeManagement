@@ -36,9 +36,10 @@ namespace EmployeeManagementCore22
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //  AddMvc internally calls AddMvcCore
+            //  AddMvc internally calls AddMvcCore (AddMvc internally calls AddJsonFormatters)
             //  https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs
-            services.AddMvcCore(); // This is a default service from the framework Microsoft.Extensions.DependencyInjection
+            //services.AddMvc(); // This is a default service from the framework Microsoft.Extensions.DependencyInjection
+            services.AddMvc().AddXmlSerializerFormatters();
 
 
             /* For custom servicesL
