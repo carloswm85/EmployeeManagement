@@ -42,7 +42,7 @@ namespace EmployeeManagementCore22.Controllers
         public ViewResult Details()
         {
             Employee model = _employeeRepository.GetEmployee(1);
-            return View("../Test/Update", model);
+            return View();
         }
     }
 }
