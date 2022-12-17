@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore7", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagementCore22", "EmployeeManagementCore22\EmployeeManagementCore22.csproj", "{A072BD0A-13CF-49EC-A21F-8CAA50172D6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiCore6", "WebApiCore6\WebApiCore6.csproj", "{445D1CB7-3E66-4B4B-8BFA-434CFE900852}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiCore6", "WebApiCore6\WebApiCore6.csproj", "{445D1CB7-3E66-4B4B-8BFA-434CFE900852}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiCore5", "WebApiCore5\WebApiCore5.csproj", "{AB6EAEF5-920E-426F-AF3D-004FA1FEE1B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiCore5", "WebApiCore5\WebApiCore5.csproj", "{AB6EAEF5-920E-426F-AF3D-004FA1FEE1B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
