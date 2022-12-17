@@ -1,5 +1,6 @@
 ﻿
 using EmployeeManagementCore22.Models;
+using EmployeeManagementCore22.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementCore22.Controllers
@@ -38,12 +39,16 @@ namespace EmployeeManagementCore22.Controllers
             Employee model = _employeeRepository.GetEmployee(1);
             return new ObjectResult(model);
         }
-        
+
         public ViewResult Details()
         {
-            Employee model = _employeeRepository.GetEmployee(1);
-            ViewBag.PageTitle = "Employee Details";
-            return View(model);
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                Employee = _employeeRepository.GetEmployee(1),
+                PageTitle = "Employee Details"
+
+            };
+            return View(homeDetailsViewModel);
         }
     }
 }
