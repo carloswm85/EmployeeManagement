@@ -1,7 +1,10 @@
-﻿namespace EmployeeManagementCore22.Models
+﻿using System.Collections.Generic;
+
+namespace EmployeeManagementCore22.Models
 {
     public interface IEmployeeRepository
     {
         Employee GetEmployee(int id);
+        IEnumerable<Employee> GetAllEmployee();
     }
 }

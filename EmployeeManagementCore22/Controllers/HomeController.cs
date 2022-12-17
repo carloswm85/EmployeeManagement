@@ -23,9 +23,10 @@ namespace EmployeeManagementCore22.Controllers
             return Json(new { id = 1, name = "Carlos" });
         }
         
-        public string Index()
+        public ViewResult Index()
         {
-            return _employeeRepository.GetEmployee(1).Name;
+            var model = _employeeRepository.GetAllEmployee();
+            return View(model);
         }
 
         public JsonResult DetailsJson()
