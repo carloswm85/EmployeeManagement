@@ -2,10 +2,12 @@
 - Project example in progress.
 - Playlist: https://www.youtube.com/playlist?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU
 - Back-up playlist: https://www.youtube.com/playlist?list=PLlKSF1mm1ducTaVKcU9qxxGIhYOXTUvK_
+- Bootstrap 4.3.1: https://getbootstrap.com/docs/4.3/getting-started/introduction/
+- jQuery 3.3.1: https://api.jquery.com/
 
 # List of Videos
 
-`video number. Name: link`
+`videoNumber. Name: link`
 
 1. ASP NET Core Tutorial: https://youtu.be/4IgC2Q5-yDE
 1. Setting up machine for asp net core development: https://youtu.be/wKUWYOi442I
