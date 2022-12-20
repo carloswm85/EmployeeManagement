@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementCore22.Controllers
 {
-    //[Route("Home")] // Used for simplifing routing to controllers
+    // ATTRIBUTE ROUTING
+    //[Route("Home")] // Used for simplifying routing to controllers
+    //[Route("[controller]")] // Use of tokens, replaced with "Home"
+    //[Route("[controller]/[action]")] // Use of tokens, replaced with "Home/Action"
     public class HomeController : Controller
     {
         #region Constructor injection
@@ -24,9 +27,14 @@ namespace EmployeeManagementCore22.Controllers
             return Json(new { id = 1, name = "Carlos" });
         }
 
-        [Route("")]
-        [Route("Home")]
-        [Route("Home/Index")]
+        //[Route("")]
+        //[Route("Home")]
+        //[Route("Home/Index")]
+        //[Route("/")]
+        //[Route("/Index")]
+        //[Route("~/")]
+        //[Route("[action]")] // token, replaced with "Index"
+        //[Route("~/Home")]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployee();
@@ -45,7 +53,9 @@ namespace EmployeeManagementCore22.Controllers
             return new ObjectResult(model);
         }
 
-        [Route("Home/Details/{id}")]
+        //[Route("Home/Details/{id}")]
+        //[Route("[action]/{id}")] // token, replaced with "Details"
+        //[Route("{id?}")] // token, replaced with "Details"
         public ViewResult Details(int? id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
