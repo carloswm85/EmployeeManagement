@@ -119,12 +119,12 @@ namespace EmployeeManagementCore22
             //app.UseMvcWithDefaultRoute(); // Incoming url or request handling
 
             // MIDDLEWARE, "conventional routing"
-            //app.UseMvc();
-            app.UseMvc(routes =>
-            {
-                //routes.MapRoute("default", "{controller}/{action}/{id}");
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"); // optional id
-            });
+            app.UseMvc(); // This alone, without routing, returns 404
+            //app.UseMvc(routes =>
+            //{
+            //    //routes.MapRoute("default", "{controller}/{action}/{id}");
+            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"); // optional id
+            //});
 
             // MIDDLEWARE
             //app.Use(async (context, next) => // next variable calls next MW in the pipeline

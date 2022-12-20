@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementCore22.Controllers
 {
+    //[Route("Home")] // Used for simplifing routing to controllers
     public class HomeController : Controller
     {
         #region Constructor injection
@@ -22,11 +23,14 @@ namespace EmployeeManagementCore22.Controllers
         {
             return Json(new { id = 1, name = "Carlos" });
         }
-        
+
+        [Route("")]
+        [Route("Home")]
+        [Route("Home/Index")]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployee();
-            return View(model);
+            return View("~/Views/Home/Index.cshtml", model);
         }
 
         public JsonResult DetailsJson()
@@ -41,11 +45,13 @@ namespace EmployeeManagementCore22.Controllers
             return new ObjectResult(model);
         }
 
-        public ViewResult Details(int id)
+        [Route("Home/Details/{id}")]
+        public ViewResult Details(int? id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Employee = _employeeRepository.GetEmployee(1),
+                Employee = _employeeRepository.GetEmployee(id ?? 1), // If id is null, use 1
+                //Employee = _employeeRepository.GetEmployee(id), // regular
                 PageTitle = "Employee Details"
 
             };
