@@ -41,7 +41,7 @@ namespace EmployeeManagementCore22.Controllers
             return new ObjectResult(model);
         }
 
-        public ViewResult Details()
+        public ViewResult Details(int id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {

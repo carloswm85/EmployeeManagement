@@ -116,7 +116,15 @@ namespace EmployeeManagementCore22
             // MIDDLEWARE, before UseStaticFiles(), see method implementation
             // It redirects to controller of the form: '{controller=Home}/{action=Index}/{id?}'
             // If the controller does not exist, it will redirect to the terminal MW
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute(); // Incoming url or request handling
+
+            // MIDDLEWARE, "conventional routing"
+            //app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                //routes.MapRoute("default", "{controller}/{action}/{id}");
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"); // optional id
+            });
 
             // MIDDLEWARE
             //app.Use(async (context, next) => // next variable calls next MW in the pipeline
