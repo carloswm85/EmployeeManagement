@@ -14,17 +14,8 @@
                 <img class="card-img-top m-auto" src="~/images/noimage-dark.png" />
             <div class="card-footer text-center">
 
-                @*Link Technique 1: html tag only. It breaks when the default route is changed.  *@
-                <a href="/home/details/@employee.Id" class="btn btn-primary" target="_blank">View1</a>
-
-                @* Link Technique 2: It provides the entire anchor element. It does NOT break when the default route is changed. *@
-                @Html.ActionLink("View2", "details", "home", new { id = employee.Id }, new { @class = "btn-primary btn", target = "_blank"})
-
-                @* Link Technique 3: It provides only the href element, which is the string. It does NOT break when the default route is changed. *@
-                <a href="@Url.Action("details", "home", new { id = employee.Id })" class="btn btn-primary" target="_blank">View3</a>
-
                 @* Link Technique 4: Tag helpers (preferred). It does NOT break when the default route is changed. *@
-                <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id" class="btn btn-primary" target="_blank">View4</a>
+                <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id" class="btn btn-primary" target="_blank">View</a>
 
                 <a href="#" class="btn btn-primary">Edit</a>
                 <a href="#" class="btn btn-danger">Delete</a>

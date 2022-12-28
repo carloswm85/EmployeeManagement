@@ -123,7 +123,7 @@ namespace EmployeeManagementCore22
             app.UseMvc(routes =>
             {
                 //routes.MapRoute("default", "{controller}/{action}/{id}");
-                routes.MapRoute("default", "pragim/{controller=Home}/{action=Index}/{id?}"); // this change to routing will break the code without using tag-helpers
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"); // this change to routing will break the code without using tag-helpers
                 //routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"); // optional id
             });
 
