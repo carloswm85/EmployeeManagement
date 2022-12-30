@@ -5,7 +5,7 @@
       "launchBrowser": true,
       "environmentVariables": {
           // Development, Staging, Production (default)
-        "ASPNETCORE_ENVIRONMENT": "Staging"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "EmployeeManagementCore22": {
