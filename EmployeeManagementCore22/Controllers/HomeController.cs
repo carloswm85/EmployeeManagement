@@ -84,9 +84,15 @@ namespace EmployeeManagementCore22.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(Employee employee) {
-            Employee newEmployee = _employeeRepository.Add(employee);
-            return RedirectToAction("details", new { id = newEmployee.Id});
+        // With IActionResult, it is possible to return a ViewResult to RedirectToActionResult, the original return type of Create() post. It accepts any Result type that implements IActionResult.
+        public IActionResult Create(Employee employee) {
+            if(ModelState.IsValid)
+            {
+                Employee newEmployee = _employeeRepository.Add(employee);
+                return RedirectToAction("details", new { id = newEmployee.Id});
+            }
+
+            return View(); 
         }
     } 
 }
