@@ -6,5 +6,6 @@ namespace EmployeeManagementCore22.Models
     {
         Employee GetEmployee(int id);
         IEnumerable<Employee> GetAllEmployee();
+        Employee Add(Employee employee);
     }
 }

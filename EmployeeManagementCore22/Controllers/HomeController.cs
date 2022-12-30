@@ -68,6 +68,25 @@ namespace EmployeeManagementCore22.Controllers
             return View(homeDetailsViewModel);
         }
 
-        public ViewResult Create() { return View(); }
-    }
+        public string DetailsString(int? id, string name)
+        {
+            string result = "id = " + id.Value.ToString() + " | name = " + name;
+            return result;
+            // Valid requests:
+            // Using form values
+            // Using route values: https://localhost:44331/home/detailsstring/2?name=carlos&id=23
+            // Using query strings: https://localhost:44331/home/detailsstring?name=carlos&id=23
+        }
+
+        [HttpGet]
+        public ViewResult Create() {
+            return View();
+        }
+
+        [HttpPost]
+        public RedirectToActionResult Create(Employee employee) {
+            Employee newEmployee = _employeeRepository.Add(employee);
+            return RedirectToAction("details", new { id = newEmployee.Id});
+        }
+    } 
 }
