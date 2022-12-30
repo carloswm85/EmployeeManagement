@@ -67,5 +67,7 @@ namespace EmployeeManagementCore22.Controllers
             };
             return View(homeDetailsViewModel);
         }
+
+        public ViewResult Create() { return View(); }
     }
 }
