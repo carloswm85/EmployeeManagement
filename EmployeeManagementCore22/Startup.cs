@@ -36,23 +36,40 @@ namespace EmployeeManagementCore22
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // === SECTION === Framework Services
+            //
             //  AddMvc internally calls AddMvcCore (AddMvc internally calls AddJsonFormatters)
             //  https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs
             //services.AddMvc(); // This is a default service from the framework Microsoft.Extensions.DependencyInjection
             services.AddMvc().AddXmlSerializerFormatters();
 
 
+            // === SECTION === Application Services
+            //
+            // Interface + Implementation = Service
+            // Lifetime and Registration types.
             /* For custom servicesL
              * How to register with Dependency Injection Container: Use AddSingleton, AddTransient or AddScoped
              */
 
-            // SINGLETON: Interface + Implementation = Singleton
+            // >> SINGLETON (In single one HTTP request: Same Instance; Across different HTTP requests: Same Instance)
+            // The very same object for all HTTP requests.
             /* What does this do? If someone (Eg: HomeController) request IEmployeeRepository service, then create an
              * instance of MockEmployeeRepository and inject that instance to HomeController.
              * Why do it like this? This way, in case I use IEmployeeRepository in 100 controllers, I'll have to change
              * only this one line of code, change MockEmployeeRepository class for, let's say, SqlEmployeeRepository class
+             * Singleton service last for the lifetime of the application.
              */
-            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>(); // So, IEmployeeRepository and MockEmployeeRepository are tight together.
+            // With the line above, we say: "If someone asks for IEmployeeRepository, then provide them with an instance of this MockEmployeeRepository class."
+
+            // >> SCOPED (In single one HTTP request: Same Instance; Across different HTTP requests: New Instance)
+            // The same object within a single HTTP request, but different instances across multiple HTTP requests.
+            //services.AddScoped<IEmployeeRepository, MockEmployeeRepository>();
+
+            // >> TRANSIENT (In single one HTTP request: New Instance; Across different HTTP requests: New Instance)
+            // Always different. A new instance is provided to every HTTP request (controller and service).
+            //services.AddTransient<IEmployeeRepository, MockEmployeeRepository>();
 
             // Other examples:
             //services.AddScoped<ILogger, ILogger>();

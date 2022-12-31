@@ -89,7 +89,7 @@ namespace EmployeeManagementCore22.Controllers
             if(ModelState.IsValid)
             {
                 Employee newEmployee = _employeeRepository.Add(employee);
-                return RedirectToAction("details", new { id = newEmployee.Id});
+                //return RedirectToAction("details", new { id = newEmployee.Id});
             }
 
             return View(); 
