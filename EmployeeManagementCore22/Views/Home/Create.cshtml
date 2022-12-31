@@ -34,7 +34,9 @@
             <select
                 asp-for="Department" class="custom-select mr-sm-2"
                 asp-items="Html.GetEnumSelectList<Dept>()" >
+                    <option value="">Please Select</option>
             </select>
+            <span asp-validation-for="Department" class="text-danger"></span>
         </div>
     </div>
 
