@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -36,7 +37,19 @@ namespace EmployeeManagementCore22
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // === SECTION === Framework Services
+            // === SECTION ================ DbContext
+            //
+            // 1) Register the application specific DbContext class in the ASP.NET Core dependency injection system.
+            services.AddDbContextPool<AppDbContext>(options =>
+                // 2) Use SQL Server as the DB Provider
+                // 3) EmployeeDBConnection is retrieved from appsettings.json using the service IConfiguration _config
+                options.UseSqlServer(_config.GetConnectionString("EmployeeDBConnection"))
+                );
+            /*  AddDbContextPool() Vs AddDbContext()
+             *  AddDbContextPool: Better performance, instead of creating a new instance of AppDbContext, it uses one existing from the pool
+             */
+
+            // === SECTION ================ Framework Services
             //
             //  AddMvc internally calls AddMvcCore (AddMvc internally calls AddJsonFormatters)
             //  https://github.com/aspnet/Mvc/blob/release/2.2/src/Microsoft.AspNetCore.Mvc/MvcServiceCollectionExtensions.cs
@@ -44,7 +57,7 @@ namespace EmployeeManagementCore22
             services.AddMvc().AddXmlSerializerFormatters();
 
 
-            // === SECTION === Application Services
+            // === SECTION ================ Application Services
             //
             // Interface + Implementation = Service
             // Lifetime and Registration types.

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+// DB Providers: https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli
 
 namespace EmployeeManagementCore22.Models
 {
