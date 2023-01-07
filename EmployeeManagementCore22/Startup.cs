@@ -73,16 +73,16 @@ namespace EmployeeManagementCore22
              * only this one line of code, change MockEmployeeRepository class for, let's say, SqlEmployeeRepository class
              * Singleton service last for the lifetime of the application.
              */
-            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>(); // So, IEmployeeRepository and MockEmployeeRepository are tight together.
+            //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>(); // So, IEmployeeRepository and MockEmployeeRepository are tight together.
             // With the line above, we say: "If someone asks for IEmployeeRepository, then provide them with an instance of this MockEmployeeRepository class."
 
             // >> SCOPED (In single one HTTP request: Same Instance; Across different HTTP requests: New Instance)
             // The same object within a single HTTP request, but different instances across multiple HTTP requests.
-            //services.AddScoped<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
             // >> TRANSIENT (In single one HTTP request: New Instance; Across different HTTP requests: New Instance)
             // Always different. A new instance is provided to every HTTP request (controller and service).
-            //services.AddTransient<IEmployeeRepository, MockEmployeeRepository>();
+            //services.AddTransient<IEmployeeRepository, SQLEmployeeRepository>();
 
             // Other examples:
             //services.AddScoped<ILogger, ILogger>();
