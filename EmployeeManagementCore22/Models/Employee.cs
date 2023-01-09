@@ -21,5 +21,7 @@ namespace EmployeeManagementCore22.Models
         // Dept ? only, displays validation error: None, and the Enum data type is made OPTIONAL
         // Dept ? and Required, displays CORRECT validation error: The Department field is required.
         public Dept? Department { get; set; } 
+
+        public string PhotoPath { get; set; }
     }
 }

@@ -29,4 +29,6 @@ namespace EmployeeManagementCore22.Models
  * - get-help about_entityframeworkcore
  * - add-migration NameOfTheMigration
  * - update-database
+ * - remove-migration
+ * - update-database NameOfMigration // This one is used when reverting changes to a previous migration
  */
