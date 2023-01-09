@@ -1,7 +1,10 @@
 ﻿
 using EmployeeManagementCore22.Models;
 using EmployeeManagementCore22.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.IO;
 
 namespace EmployeeManagementCore22.Controllers
 {
@@ -14,9 +17,14 @@ namespace EmployeeManagementCore22.Controllers
         #region Constructor injection
 
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public HomeController(IEmployeeRepository employeeRepository)
+        public HomeController(
+            IEmployeeRepository employeeRepository,
+            IHostingEnvironment hostingEnvironment
+            )
         {
+            _hostingEnvironment = hostingEnvironment;
             _employeeRepository = employeeRepository;
         }
 
@@ -85,11 +93,26 @@ namespace EmployeeManagementCore22.Controllers
 
         [HttpPost]
         // With IActionResult, it is possible to return a ViewResult to RedirectToActionResult, the original return type of Create() post. It accepts any Result type that implements IActionResult.
-        public IActionResult Create(Employee employee) {
+        public IActionResult Create(EmployeeCreateViewModel model) {
             if(ModelState.IsValid)
             {
-                Employee newEmployee = _employeeRepository.Add(employee);
-                //return RedirectToAction("details", new { id = newEmployee.Id});
+                string uniqueFileName = null;
+                if (model.Photo != null)
+                {
+                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images"); // this line will save the file to wwwroot/images
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photo.FileName; // Use Guid for avoid file overwriting
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+                Employee newEmployee = new Employee
+                {
+                    Name = model.Name,
+                    Email = model.Email,
+                    Department = model.Department,
+                    PhotoPath = uniqueFileName
+                };
+                _employeeRepository.Add(newEmployee);
+                return RedirectToAction("details", new { id = newEmployee.Id});
             }
 
             return View(); 
