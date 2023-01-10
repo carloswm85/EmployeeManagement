@@ -92,6 +92,21 @@ namespace EmployeeManagementCore22.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ViewResult Edit(int id)
+        {
+            Employee employee = _employeeRepository.GetEmployee(id);
+            EmployeeEditViewModel employeeEditViewModel = new EmployeeEditViewModel
+            {
+                Id = id,
+                Name = employee.Name,
+                Email = employee.Email,
+                Department = employee.Department,
+                ExistingPhotoPath = employee.PhotoPath
+            };
+            return View(employeeEditViewModel);
+        }
+
         [HttpPost]
         // With IActionResult, it is possible to return a ViewResult to RedirectToActionResult, the original return type of Create() post. It accepts any Result type that implements IActionResult.
         public IActionResult Create(EmployeeCreateViewModel model) {
