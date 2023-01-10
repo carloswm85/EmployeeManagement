@@ -20,6 +20,11 @@ namespace EmployeeManagementCore22.Controllers
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IHostingEnvironment _hostingEnvironment;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="employeeRepository"></param>
+        /// <param name="hostingEnvironment"></param>
         public HomeController(
             IEmployeeRepository employeeRepository,
             IHostingEnvironment hostingEnvironment
@@ -31,11 +36,19 @@ namespace EmployeeManagementCore22.Controllers
 
         #endregion
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public JsonResult JsonTest()
         {
             return Json(new { id = 1, name = "Carlos" });
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         //[Route("")]
         //[Route("Home")]
         //[Route("Home/Index")]
@@ -50,18 +63,31 @@ namespace EmployeeManagementCore22.Controllers
             return View("~/Views/Home/Index.cshtml", model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public JsonResult DetailsJson()
         {
             Employee model = _employeeRepository.GetEmployee(1);
             return Json(model);
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ObjectResult DetailsObject()
         {
             Employee model = _employeeRepository.GetEmployee(1);
             return new ObjectResult(model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         //[Route("Home/Details/{id}")]
         //[Route("[action]/{id}")] // token, replaced with "Details"
         //[Route("{id?}")] // token, replaced with "Details"
@@ -77,6 +103,12 @@ namespace EmployeeManagementCore22.Controllers
             return View(homeDetailsViewModel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public string DetailsString(int? id, string name)
         {
             string result = "id = " + id.Value.ToString() + " | name = " + name;
@@ -87,11 +119,20 @@ namespace EmployeeManagementCore22.Controllers
             // Using query strings: https://localhost:44331/home/detailsstring?name=carlos&id=23
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ViewResult Create() {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public ViewResult Edit(int id)
         {
@@ -107,6 +148,11 @@ namespace EmployeeManagementCore22.Controllers
             return View(employeeEditViewModel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Edit(EmployeeEditViewModel model)
         {
@@ -157,11 +203,17 @@ namespace EmployeeManagementCore22.Controllers
             return uniqueFileName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         // With IActionResult, it is possible to return a ViewResult to RedirectToActionResult, the original return type of Create() post. It accepts any Result type that implements IActionResult.
         public IActionResult Create(EmployeeCreateViewModel model) {
             if(ModelState.IsValid)
             {
+                // The commented code below, was moved to the following private method.
                 string uniqueFileName = ProcessUploadedFile(model);
 
                 /*
