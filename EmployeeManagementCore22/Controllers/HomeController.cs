@@ -98,8 +98,20 @@ namespace EmployeeManagementCore22.Controllers
             if(ModelState.IsValid)
             {
                 string uniqueFileName = null;
-                if (model.Photos != null && model.Photos.Count > 0)
+
+                // Code for single file
+                if (model.Photo != null)
+                // Code for several files
+                /*if (model.Photos != null && model.Photos.Count > 0)*/
                 {
+                    // Code for single file
+                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images"); // this line will save the file to wwwroot/images
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photo.FileName; // Use Guid for avoid file overwriting
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+
+                    // Code for several files
+                    /*
                     foreach (IFormFile photo in model.Photos)
                     {
                         string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images"); // this line will save the file to wwwroot/images
@@ -107,6 +119,7 @@ namespace EmployeeManagementCore22.Controllers
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                         photo.CopyTo(new FileStream(filePath, FileMode.Create));
                     }
+                    */
                 }
                 Employee newEmployee = new Employee
                 {

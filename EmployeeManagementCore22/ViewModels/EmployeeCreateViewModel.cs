@@ -20,6 +20,14 @@ namespace EmployeeManagementCore22.ViewModels
         [Required]
         public Dept? Department { get; set; }
 
-        public List<IFormFile> Photos { get; set; }
+        // Code for single file
+        public IFormFile Photo { get; set; }
+
+        // Code for several files
+        /* For adding several files for one single employee , in the DB,
+         * split the Employee table into 2 tables. Add a one to many relationship,
+         * with Employee table and EmployeePhotos table
+         */
+        //public List<IFormFile> Photos { get; set; }
     }
 }
