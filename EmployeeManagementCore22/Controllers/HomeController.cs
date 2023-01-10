@@ -108,16 +108,69 @@ namespace EmployeeManagementCore22.Controllers
         }
 
         [HttpPost]
+        public IActionResult Edit(EmployeeEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee employee = _employeeRepository.GetEmployee(model.Id);
+                employee.Name = model.Name;
+                employee.Email = model.Email;
+                employee.Department = model.Department;
+
+                if (model.Photo != null) {
+                    if (model.ExistingPhotoPath != null)
+                    {
+                        string filePath = Path.Combine(_hostingEnvironment.WebRootPath, "images", model.ExistingPhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+                    employee.PhotoPath = ProcessUploadedFile(model);
+                }
+
+                _employeeRepository.Update(employee);
+                return RedirectToAction("index");
+            }
+
+            return View();
+        }
+
+        /// <summary>
+        /// Since EmployeeEditViewModel inherits from EmployeeCreateViewModel
+        /// this method can be used in both, by setting the argument to EmployeeCreateViewModel
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        private string ProcessUploadedFile(EmployeeCreateViewModel model)
+        {
+            string uniqueFileName = null;
+            if (model.Photo != null)
+            {
+                string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images"); // this line will save the file to wwwroot/images
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photo.FileName; // Use Guid for avoid file overwriting
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Photo.CopyTo(fileStream);
+                }
+            }
+
+            return uniqueFileName;
+        }
+
+        [HttpPost]
         // With IActionResult, it is possible to return a ViewResult to RedirectToActionResult, the original return type of Create() post. It accepts any Result type that implements IActionResult.
         public IActionResult Create(EmployeeCreateViewModel model) {
             if(ModelState.IsValid)
             {
+                string uniqueFileName = ProcessUploadedFile(model);
+
+                /*
                 string uniqueFileName = null;
 
                 // Code for single file
                 if (model.Photo != null)
                 // Code for several files
-                /*if (model.Photos != null && model.Photos.Count > 0)*/
+                //if (model.Photos != null && model.Photos.Count > 0)
                 {
                     // Code for single file
                     string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images"); // this line will save the file to wwwroot/images
@@ -126,16 +179,16 @@ namespace EmployeeManagementCore22.Controllers
                     model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
 
                     // Code for several files
-                    /*
-                    foreach (IFormFile photo in model.Photos)
-                    {
-                        string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images"); // this line will save the file to wwwroot/images
-                        uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName; // Use Guid for avoid file overwriting
-                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                        photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                    }
-                    */
+                    //foreach (IFormFile photo in model.Photos)
+                    //{
+                    //    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images"); // this line will save the file to wwwroot/images
+                    //    uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName; // Use Guid for avoid file overwriting
+                    //    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    //    photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    //}
+                    
                 }
+                */
                 Employee newEmployee = new Employee
                 {
                     Name = model.Name,
