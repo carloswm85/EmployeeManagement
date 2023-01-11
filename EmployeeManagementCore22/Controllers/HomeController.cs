@@ -93,9 +93,18 @@ namespace EmployeeManagementCore22.Controllers
         //[Route("{id?}")] // token, replaced with "Details"
         public ViewResult Details(int? id)
         {
+            Employee employee = _employeeRepository.GetEmployee(id.Value);
+
+            if (employee == null)
+            {
+                Response.StatusCode = 404;
+                return View("EmployeeNotFound", id.Value);
+            }
+
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Employee = _employeeRepository.GetEmployee(id ?? 1), // If id is null, use 1
+                Employee = employee,
+                //Employee = _employeeRepository.GetEmployee(id ?? 1), // If id is null, use 1; use this when not using EmployeeNotFound page
                 //Employee = _employeeRepository.GetEmployee(id), // regular
                 PageTitle = "Employee Details"
 
