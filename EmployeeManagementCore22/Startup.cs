@@ -89,7 +89,7 @@ namespace EmployeeManagementCore22
             //services.AddTransient<ILogger, ILogger>();
         }
 
-        /* ================= PIPELINE CONFIGURATION ================= */
+        /* ================= HTTP REQUEST PIPELINE CONFIGURATION ================= */
         // This method gets called by the runtime. Use this method to configure the HTTP request processing pipeline.
         // MIDDLEWARE SERV
         // Every MW is registered in the pipeline. 
@@ -113,6 +113,19 @@ namespace EmployeeManagementCore22
                 //app.UseDeveloperExceptionPage(depo);
                 app.UseDeveloperExceptionPage();
 
+            }
+            else if(!env.IsDevelopment())
+            {
+                // MIDDLEWARE, 3 types that deal with status code pages
+                // a) UseStatusCodePages: Usually not used
+                //app.UseStatusCodePages(); // Visible text is: "Status Code: 404; Not Found "
+                // b) UseStatusCodePagesWithRedirects
+                //app.UseStatusCodePagesWithRedirects("/Error/{0}");
+                // c) UseStatusCodePagesWithReExecute
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
+                // From a user stand point of view, UseStatusCodePagesWithRedirects and UseStatusCodePagesWithReExecute works the same
+                // What's the difference then? 
             }
             else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT"))
             {
