@@ -119,13 +119,14 @@ namespace EmployeeManagementCore22
                 // MIDDLEWARE, 3 types that deal with status code pages
                 // a) UseStatusCodePages: Usually not used
                 //app.UseStatusCodePages(); // Visible text is: "Status Code: 404; Not Found "
-                // b) UseStatusCodePagesWithRedirects
-                //app.UseStatusCodePagesWithRedirects("/Error/{0}");
-                // c) UseStatusCodePagesWithReExecute
-                app.UseStatusCodePagesWithReExecute("/Error/{0}");
-
+                
                 // From a user stand point of view, UseStatusCodePagesWithRedirects and UseStatusCodePagesWithReExecute works the same
                 // What's the difference then? 
+                // b) UseStatusCodePagesWithRedirects
+                //app.UseStatusCodePagesWithRedirects("/Error/{0}"); // Url is set to /Error/404, and in the browser network tab we read the incorrect Status url:302 then → 404 url: 200, which is semantically incorrect
+                // c) UseStatusCodePagesWithReExecute
+                app.UseStatusCodePagesWithReExecute("/Error/{0}"); // Preferred by many. Pipeline is re-executed, the error url is preserved in the url bar; and the original status code 404 is returned
+
             }
             else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT"))
             {
