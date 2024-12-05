@@ -1,4 +1,6 @@
-﻿internal class MySettings
+﻿namespace EmployeeManagement.Models;
+
+internal class MySettings
 {
     public MySettings()
     {

@@ -1,36 +1,93 @@
+using EmployeeManagement.Models;
+
+#region BUILDER
+
+// What is `builder`?
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+
+// Add services to the container. This is where you configure services to be used by the app.
+builder.Services
+    .AddControllersWithViews() // In this case, MVC services with views are added.
+    //.AddXmlDataContractSerializerFormatters() //
+    ;
+
+#endregion
+
+// What is `app`?
 var app = builder.Build();
 
 #region justSomeText
 
+// Sample text and application-specific information are concatenated here.
 var text = "Hello World!";
-var processName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
+var processName = System.Diagnostics.Process.GetCurrentProcess().ProcessName; // Gets the name of the current process.
 var mySettings = new MySettings();
-builder.Configuration.GetRequiredSection(nameof(MySettings)).Bind(mySettings);
-var environment = app.Environment.EnvironmentName;
+builder.Configuration.GetRequiredSection(nameof(MySettings)).Bind(mySettings); // Binds the configuration section to the MySettings object.
+var environment = app.Environment.EnvironmentName; // Gets the current environment name (e.g., Development, Production).
 
-var name = mySettings.Name; // Bob
-var counter = mySettings.Counter; // 100
+var name = mySettings.Name; // Example: "Bob"
+var counter = mySettings.Counter; // Example: 100
 
-var justSomeText = $"{text} {processName} {name} {counter} {environment}";
+// Combine text and variables into a single string.
+var justSomeText = $"JUST SOME TEXT: {text} {processName} {name} {counter} {environment}";
 
 #endregion
 
-// Enable the Developer Exception Page
 if (app.Environment.IsDevelopment())
 {
+    // Enable the Developer Exception Page in the development environment.
     app.UseDeveloperExceptionPage();
+} else
+{
+    // Use a custom error handling page for production.
+    app.UseExceptionHandler("/Home/Error");
+
+    // Enable HTTP Strict Transport Security (HSTS) for enhanced security in production.
+    // The default duration is 30 days; you can adjust this value based on your requirements.
+    app.UseHsts();
 }
 
-app.UseFileServer(); // replaces 1, 2, 3?
-/*
-app.UseDefaultFiles(); // 1
-app.UseStaticFiles(); // 2
-app.UseDirectoryBrowser(); // 3?
- */
+// Redirect HTTP requests to HTTPS to enforce secure communication.
+app.UseHttpsRedirection();
 
+// The FileServer middleware combines DefaultFiles, StaticFiles, and optionally DirectoryBrowser functionalities.
+// It serves files from the wwwroot folder (or another specified folder) with default settings for static file handling.
+//app.UseFileServer();
+
+/*
+app.UseDefaultFiles(); // 1: Enables serving a default file (e.g., index.html) when a directory is accessed.
+                       //    This middleware doesn't serve the file; it only rewrites the URL to include the default file.
+                       
+app.UseStaticFiles();  // 2: Serves static files (e.g., CSS, JS, images) from the wwwroot folder (or another specified folder).
+                       //    This middleware is required to actually serve the files to the client.
+
+app.UseDirectoryBrowser(); // 3: Enables directory browsing, allowing users to view the directory's file listing in the browser.
+                           //    This feature is disabled by default and must be explicitly enabled for security reasons.
+*/
+
+// Note: When using app.UseFileServer(), it includes the functionality of the above three middlewares:
+// 1. DefaultFiles is enabled by default.
+// 2. StaticFiles is always enabled.
+// 3. DirectoryBrowser is optional and must be explicitly configured via FileServerOptions if needed.
+
+// Uncomment the following line to simulate an exception for testing purposes.
 // app.MapGet("/", () => { throw new Exception("hola"); });
 
-app.MapGet("/", () => justSomeText);
+// Add middleware for routing to endpoints (e.g., controllers, actions).
+app.UseRouting();
 
+// Add middleware for authorization. This is used to enforce security policies on requests.
+app.UseAuthorization();
+
+// Define the default route for controllers.
+// It maps URLs to controllers and actions with an optional "id" parameter.
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Define a route for the root path, which returns the justSomeText variable.
+//app.MapGet("/", () => justSomeText);
+
+// Start the application and listen for incoming requests.
 app.Run();
