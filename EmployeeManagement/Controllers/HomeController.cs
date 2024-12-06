@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
 using EmployeeManagement.Models;
+using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
 {
+    // [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         #region Constructor Injection
@@ -19,9 +21,23 @@ namespace EmployeeManagement.Controllers
 
         #endregion
 
-        public IActionResult Index()
+        // [Route("")]
+        // [Route("~/")]
+        public ViewResult Index()
         {
-            return View();
+            var model = _employeeRepository.GetAllEmployee();
+            return View(model);
+        }
+
+        // [Route("{id?}")]
+        public ViewResult Details(int? id)
+        {
+            var homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                Employee = _employeeRepository.GetEmployee(id ?? 1),
+                PageTitle = "Employee Details"
+            };
+            return View(homeDetailsViewModel);
         }
 
         public IActionResult Privacy()
@@ -35,10 +51,6 @@ namespace EmployeeManagement.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public ViewResult Details()
-        {
-            Employee model = _employeeRepository.GetEmployee(1);
-            return View(model);
-        }
+        
     }
 }

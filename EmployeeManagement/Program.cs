@@ -55,7 +55,7 @@ app.UseHttpsRedirection();
 
 // The FileServer middleware combines DefaultFiles, StaticFiles, and optionally DirectoryBrowser functionalities.
 // It serves files from the wwwroot folder (or another specified folder) with default settings for static file handling.
-//app.UseFileServer();
+app.UseFileServer();
 
 /*
 app.UseDefaultFiles(); // 1: Enables serving a default file (e.g., index.html) when a directory is accessed.
@@ -82,9 +82,28 @@ app.UseRouting();
 // Add middleware for authorization. This is used to enforce security policies on requests.
 app.UseAuthorization();
 
+//
+// app.UseMvcWithDefaultRoute();
+//
+// app.UseMvc();
+
 // Define the default route for controllers.
 // It maps URLs to controllers and actions with an optional "id" parameter.
-app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
+
+// Example of an outdated `UseMvc` block (NOT RECOMMENDED in .NET Core 8):
+/*
+app.UseMvc(routes => {
+    routes.MapRoute(
+        name: "default",
+        template: "{controller=Home}/{action=Index}/{id?}"
+    );
+});
+*/
+
 
 // Define a route for the root path, which returns the justSomeText variable.
 //app.MapGet("/", () => justSomeText);
