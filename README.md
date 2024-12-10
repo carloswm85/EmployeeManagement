@@ -80,10 +80,25 @@
   - Attribute Routing [🔗](https://youtu.be/prNptonJAiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)  - Applied to the controllers or to the controller actions methods.
     - NOTE: The *controller route template* is not combined with *action method route template*, if the route template on the action method begins with `/` or `~/`
     - Tokens in attribute routing: `[Route("[controller]/[action]")]`
-- [🔗]()
-- [🔗]()
-- [🔗]()
-- [🔗]()
+- Using `libman` [🔗](https://youtu.be/5qzzjvZ4w0c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Use LibMan with ASP\.NET Core in Visual Studio [🔗](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-9.0#add-library-files)
+- Tag Helpers:
+  - Notes: Similar to *HTML Helpers*. Server side components for HTML rendering. Use: Link generation, form creation, asset load, etc.
+  - Tag Helpers & HTML Helpers [🔗](https://youtu.be/iaSdTMdReWg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Why use Tag Helpers  [🔗](https://youtu.be/pXvizSVe-eQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Image Tag Helper [🔗](https://youtu.be/4jW9T-TLPTM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Provide cache-busting behaviour for static image files.
+  - Environment Tag Helper [🔗](https://youtu.be/-E4zP2L-R_U?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Form Tag Helpers [🔗](https://youtu.be/mU4hV50rkVE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+    - `Form Tag Helper`, `Input Tag Helper`, `Label Tag Helper`, `Select Tag Helper`, `TextArea Tag Helper`, `Validation Tag Helper`
+- Model Binding [🔗](https://youtu.be/-GkZERrqEQo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - "Model binding maps data in an HTTP request to controller action method parameters. The action parameters say be simple or complext types."
+  - `name` input attribute value is used for mapping.
+  - Data available in the HTTP request (with preeminence order): `Form values` → `Route values` → `Query strings`
+- Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - 
+- Bootstrap:
+  - Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - [🔗]()
 
 ### C#
 

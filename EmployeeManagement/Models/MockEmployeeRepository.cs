@@ -9,10 +9,18 @@ namespace EmployeeManagement.Models
         {
             _employeeList = new List<Employee>()
             {
-                new Employee() { Id = 1, Name = "Mary", Department = "HR", Email = "mary@pragimtech.com" },
-                new Employee() { Id = 2, Name = "John", Department = "IT", Email = "john@pragimtech.com" },
-                new Employee() { Id = 3, Name = "Sam", Department = "IT", Email = "sam@pragimtech.com" },
+                new Employee() { Id = 1, Name = "Mary", Email = "mary@pragimtech.com", Department = Dept.None },
+                new Employee() { Id = 2, Name = "John", Email = "john@pragimtech.com", Department = Dept.HR },
+                new Employee() { Id = 3, Name = "Sam", Email = "sam@pragimtech.com", Department = Dept.IT },
+                new Employee() { Id = 4, Name = "Carlos", Email = "carlos@pragimtech.com", Department = Dept.Payroll },
             };
+        }
+
+        public Employee Add(Employee employee)
+        {
+            employee.Id = _employeeList.Max(x => x.Id);
+            _employeeList.Add(employee);
+            return employee;
         }
 
         public IEnumerable<Employee> GetAllEmployee()
@@ -24,5 +32,7 @@ namespace EmployeeManagement.Models
         {
             return _employeeList.FirstOrDefault(e => e.Id == id);
         }
+
+
     }
 }
