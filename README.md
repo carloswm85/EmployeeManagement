@@ -3,7 +3,7 @@
     - [DOTNET](#dotnet)
       - [Web Server Hosting](#web-server-hosting)
       - [Other](#other)
-    - [C#](#c)
+- [C#](#c)
 
 ---
 
@@ -53,10 +53,10 @@
     - Customize view discovery [🔗](https://youtu.be/gXiYrUoiinY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - Dependency Injection [🔗](https://youtu.be/BPGtVpu81ek?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Benefits: Loose coupling, Easier unit testing
-  - Lifetime determination:
-    - `builder.Services.AddSingleton()` - Instance creation once, same instance, all requests, during whole app life.
-    - `builder.Services.AddTransient()` - New instance every time is requested.
-    - `builder.Services.AddScoped()` - New instance once per request withing the same scope.
+  - Lifetime service registration [🔗](https://youtu.be/v6Nr7Zman_Y?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) [🔗](https://csharp-video-tutorials.blogspot.com/2019/04/addsingleton-vs-addscoped-vs.html) [🖼️](./images/service-registration.png) - Consider: Service instance within current HTTP request.
+    - `builder.Services.AddSingleton()` - Creates a single instance of the service when it is first requested, and reuses that same instance in all the places where that service is needed - _3 4 5 6 7... So on and so foth._
+    - `builder.Services.AddScoped()` - A new instance of a Scoped service is created once per request within the scope. For example, in a web application it creates 1 instance per each http request but uses the same instance in the other calls within that same web request. - _3 4 4 4 4 4... So on and so foth._
+    - `builder.Services.AddTransient()` - A new instance of a Transient service is created each time it is requested. - _3 3 3 3 3... So on and so foth._
 - Passing data from controller to view:
   - Looslie typed views:
     - `ViewData` [🔗](https://youtu.be/tz4q6q0_JwQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Dictionary of weakly typed objects as `ViewData["PageTitle"]`
@@ -77,15 +77,15 @@
     - View directives: `@addTagHelper` `@removeTagHelper` `@tagHelperPrefix` `@model` `@inherits` `@inject`
 - Routing:
   - Conventional Routing [🔗](https://youtu.be/ZoxrbrHjj2g?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-  - Attribute Routing [🔗](https://youtu.be/prNptonJAiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)  - Applied to the controllers or to the controller actions methods.
-    - NOTE: The *controller route template* is not combined with *action method route template*, if the route template on the action method begins with `/` or `~/`
+  - Attribute Routing [🔗](https://youtu.be/prNptonJAiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Applied to the controllers or to the controller actions methods.
+    - NOTE: The _controller route template_ is not combined with _action method route template_, if the route template on the action method begins with `/` or `~/`
     - Tokens in attribute routing: `[Route("[controller]/[action]")]`
 - Using `libman` [🔗](https://youtu.be/5qzzjvZ4w0c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Use LibMan with ASP\.NET Core in Visual Studio [🔗](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-9.0#add-library-files)
 - Tag Helpers:
-  - Notes: Similar to *HTML Helpers*. Server side components for HTML rendering. Use: Link generation, form creation, asset load, etc.
+  - Notes: Similar to _HTML Helpers_. Server side components for HTML rendering. Use: Link generation, form creation, asset load, etc.
   - Tag Helpers & HTML Helpers [🔗](https://youtu.be/iaSdTMdReWg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-  - Why use Tag Helpers  [🔗](https://youtu.be/pXvizSVe-eQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Why use Tag Helpers [🔗](https://youtu.be/pXvizSVe-eQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Image Tag Helper [🔗](https://youtu.be/4jW9T-TLPTM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Provide cache-busting behaviour for static image files.
   - Environment Tag Helper [🔗](https://youtu.be/-E4zP2L-R_U?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Form Tag Helpers [🔗](https://youtu.be/mU4hV50rkVE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
@@ -95,12 +95,16 @@
   - `name` input attribute value is used for mapping.
   - Data available in the HTTP request (with preeminence order): `Form values` → `Route values` → `Query strings`
 - Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-  - 
+  - Select list validation [🔗](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - Bootstrap:
   - Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-  - [🔗]()
+- Entity Framework Core [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - ORM, Domain Classes, Code/Database First, Database Provider Models
+  - `Domain & DBContext Classes` → `EF Core` → `DB Provider` → `Actual DB`
 
-### C#
+---
+
+# C#
 
 - Extension methods
 - Delegates
