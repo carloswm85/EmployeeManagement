@@ -99,8 +99,22 @@
 - Bootstrap:
   - Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - Entity Framework Core [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-  - ORM, Domain Classes, Code/Database First, Database Provider Models
-  - `Domain & DBContext Classes` → `EF Core` → `DB Provider` → `Actual DB`
+  - Notes:
+    - ORM, Domain Classes, Code/Database First, Database Provider Models
+    - `Domain & DBContext Classes` → `EF Core` → `DB Provider` → `Actual DB`
+  - Installation & Multilayer Web Application [🔗](https://youtu.be/8aHzSx-inDE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+    - `Presentation Layer` → `Business Layer` → `Data Access Layer`
+  - `DbContext` [🔗](https://youtu.be/nN9jOORIFtc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Using with SQL Server [🔗](https://youtu.be/xMktEpPmadI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Connection string
+  - Repository Pattern [🔗](https://youtu.be/qJmEI2LtXIY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Abstraction of the Data Access Layer, for CRUD operations. How to use `AddScoped` with SQL Server.
+  - Migrations [🔗](https://youtu.be/G14lmWS-h4k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Migrations keep the DB schema and app model classes in sync.
+    - Commands: `get-help about_entityframeworkcore` `Add-Migration` `Update-Database`
+  - Seed Data to Database [🔗]()
+  - Keeping _domain models_ and _database schema_ in sync [🔗](https://youtu.be/MhvOKHUWgiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - `Remove-Migration`
+    - This video also explains how to remove migration that has already been applied to the database.
+  - [🔗]()
+  - [🔗]()
+  - [🔗]()
 
 ---
 

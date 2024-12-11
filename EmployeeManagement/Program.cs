@@ -1,12 +1,19 @@
 using EmployeeManagement.Models;
+using Microsoft.EntityFrameworkCore;
 
 #region BUILDER
 
 // What is `builder`?
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddRazorPages();
 
-builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeDBConnection")
+        ?? throw new InvalidOperationException("Connection string 'EmployeeDBConnection' not found.")));
+
+//builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
 // Add services to the container. This is where you configure services to be used by the app.
 builder.Services
