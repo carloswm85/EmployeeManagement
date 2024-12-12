@@ -56,11 +56,11 @@ namespace EmployeeManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = null;
+                string? uniqueFileName = null;
 
                 // If the Photo property on the incoming model object is not null, then the user
                 // has selected an image to upload.
-                if (model.Photo != null)
+                if (model.Photos != null && model.Photos.Count > 0)
                 {
                     // The image must be uploaded to the images folder in wwwroot
                     // To get the path of the wwwroot folder we are using the inject
@@ -68,13 +68,17 @@ namespace EmployeeManagement.Controllers
                     Console.WriteLine($"_hostingEnvironment.WebRootPath: {_hostingEnvironment.WebRootPath}");
                     // Get to the "images" folder
                     string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
-                    // To make sure the file name is unique we are appending a new
-                    // GUID value and and an underscore to the file name
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photo.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                    // Use CopyTo() method provided by IFormFile interface to
-                    // copy the file to wwwroot/images folder
-                    model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    
+                    foreach (IFormFile photo in model.Photos)
+                    {
+                        // To make sure the file name is unique we are appending a new
+                        // GUID value and and an underscore to the file name
+                        uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        // Use CopyTo() method provided by IFormFile interface to
+                        // copy the file to wwwroot/images folder
+                        photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    }
                 }
 
                 Employee newEmployee = new Employee

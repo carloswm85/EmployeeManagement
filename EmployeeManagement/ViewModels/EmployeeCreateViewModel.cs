@@ -17,7 +17,7 @@ namespace EmployeeManagement.ViewModels
         public Dept? Department { get; set; }
         
         // https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iformfile?view=aspnetcore-8.0
-        public IFormFile? Photo { get; set; }
+        public List<IFormFile>? Photos { get; set; }
 
         // The model Employee contains:
         // public string PhotoPath { get; set; }

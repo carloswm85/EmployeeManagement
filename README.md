@@ -113,10 +113,18 @@
   - Keeping _domain models_ and _database schema_ in sync [🔗](https://youtu.be/MhvOKHUWgiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - `Remove-Migration`
     - This video also explains how to remove migration that has already been applied to the database.
 - File upoad [🔗](https://youtu.be/aoxEJii70_I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - `IFormFile`, the video includes jQuery code for `.custom-file-label`.
-  - File is saved to the web server location `wwwroot/images`
-  - The file uploaded to the server can be accessed through Model Binding using the IFormFile interface.
+  - Notes:
+    - File is saved to the web server location `wwwroot/images`
+    - The file uploaded to the server can be accessed through Model Binding using the IFormFile interface.
+  - Upload multiple files at once [🔗](https://youtu.be/14ZqBoQIW-Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+- Edit View [🔗](https://youtu.be/lhiIvx7jMaY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - [🔗]()
-  - [🔗]()
+- [🔗]()
+- [🔗]()
+- [🔗]()
+- [🔗]()
+- [🔗]()
+- [🔗]()
 
 ---
 
