@@ -25,3 +25,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.imageThumbnail {
+    height: 200px;
+    width: auto;
+}

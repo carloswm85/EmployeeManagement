@@ -1,23 +1,29 @@
-﻿@model IEnumerable<EmployeeManagement.Models.Employee>
+﻿@model IEnumerable<Employee>
 
 @{
     ViewBag.Title = "Employee List";
 }
 
-<div class="d-flex flex-wrap gap-2">
+
+<div class="card-deck d-flex flex-wrap">
     @foreach (var employee in Model)
     {
-        <div class="card col-3">
+        @* Set default image if there's no PhotoPath *@
+        var photoPath = "~/images/" + (employee.PhotoPath ?? "noimage.jpg");
+
+        <div class="card m-2 col-3">
             <div class="card-header">
                 <h3>@employee.Name</h3>
             </div>
 
-            <img class="card-img-top" src="~/images/noimage.jpg" asp-append-version="true" />
+            <img class="card-img-top imageThumbnail" src="@photoPath"
+                 asp-append-version="true" />
 
             <div class="card-footer text-center">
-                <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id" class="btn btn-primary">View</a>
-                <a asp-controller="home" asp-action="edit" asp-route-id="@employee.Id" class="btn btn-primary">Edit</a>
-                <a asp-controller="home" asp-action="delete" asp-route-id="@employee.Id" class="btn btn-danger">Delete</a>
+                <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id"
+                   class="btn btn-primary m-1">View</a>
+                <a href="#" class="btn btn-primary m-1">Edit</a>
+                <a href="#" class="btn btn-danger m-1">Delete</a>
             </div>
         </div>
     }
