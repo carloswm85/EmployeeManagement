@@ -49,6 +49,10 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 } else
 {
+    // Use a custom error handling page for production.
+    // app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Error");
+    
     // REMEMBER THIS WORKS ONLY WITH:
     // "ASPNETCORE_ENVIRONMENT": "Production"
 
@@ -60,8 +64,6 @@ if (app.Environment.IsDevelopment())
     // app.UseStatusCodePagesWithRedirects("/Error/{0}"); // (2) Redirect to the string controller
     app.UseStatusCodePagesWithReExecute("/Error/{0}"); // (3) Re-executes the pipeline
 
-    // Use a custom error handling page for production.
-    app.UseExceptionHandler("/Home/Error");
 
     // Enable HTTP Strict Transport Security (HSTS) for enhanced security in production.
     // The default duration is 30 days; you can adjust this value based on your requirements.

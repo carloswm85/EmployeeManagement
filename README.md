@@ -126,7 +126,8 @@
     - Centralized `404` Error Handling (`400`-`599`):
       - `UseStatusCodePages` [🔗](https://youtu.be/DVo138knAHQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
       - User facing: `UseStatusCodePagesWithRedirects` and `UseStatusCodePagesWithReExecute` [🔗](https://youtu.be/9CwgiSxrkeQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-- [🔗]()
+- Correct Global Exception handling:
+  - Not production: `UseExceptionHandler` [🔗](https://youtu.be/jeBttUIqpuc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - [🔗]()
 - [🔗]()
 - [🔗]()
