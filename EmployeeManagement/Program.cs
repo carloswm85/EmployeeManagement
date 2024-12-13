@@ -49,6 +49,17 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 } else
 {
+    // REMEMBER THIS WORKS ONLY WITH:
+    // "ASPNETCORE_ENVIRONMENT": "Production"
+
+    // Returns error as plain text
+    // app.UseStatusCodePages(); // (1)
+
+    // Intersect error and return a view
+    // {0} is a placeholder for the status code
+    // app.UseStatusCodePagesWithRedirects("/Error/{0}"); // (2) Redirect to the string controller
+    app.UseStatusCodePagesWithReExecute("/Error/{0}"); // (3) Re-executes the pipeline
+
     // Use a custom error handling page for production.
     app.UseExceptionHandler("/Home/Error");
 
