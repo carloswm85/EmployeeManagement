@@ -6,6 +6,7 @@ namespace EmployeeManagement.Models
         None,
         HR,
         Payroll,
-        IT
+        IT,
+        LOTR
     }
 }

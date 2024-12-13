@@ -47,9 +47,12 @@
         // Updates an employee's information in the database.
         public Employee Update(Employee employeeChanges)
         {
-            var employee = context.Employees.Attach(employeeChanges); // Attaches the updated employee object to the context.
-            employee.State = Microsoft.EntityFrameworkCore.EntityState.Modified; // Marks the object as modified.
-            context.SaveChanges(); // Commits the changes to the database.
+            // Attaches the updated employee object to the context.
+            var employee = context.Employees.Attach(employeeChanges);
+            // Marks the object as modified.
+            employee.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            // Commits the changes to the database.
+            context.SaveChanges();
             return employeeChanges;
         }
     }

@@ -69,34 +69,38 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpPost]
+        public IActionResult Edit(EmployeeEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee employee = _employeeRepository.GetEmployee(model.Id);
+                employee.Name = model.Name;
+                employee.Email = model.Email;
+                employee.Department = model.Department;
+
+                if (model.Photos != null)
+                {
+                    if (model.ExistingPhotoPath != null)
+                    {
+                        string filePath = Path.Combine(_hostingEnvironment.WebRootPath, "images", model.ExistingPhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+                    employee.PhotoPath = ProcessUploadedFile(model);
+                }
+
+                _employeeRepository.Update(employee);
+                return RedirectToAction("index");
+            }
+
+            return View();
+        }
+
+        [HttpPost]
         public IActionResult Create(EmployeeCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                string? uniqueFileName = null;
-
-                // If the Photo property on the incoming model object is not null, then the user
-                // has selected an image to upload.
-                if (model.Photos != null && model.Photos.Count > 0)
-                {
-                    // The image must be uploaded to the images folder in wwwroot
-                    // To get the path of the wwwroot folder we are using the inject
-                    // HostingEnvironment service provided by ASP.NET Core
-                    Console.WriteLine($"_hostingEnvironment.WebRootPath: {_hostingEnvironment.WebRootPath}");
-                    // Get to the "images" folder
-                    string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
-                    
-                    foreach (IFormFile photo in model.Photos)
-                    {
-                        // To make sure the file name is unique we are appending a new
-                        // GUID value and and an underscore to the file name
-                        uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
-                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                        // Use CopyTo() method provided by IFormFile interface to
-                        // copy the file to wwwroot/images folder
-                        photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                    }
-                }
+                string? uniqueFileName = ProcessUploadedFile(model);
 
                 Employee newEmployee = new Employee
                 {
@@ -113,6 +117,48 @@ namespace EmployeeManagement.Controllers
             }
 
             return View();
+        }
+
+        private string? ProcessUploadedFile(EmployeeCreateViewModel model)
+        {
+            string? uniqueFileName = null;
+
+            // If the Photo property on the incoming model object is not null, then the user
+            // has selected an image to upload.
+            if (model.Photos != null && model.Photos.Count > 0)
+            {
+                // The image must be uploaded to the images folder in wwwroot
+                // To get the path of the wwwroot folder we are using the inject
+                // HostingEnvironment service provided by ASP.NET Core
+                Console.WriteLine($"_hostingEnvironment.WebRootPath: {_hostingEnvironment.WebRootPath}");
+                // Get to the "images" folder
+                string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
+
+                foreach (IFormFile photo in model.Photos)
+                {
+                    // To make sure the file name is unique we are appending a new
+                    // GUID value and and an underscore to the file name
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    // Use CopyTo() method provided by IFormFile interface to
+                    // copy the file to wwwroot/images folder
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        photo.CopyTo(fileStream);
+                    }
+                    /*
+                     * NOTE:
+                     * Remember to dispose the FilesStream, so you don't get the following error:
+                     * > IOException: The process cannot access the file 'C:\Users\carlo\source\repos\EmployeeManagement
+                     * > \EmployeeManagement\wwwroot\images\58afcc76-0c61-4de9-878a-4c1f639a7a98_freya.png' because it is
+                     * > being used by another process.
+                     * That other process is ProcessUploadedFile, after an employee is created the first time.
+                     * Implement `using`
+                     */
+                }
+            }
+
+            return uniqueFileName;
         }
 
         public IActionResult Privacy()

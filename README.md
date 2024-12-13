@@ -118,7 +118,7 @@
     - The file uploaded to the server can be accessed through Model Binding using the IFormFile interface.
   - Upload multiple files at once [🔗](https://youtu.be/14ZqBoQIW-Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - Edit View - GET [🔗](https://youtu.be/lhiIvx7jMaY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - `Edit.cshtml` with controller and viewmodel.
-- Edit View - POST [🔗]()
+- Edit View - POST [🔗](https://youtu.be/wamToyK4x7I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - [🔗]()
 - [🔗]()
 - [🔗]()
