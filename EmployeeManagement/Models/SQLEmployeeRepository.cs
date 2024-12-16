@@ -5,11 +5,15 @@
     {
         // Readonly field to hold the database context.
         private readonly AppDbContext context;
+        private readonly ILogger<SQLEmployeeRepository> logger;
 
         // Constructor to initialize the database context.
-        public SQLEmployeeRepository(AppDbContext context)
+        public SQLEmployeeRepository(
+            AppDbContext context,
+            ILogger<SQLEmployeeRepository> logger)
         {
             this.context = context;
+            this.logger = logger;
         }
 
         // Adds a new employee to the database and saves changes.
@@ -41,6 +45,14 @@
         // Retrieves a specific employee by their ID.
         public Employee GetEmployee(int id)
         {
+
+            logger.LogTrace("Trace Log");
+            logger.LogDebug("Debug Log");
+            logger.LogInformation("Information Log");
+            logger.LogWarning("Warning Log");
+            logger.LogError("Error Log");
+            logger.LogCritical("Critical Log");
+
             return context.Employees.Find(id); // Finds and returns the employee with the specified ID.
         }
 
