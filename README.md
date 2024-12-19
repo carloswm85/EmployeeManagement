@@ -3,7 +3,9 @@
     - [DOTNET](#dotnet)
       - [Web Server Hosting](#web-server-hosting)
       - [Other](#other)
-- [C#](#c)
+- [C# Programming Language](#c-programming-language)
+  - [C# Tutorial For Beginners](#c-tutorial-for-beginners)
+  - [LINQ Tutorials](#linq-tutorials)
 
 ---
 
@@ -132,12 +134,36 @@
   - Basics, Logging from console, Built-in Logging Providers [🔗](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Logging Exceptions [🔗](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Logging to a file [🔗](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+- **ASP.NET Core Identity** - Authentication & Authorization [🔎](https://www.google.com/search?q=asp+net+core+identity+documentation) [📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
+  - Inherit from `IdentityDbContext`, add services, add middleware, generate tables [🔗](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Register new user [🔗](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Services: `UserManager` and `SignInManager` [🔗](https://youtu.be/TfarnVqnhX0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Password complexity [🔗](https://youtu.be/kC9qrUcy2Js?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Show/hide view elements using `@if (SignInManager.IsSignedIn(User)) { }` [🔗](https://youtu.be/YLAHIZmO2PI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Implementing log in functionality [🔗](https://youtu.be/9d8DXXc71RI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+    - `LoginViewModel`, Login View, Login Actions in Account Controller.
+- [🔗]()
+- [🔗]()
+- [🔗]()
 - [🔗]()
 
 ---
 
-# C#
+# C# Programming Language
 
-- Extension methods
-- Delegates
-- Lambda Expressions
+## C# Tutorial For Beginners
+
+[Full tutorial 🔗](https://www.youtube.com/playlist?list=PLAC325451207E3105)
+
+- Delegates [🔗](https://youtu.be/D2h46fvQX04?list=PLAC325451207E3105)
+- Lambda Expressions [🔗](https://youtu.be/LDgQ-spnrYY?list=PLAC325451207E3105)
+- `Task`, `async`, `await` [🔗](https://youtu.be/C5VhaxQWcpE?list=PLAC325451207E3105)
+  - `Thread`, `Action` [🔗](https://youtu.be/SgHYVPKJRX8?list=PLAC325451207E3105)
+
+## LINQ Tutorials
+
+[LINQ Tutorial 🔗](https://www.youtube.com/playlist?list=PL6n9fhu94yhWi8K02Eqxp3Xyh_OmQ0Rp6a)
+[LINQ to SQL 🔗](https://www.youtube.com/playlist?list=PL6n9fhu94yhXCHPed2Q9oBkgvzw9Re8hC)
+[LINQ to XML 🔗](https://www.youtube.com/playlist?list=PL6n9fhu94yhX-U0Ruy_4eIG8umikVmBrk)
+
+- Extension methods [🔗](https://youtu.be/VkrKNXscoto?list=PL6n9fhu94yhWi8K02Eqxp3Xyh_OmQ0Rp6)

@@ -23,9 +23,19 @@ namespace EmployeeManagement.Controllers
             {
                 case 404:
                     ViewBag.ErrorMessage = "Sorry, the resource you requested could not be found.";
-                    logger.LogWarning($"404 Error Ocurred. Path = {statusCodeResult.OriginalPath}" + 
+                    logger.LogWarning($"{statusCode} Error Ocurred. Path = {statusCodeResult.OriginalPath}" + 
                         $" and QueryString = {statusCodeResult.OriginalQueryString ?? "no-query-string"}");
-                    break;                
+                    break;
+                case 405:
+                    // A 405 status code, also known as "Method Not Allowed", is an HTTP response code that a server
+                    // sends when a client requests a method that the resource doesn't support.
+                    ViewBag.ErrorMessage = "Sorry, the resource you requested could not be found.";
+                    logger.LogWarning($"405 Error Ocurred. Path = {statusCodeResult.OriginalPath}" +
+                        $" and QueryString = {statusCodeResult.OriginalQueryString ?? "no-query-string"}");
+                    break;
+                default:
+                    ViewBag.ErrorMessage = $"Status code has occured: {statusCode}";
+                    break;
             }
 
             return View("NotFound");

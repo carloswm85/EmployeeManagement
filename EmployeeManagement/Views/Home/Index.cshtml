@@ -4,27 +4,29 @@
     ViewBag.Title = "Employee List";
 }
 
-
-<div class="card-deck d-flex flex-wrap">
+<div class="card-deck d-flex flex-wrap justify-content-evenly">
     @foreach (var employee in Model)
     {
-        @* Set default image if there's no PhotoPath *@
-        var photoPath = "~/images/" + (employee.PhotoPath ?? "noimage.jpg");
-
-        <div class="card m-2 col-3">
-            <div class="card-header">
-                <h3>@employee.Name</h3>
+        <div class="card border border-dark-dimmed m-2 col-lg-3 col-md-4 col-sm-6">
+            <!-- Card Header with Employee Name -->
+            <div class="card-header text-center">
+                <h3 class="h5">@employee.Name</h3>
             </div>
 
-            <img class="card-img-top imageThumbnail" src="@photoPath"
-                 asp-append-version="true" />
+            <!-- Employee Photo -->
+            <img class="card-img-top imageThumbnail" 
+                 src="~/images/@(employee.PhotoPath ?? "noimage.jpg")" 
+                 asp-append-version="true" 
+                 alt="@employee.Name's Photo" />
 
+            <!-- Card Footer with Action Buttons -->
             <div class="card-footer text-center">
-                <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id"
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@employee.Id"
                    class="btn btn-primary m-1" target="_blank">View</a>
-                <a asp-controller="home" asp-action="edit" asp-route-id="@employee.Id"
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@employee.Id"
                    class="btn btn-info m-1">Edit</a>
-                <a href="#" class="btn btn-danger m-1">Delete</a>
+                <button type="button" class="btn btn-danger m-1"
+                        onclick="confirmDelete(@employee.Id)">Delete</button>
             </div>
         </div>
     }

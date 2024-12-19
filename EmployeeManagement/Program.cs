@@ -1,4 +1,5 @@
 using EmployeeManagement.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
@@ -16,9 +17,25 @@ try
 
     builder.Services.AddRazorPages();
 
-    builder.Services.AddDbContext<AppDbContext>(options =>
+    builder.Services.AddDbContextPool<AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeDBConnection")
             ?? throw new InvalidOperationException("Connection string 'EmployeeDBConnection' not found.")));
+
+
+    /**
+     * IDENTITY
+     * https://youtu.be/kC9qrUcy2Js?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&t=199
+     */
+
+    builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+    {
+        options.Password.RequiredLength = 10;
+    }).AddEntityFrameworkStores<AppDbContext>();
+
+    builder.Services.Configure<IdentityOptions>(options =>
+    {
+        options.Password.RequiredUniqueChars = 3;
+    });
 
     //builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
     builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
@@ -90,16 +107,17 @@ try
     // It serves files from the wwwroot folder (or another specified folder) with default settings for static file handling.
     app.UseFileServer();
 
-    /*
-    app.UseDefaultFiles(); // 1: Enables serving a default file (e.g., index.html) when a directory is accessed.
+    
+    //app.UseDefaultFiles(); // 1: Enables serving a default file (e.g., index.html) when a directory is accessed.
                            //    This middleware doesn't serve the file; it only rewrites the URL to include the default file.
 
     app.UseStaticFiles();  // 2: Serves static files (e.g., CSS, JS, images) from the wwwroot folder (or another specified folder).
                            //    This middleware is required to actually serve the files to the client.
 
-    app.UseDirectoryBrowser(); // 3: Enables directory browsing, allowing users to view the directory's file listing in the browser.
-                               //    This feature is disabled by default and must be explicitly enabled for security reasons.
-    */
+    //app.UseDirectoryBrowser(); // 3: Enables directory browsing, allowing users to view the directory's file listing in the browser.
+    //    This feature is disabled by default and must be explicitly enabled for security reasons.
+
+    app.UseAuthentication();
 
     // Note: When using app.UseFileServer(), it includes the functionality of the above three middlewares:
     // 1. DefaultFiles is enabled by default.

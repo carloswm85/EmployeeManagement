@@ -31,3 +31,7 @@ body {
     width: 100%;
     margin: auto;
 }
+
+.border-dark-dimmed {
+    border-color: rgba(33, 37, 41, 0.4) !important;
+}
