@@ -68,7 +68,7 @@ namespace EmployeeManagement.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // When client-side validation is correctly implemented, this break-point is never hit
             {
                 
                 var result = await signInManager.PasswordSignInAsync(userName: model.Email, password: model.Password,
