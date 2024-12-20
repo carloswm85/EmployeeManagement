@@ -1,11 +1,13 @@
 ﻿using System.Diagnostics;
 using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
 {
     // [Route("[controller]/[action]")]
+    [Authorize]
     public class HomeController : Controller
     {
         #region Constructor Injection
@@ -28,6 +30,7 @@ namespace EmployeeManagement.Controllers
 
         // [Route("")]
         // [Route("~/")]
+        [AllowAnonymous]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployee();
@@ -35,6 +38,7 @@ namespace EmployeeManagement.Controllers
         }
 
         // [Route("{id?}")]
+        [AllowAnonymous]
         public ViewResult Details(int? id)
         {
             //throw new Exception("Error in Details View");

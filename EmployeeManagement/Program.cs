@@ -1,5 +1,7 @@
 using EmployeeManagement.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
@@ -42,8 +44,16 @@ try
 
     // Add services to the container. This is where you configure services to be used by the app.
     builder.Services
-        .AddControllersWithViews() // In this case, MVC services with views are added.
-                                   //.AddXmlDataContractSerializerFormatters() //
+        .AddControllersWithViews(options =>
+        {
+            // GLOBAL AUTHORIZATION
+            var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+            options.Filters.Add(new AuthorizeFilter(policy));
+
+        }) // In this case, MVC services with views are added.
+        .AddXmlDataContractSerializerFormatters() //
         ;
 
     // NLog: Setup NLog for Dependency injection

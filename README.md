@@ -142,9 +142,12 @@
   - Show/hide view elements using `@if (SignInManager.IsSignedIn(User)) { }` [🔗](https://youtu.be/YLAHIZmO2PI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Implementing log in functionality [🔗](https://youtu.be/9d8DXXc71RI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
     - `LoginViewModel`, Login View, Login Actions in Account Controller.
-- [🔗]()
-- [🔗]()
-- [🔗]()
+  - Authorizacion implementation:
+    - Types: Simple authorization, Role based, Claims based, Policy based.
+    - Implementation as a service [🔗](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+    - Redirection after login [🔗](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+      - NOTE: *Security risk* - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+    - [🔗]()
 - [🔗]()
 
 ---

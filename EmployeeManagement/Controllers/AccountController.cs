@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManagement.Controllers
 {
@@ -23,12 +24,14 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -55,27 +58,33 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 
-                var result = await signInManager.PasswordSignInAsync(
-                    userName: model.Email,
-                    password: model.Password,
-                    isPersistent: model.RememberMe,
-                    lockoutOnFailure: false
-                );
+                var result = await signInManager.PasswordSignInAsync(userName: model.Email, password: model.Password,
+                    isPersistent: model.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("index", "home");
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl)) // Without Url.IsLocalUrl, it will redirect to malicious site example
+                    {
+                        return Redirect(returnUrl);
+                        //return LocalRedirect(returnUrl); // Use without Url.IsLocalUrl(returnUrl)
+                    }
+                    else
+                    {
+                        return RedirectToAction("index", "home");
+                    }
                 }
 
                 ModelState.AddModelError(

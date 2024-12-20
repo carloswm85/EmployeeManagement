@@ -63,11 +63,15 @@ body {
 /* -------------------------------------------- PASTE USER INFORMATION BUTTON */
 .copy-btn {
     margin-left: 10px;
-    width: 3rem;
+    width: 5rem;
     cursor: pointer;
     padding: 2px 8px;
     transition: background-color 0.3s ease;
     background-color: #dff1fa;
+}
+
+.copy-btn > .bi {
+    font-size: 1.5rem;
 }
 
 .copy-btn:hover {
