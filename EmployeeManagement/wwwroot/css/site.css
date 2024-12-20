@@ -35,3 +35,42 @@ body {
 .border-dark-dimmed {
     border-color: rgba(33, 37, 41, 0.4) !important;
 }
+
+/* ------------------------------------------------------------- HOVER EFFECT */
+/* General hover effect for <a> tags */
+.hover-link {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+    .hover-link:hover {
+        color: #ffd700; /* Change to gold on hover */
+        text-decoration: underline; /* Add underline on hover */
+    }
+
+/* Button hover effect */
+.logout-button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: left; /* Ensures alignment if needed */
+    cursor: pointer; /* Changes cursor to pointer */
+}
+
+.logout-button:hover {
+    background-color: #dc3545; /* Add red background on hover */
+    color: white; /* Text color to white on hover */
+    text-decoration: none; /* Prevent underline */
+}
+
+/* -------------------------------------------- PASTE USER INFORMATION BUTTON */
+.copy-btn {
+    margin-left: 10px;
+    width: 3rem;
+    cursor: pointer;
+    padding: 2px 8px;
+    transition: background-color 0.3s ease;
+    background-color: #dff1fa;
+}
+
+.copy-btn:hover {
+    background-color: #2da0e2;
+    color: #e7fd0d;
+}
