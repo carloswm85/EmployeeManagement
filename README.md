@@ -150,6 +150,11 @@
       - NOTE: *Security risk* - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - **CLIENT SIDE VALIDATION** [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Requirements (in this order): `jquery.js`, `jquery.validate.js`,  `jquery.validate.unobtrusive.js`
+  - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+- [🔗]()
+- [🔗]()
+- [🔗]()
+- [🔗]()
 - [🔗]()
 
 ---
