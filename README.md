@@ -97,9 +97,10 @@
   - `name` input attribute value is used for mapping.
   - Data available in the HTTP request (with preeminence order): `Form values` → `Route values` → `Query strings`
 - **SERVER SIDE VALIDATION**:
-  - Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+  - Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part ?
+  - Custom validation attributes [🔗](https://youtu.be/o_AH2MGti0A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 76
   - Select list validation [🔗](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-- Bootstrap:
+- **BOOTSTRAP**:
   - Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - Entity Framework Core [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Notes:
@@ -147,15 +148,18 @@
     - Types: Simple authorization, Role based, Claims based, Policy based.
     - Implementation as a service [🔗](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
     - Redirection after login [🔗](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-      - NOTE: *Security risk* - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+      - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - **CLIENT SIDE VALIDATION** [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-  - Requirements (in this order): `jquery.js`, `jquery.validate.js`,  `jquery.validate.unobtrusive.js`
-  - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-- [🔗]()
-- [🔗]()
-- [🔗]()
-- [🔗]()
-- [🔗]()
+- **CLIENT SIDE VALIDATION**
+  - Client side validation implementation [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
+    - Requirements (in this order): `jquery.js`, `jquery.validate.js`, `jquery.validate.unobtrusive.js`
+  - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
+-  [🔗]() - Part 
+-  [🔗]() - Part 
+-  [🔗]() - Part 
+-  [🔗]() - Part 
+-  [🔗]() - Part 
+-  [🔗]() - Part 
 
 ---
 
@@ -165,6 +169,7 @@
 
 [Full tutorial 🔗](https://www.youtube.com/playlist?list=PLAC325451207E3105)
 
+- Some topics related to the main tutorial of this file:
 - Delegates [🔗](https://youtu.be/D2h46fvQX04?list=PLAC325451207E3105)
 - Lambda Expressions [🔗](https://youtu.be/LDgQ-spnrYY?list=PLAC325451207E3105)
 - `Task`, `async`, `await` [🔗](https://youtu.be/C5VhaxQWcpE?list=PLAC325451207E3105)
