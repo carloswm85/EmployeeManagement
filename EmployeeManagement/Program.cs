@@ -29,7 +29,7 @@ try
      * https://youtu.be/kC9qrUcy2Js?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&t=199
      */
 
-    builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+    builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     {
         options.Password.RequiredLength = 10;
     }).AddEntityFrameworkStores<AppDbContext>();

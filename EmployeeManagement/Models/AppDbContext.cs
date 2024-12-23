@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagement.Models
 {
-    public class AppDbContext : IdentityDbContext
+    // `ApplicationUser` is passed as a generated parameter
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         // Database
         public AppDbContext(DbContextOptions<AppDbContext> options) 
