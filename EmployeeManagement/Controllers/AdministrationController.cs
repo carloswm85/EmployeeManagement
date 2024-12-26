@@ -1,10 +1,17 @@
 ﻿using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
 {
+    [Authorize(Roles = "Admin,User")] // Member of admin OR user
+    //[Authorize(Roles = "Admin")] // Member of admin AND user
+    //[Authorize(Roles = "User")] // Member of admin AND user
+    /// <summary>
+    /// 
+    /// </summary>
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

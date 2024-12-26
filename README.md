@@ -156,9 +156,8 @@
   - Show/hide view elements using `@if (SignInManager.IsSignedIn(User)) { }` [🔗](https://youtu.be/YLAHIZmO2PI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 69
   - Implementing log in functionality [🔗](https://youtu.be/9d8DXXc71RI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 70
     - `LoginViewModel`, Login View, Login Actions in Account Controller.
-  - Authorizacion implementation:
-    - Types: Simple authorization, Role based, Claims based, Policy based.
-    - Implementation as a service [🔗](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 71
+  - Authorizacion implementation - Types: Simple authorization, Role based, Claims based, Policy based.
+    - Implementation as a service, *Simple Authorization* [🔗](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 71
     - Redirection after login [🔗](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 72
       - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73
   - Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
@@ -168,7 +167,7 @@
     - Edit existing role [🔗](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
     - Add or remove users [🔗](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
       - Tables for: Users, Roles, UserRoles
-  - [🔗]() - Part
+    - *Role based authorization* [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
   - [🔗]() - Part
 - **CLIENT SIDE VALIDATION**
   - Client side validation implementation [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
@@ -177,6 +176,11 @@
 - [🔗]() - Part
 - [🔗]() - Part
 - [🔗]() - Part
+
+
+The SSL connection could not be established, see inner exception.
+
+
 
 ---
 
