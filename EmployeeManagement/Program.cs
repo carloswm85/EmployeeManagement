@@ -46,7 +46,7 @@ try
     builder.Services
         .AddControllersWithViews(options =>
         {
-            // GLOBAL AUTHORIZATION
+            // GLOBAL AUTHORIZATION is implemented for all user
             var policy = new AuthorizationPolicyBuilder()
             .RequireAuthenticatedUser()
             .Build();

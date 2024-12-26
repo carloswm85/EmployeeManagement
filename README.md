@@ -96,13 +96,13 @@
   - "Model binding maps data in an HTTP request to controller action method parameters. The action parameters say be simple or complext types."
   - `name` input attribute value is used for mapping.
   - Data available in the HTTP request (with preeminence order): `Form values` → `Route values` → `Query strings`
-- **SERVER SIDE VALIDATION**:
+- **SERVER SIDE VALIDATION**
   - Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part ?
   - Custom validation attributes [🔗](https://youtu.be/o_AH2MGti0A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 76
   - Select list validation [🔗](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-- **BOOTSTRAP**:
+- **BOOTSTRAP**
   - Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-- Entity Framework Core [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+- **ENTITY FRAMEWORK CORE** [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
   - Notes:
     - ORM, Domain Classes, Code/Database First, Database Provider Models
     - `Domain & DBContext Classes` → `EF Core` → `DB Provider` → `Actual DB`
@@ -149,14 +149,20 @@
     - Implementation as a service [🔗](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
     - Redirection after login [🔗](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
       - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-    - Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
+  - Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
+  - Roles:
+    - Create Roles [🔗](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
+    - Get list of roles [🔗](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
+    - Edit existing role [🔗](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
+    - Add or remove users [🔗](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
+      -  Tables for: Users, Roles, UserRoles
+    -  [🔗]() - Part 
+  -  [🔗]() - Part 
+  -  [🔗]() - Part 
 - **CLIENT SIDE VALIDATION**
   - Client side validation implementation [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
     - Requirements (in this order): `jquery.js`, `jquery.validate.js`, `jquery.validate.unobtrusive.js`
   - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
--  [🔗]() - Part 
--  [🔗]() - Part 
--  [🔗]() - Part 
 -  [🔗]() - Part 
 -  [🔗]() - Part 
 -  [🔗]() - Part 
