@@ -57,13 +57,26 @@
 						<li class="nav-item">
 							<a class="nav-link text-light hover-link" asp-area="" asp-controller="Home" asp-action="Create">Create</a>
 						</li>
-
+						
 						@if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 						{
-							<li class="nav-item">
-								<a class="nav-link text-light hover-link" asp-area="" asp-controller="Administration" asp-action="ListRoles">Manage Roles</a>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle text-light hover-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Manage
+								</a>
+								<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+									<li>
+										<a class="dropdown-item" asp-controller="Administration"
+										   asp-action="ListUsers">Users</a>
+									</li>
+									<li>
+										<a class="dropdown-item" asp-controller="Administration"
+										   asp-action="ListRoles">Roles</a>
+									</li>
+								</ul>
 							</li>
 						}
+
 						<li class="nav-item">
 							<a class="nav-link text-light hover-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 						</li>

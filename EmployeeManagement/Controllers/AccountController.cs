@@ -59,6 +59,12 @@ namespace EmployeeManagement.Controllers
 
                 if (result.Succeeded)
                 {
+                    // If user is signed in and it is admin
+                    if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("ListUsers", "Administration");
+                    }
+
                     // `isPersistent` specifies if we want to create a session cookie
                     // or a permanent cookie
                     await signInManager.SignInAsync(user, isPersistent: false);
