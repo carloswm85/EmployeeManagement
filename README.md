@@ -186,8 +186,6 @@
 
 The SSL connection could not be established, see inner exception.
 
-- [How to (Quickly) Incorporate Sass Run-Time Compilation to ASP.NET Core Project 🔗](https://finees1985.wordpress.com/2023/04/08/how-to-quickly-incorporate-sass-run-time-compilation-to-asp-net-core-project/)
-
 ---
 
 # C# Programming Language
