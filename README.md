@@ -1,11 +1,11 @@
 ﻿- [Kudvenkat](#kudvenkat)
-  - [Topics](#topics)
-    - [DOTNET](#dotnet)
-      - [Web Server Hosting](#web-server-hosting)
-      - [Other](#other)
+  - [DOTNET](#dotnet)
+    - [Web Server Hosting](#web-server-hosting)
+    - [Topics](#topics)
 - [C# Programming Language](#c-programming-language)
   - [C# Tutorial For Beginners](#c-tutorial-for-beginners)
   - [LINQ Tutorials](#linq-tutorials)
+- [Other Topics](#other-topics)
 
 ---
 
@@ -14,11 +14,9 @@
 1. [Creating asp net core web application 🔗](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 1
    1. The course is for NET Core 2.2
 
-## Topics
+## DOTNET
 
-### DOTNET
-
-#### Web Server Hosting
+### Web Server Hosting
 
 ![Web Server](images/web-server.png)
 
@@ -31,7 +29,7 @@
   - Internal server: Kestrel
   - External web server (or _reverse proxy server_): IIS (Express), Nginx or Apache
 
-#### Other
+### Topics
 
 - `IConfiguration` service:
   - `appsettings.json` [🔗](https://youtu.be/m_BevGi7zBw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 9
@@ -208,3 +206,11 @@ The SSL connection could not be established, see inner exception.
 [LINQ to XML 🔗](https://www.youtube.com/playlist?list=PL6n9fhu94yhX-U0Ruy_4eIG8umikVmBrk)
 
 - Extension methods [🔗](https://youtu.be/VkrKNXscoto?list=PL6n9fhu94yhWi8K02Eqxp3Xyh_OmQ0Rp6)
+
+---
+
+# Other Topics
+
+- [How to (Quickly) Incorporate Sass Run-Time Compilation to ASP.NET Core Project 🔗](https://finees1985.wordpress.com/2023/04/08/how-to-quickly-incorporate-sass-run-time-compilation-to-asp-net-core-project/)
+  - <https://bootswatch.com/>
+    - <https://bootswatch.com/spacelab/>
