@@ -56,6 +56,8 @@ try
         .AddXmlDataContractSerializerFormatters() //
         ;
 
+    builder.Services.AddSassCompiler();
+
     // NLog: Setup NLog for Dependency injection
     builder.Logging.ClearProviders();
     builder.Host.UseNLog();

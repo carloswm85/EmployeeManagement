@@ -183,9 +183,10 @@
   - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
 - [🔗]() - Part
 - [🔗]() - Part
-- [🔗]() - Part
 
 The SSL connection could not be established, see inner exception.
+
+- [How to (Quickly) Incorporate Sass Run-Time Compilation to ASP.NET Core Project 🔗](https://finees1985.wordpress.com/2023/04/08/how-to-quickly-incorporate-sass-run-time-compilation-to-asp-net-core-project/)
 
 ---
 

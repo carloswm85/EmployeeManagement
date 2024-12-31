@@ -1,0 +1,93 @@
+﻿html {
+	font-size: 14px;
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+.btn {
+	width: 100%;
+	margin: 0.1rem;
+}
+
+.w-auto {
+	width: auto;
+}
+
+.w-150 {
+	width: 150px;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+	box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
+.imageThumbnail {
+	height: auto;
+	width: 100%;
+	margin: auto;
+}
+
+.border-dark-dimmed {
+	border-color: rgba(33, 37, 41, 0.4) !important;
+}
+
+/* ------------------------------------------------------------- HOVER EFFECT */
+/* General hover effect for <a> tags */
+.hover-link {
+	transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.hover-link:hover {
+	color: #ffd700; /* Change to gold on hover */
+	text-decoration: underline; /* Add underline on hover */
+}
+
+/* Button hover effect */
+.logout-button {
+	transition: background-color 0.3s ease, color 0.3s ease;
+	text-align: left; /* Ensures alignment if needed */
+	cursor: pointer; /* Changes cursor to pointer */
+}
+
+.logout-button:hover {
+	background-color: #dc3545; /* Add red background on hover */
+	color: white; /* Text color to white on hover */
+	text-decoration: none; /* Prevent underline */
+}
+
+/* -------------------------------------------- PASTE USER INFORMATION BUTTON */
+.copy-btn {
+	margin-left: 10px;
+	width: 5rem;
+	cursor: pointer;
+	padding: 2px 8px;
+	transition: background-color 0.3s ease;
+	background-color: #dff1fa;
+}
+
+.copy-btn > .bi {
+	font-size: 1.5rem;
+}
+
+.copy-btn:hover {
+	background-color: #2da0e2;
+	color: #e7fd0d;
+}
+
+// ALL variable overrides go ABOVE this line.
+@import "./_variables.scss";
+@import "../wwwroot/lib/bootstrap/scss/bootstrap.scss";
+@import "./_bootswatch.scss";
