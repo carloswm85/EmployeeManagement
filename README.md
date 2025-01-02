@@ -172,7 +172,7 @@
     - Edit user information, roles and claims [🔗](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
     - Delete user [🔗](https://youtu.be/MhNfyZGfY-A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 86
       - Display delete confirmation [🔗](https://youtu.be/hKLjt9GzYM8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 87
-    - [🔗]() - Part
+    - Delete role [🔗](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
     - [🔗]() - Part
     - [🔗]() - Part
 - **CLIENT SIDE VALIDATION**

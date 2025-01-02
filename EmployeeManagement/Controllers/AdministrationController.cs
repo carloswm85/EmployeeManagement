@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
 {
-    [Authorize(Roles = "Admin,User")] // Member of admin OR user
-    //[Authorize(Roles = "Admin")] // Member of admin AND user
-    //[Authorize(Roles = "User")] // Member of admin AND user
+    [Authorize(Roles = "Admin,User")] // Member of admin OR role
+    //[Authorize(Roles = "Admin")] // Member of admin AND role
+    //[Authorize(Roles = "User")] // Member of admin AND role
     /// <summary>
     /// 
     /// </summary>
@@ -56,6 +56,39 @@ namespace EmployeeManagement.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var role = await roleManager.FindByIdAsync(id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                return View("NotFound");
+            }
+            else
+            {
+                var result = await roleManager.DeleteAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("ListRoles");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         [HttpGet]
         public IActionResult ListUsers()
@@ -80,10 +113,10 @@ namespace EmployeeManagement.Controllers
                 return View("NotFound");
             }
 
-            // GetClaimsAsync retunrs the list of user Claims
+            // GetClaimsAsync retunrs the list of role Claims
             var userClaims = await userManager.GetClaimsAsync(user);
 
-            // GetRolesAsync returns the list of user Roles
+            // GetRolesAsync returns the list of role Roles
             var userRoles = await userManager.GetRolesAsync(user);
 
             var model = new EditUserViewModel
@@ -284,7 +317,7 @@ namespace EmployeeManagement.Controllers
 
             var model = new List<UserRoleViewModel>();
 
-            // Create UserRoleViewModel for each user in the database
+            // Create UserRoleViewModel for each role in the database
             foreach (var user in userManager.Users)
             {
                 var userRoleViewModel = new UserRoleViewModel
@@ -323,12 +356,12 @@ namespace EmployeeManagement.Controllers
 
                 IdentityResult result = null;
 
-                // Add user to role if selected and not already in the role
+                // Add role to role if selected and not already in the role
                 if (model[i].IsSelected && !(await userManager.IsInRoleAsync(user, role.Name)))
                 {
                     result = await userManager.AddToRoleAsync(user, role.Name);
                 }
-                // Remove user from role if not selected but already in the role
+                // Remove role from role if not selected but already in the role
                 else if (!model[i].IsSelected && await userManager.IsInRoleAsync(user, role.Name))
                 {
                     result = await userManager.RemoveFromRoleAsync(user, role.Name);
