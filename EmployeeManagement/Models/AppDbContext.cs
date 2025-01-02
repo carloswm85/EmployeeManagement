@@ -33,7 +33,6 @@ namespace EmployeeManagement.Models
                 }
             }
 
-
             // Seed it!
             modelBuilder.Seed();
         }

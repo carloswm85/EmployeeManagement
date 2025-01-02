@@ -5,6 +5,8 @@
     - [**SERVER SIDE VALIDATION**](#server-side-validation)
     - [**BOOTSTRAP**](#bootstrap)
     - [**ENTITY FRAMEWORK CORE**](#entity-framework-core)
+    - [**Error Handling**](#error-handling)
+    - [**Logging**](#logging)
     - [**ASP.NET Core Identity** - Authentication \& Authorization](#aspnet-core-identity---authentication--authorization)
     - [**CLIENT SIDE VALIDATION**](#client-side-validation)
     - [MSSQL SERVER](#mssql-server)
@@ -14,6 +16,7 @@
   - [SQL Tutorials](#sql-tutorials)
 - [Other Topics](#other-topics)
 - [NOTES](#notes)
+  - [Libraries](#libraries)
   - [Delete Rule](#delete-rule)
 
 ---
@@ -152,6 +155,9 @@
   - Edit View - GET [🔗](https://youtu.be/lhiIvx7jMaY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 55
     - `Edit.cshtml` with controller and viewmodel.
   - Edit View - POST [🔗](https://youtu.be/wamToyK4x7I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 56
+
+### **Error Handling**
+
 - Handling `404` Not Found Errors:
   - Type 1: Resource with ID not found [🔗](https://youtu.be/QiF3eJ4Zb0o?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 57
   - Type 2: URL does not match any route.
@@ -160,10 +166,13 @@
       - User facing: `UseStatusCodePagesWithRedirects` and `UseStatusCodePagesWithReExecute` [🔗](https://youtu.be/9CwgiSxrkeQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 59
 - Correct Global Exception handling:
   - Not production: `UseExceptionHandler` [🔗](https://youtu.be/jeBttUIqpuc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 60
-- Logging:
-  - Basics, Logging from console, Built-in Logging Providers [🔗](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 61
-  - Logging Exceptions [🔗](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 62
-  - Logging to a file [🔗](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63
+- Custom Error Page (for `ON DELETE NO ACTION`) [🔗](https://youtu.be/0jqZ63ybeRY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 90
+
+### **Logging**
+
+- Basics, Logging from console, Built-in Logging Providers [🔗](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 61
+- Logging Exceptions [🔗](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 62
+- Logging to a file [🔗](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63
 
 ### **ASP.NET Core Identity** - Authentication & Authorization
 
@@ -212,7 +221,6 @@ Content:
 - Enforce `ON DELETE NO ACTION` [🔗](https://youtu.be/txTZAFut9mA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 89
   - _Cascading referential integrity constraint_
 - [🔗]() - Part
-- [🔗]() - Part
 
 The SSL connection could not be established, see inner exception.
 
@@ -256,6 +264,11 @@ The SSL connection could not be established, see inner exception.
 ---
 
 # NOTES
+
+## Libraries
+
+- <https://cdnjs.com/>
+- [jquery-validate 🔗](https://jqueryvalidation.org/)
 
 ## Delete Rule
 
