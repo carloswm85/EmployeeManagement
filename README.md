@@ -1,11 +1,20 @@
 ﻿- [Kudvenkat](#kudvenkat)
-  - [DOTNET](#dotnet)
+  - [ASP.NET Core For Beginners](#aspnet-core-for-beginners)
     - [Web Server Hosting](#web-server-hosting)
     - [Topics](#topics)
+    - [**SERVER SIDE VALIDATION**](#server-side-validation)
+    - [**BOOTSTRAP**](#bootstrap)
+    - [**ENTITY FRAMEWORK CORE**](#entity-framework-core)
+    - [**ASP.NET Core Identity** - Authentication \& Authorization](#aspnet-core-identity---authentication--authorization)
+    - [**CLIENT SIDE VALIDATION**](#client-side-validation)
+    - [MSSQL SERVER](#mssql-server)
 - [C# Programming Language](#c-programming-language)
   - [C# Tutorial For Beginners](#c-tutorial-for-beginners)
   - [LINQ Tutorials](#linq-tutorials)
+  - [SQL Tutorials](#sql-tutorials)
 - [Other Topics](#other-topics)
+- [NOTES](#notes)
+  - [Delete Rule](#delete-rule)
 
 ---
 
@@ -14,7 +23,9 @@
 1. [Creating asp net core web application 🔗](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 1
    1. The course is for NET Core 2.2
 
-## DOTNET
+---
+
+## ASP.NET Core For Beginners
 
 ### Web Server Hosting
 
@@ -100,30 +111,37 @@
   - "Model binding maps data in an HTTP request to controller action method parameters. The action parameters say be simple or complext types."
   - `name` input attribute value is used for mapping.
   - Data available in the HTTP request (with preeminence order): `Form values` → `Route values` → `Query strings`
-- **SERVER SIDE VALIDATION**
-  - Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 42
-  - Custom validation attributes [🔗](https://youtu.be/o_AH2MGti0A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 76
-  - Select list validation [🔗](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 43
-- **BOOTSTRAP**
-  - Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 39
-- **ENTITY FRAMEWORK CORE** [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 45
-  - Notes:
-    - ORM, Domain Classes, Code/Database First, Database Provider Models
-    - `Domain & DBContext Classes` → `EF Core` → `DB Provider` → `Actual DB`
-  - Installation & Multilayer Web Application [🔗](https://youtu.be/8aHzSx-inDE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 46
-    - `Presentation Layer` → `Business Layer` → `Data Access Layer`
-  - `DbContext` [🔗](https://youtu.be/nN9jOORIFtc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 47
-  - Using with SQL Server [🔗](https://youtu.be/xMktEpPmadI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 48
-    - Connection string
-  - Repository Pattern [🔗](https://youtu.be/qJmEI2LtXIY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 49
-    - Abstraction of the Data Access Layer, for CRUD operations. How to use `AddScoped` with SQL Server.
-  - Migrations [🔗](https://youtu.be/G14lmWS-h4k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 50
-    - Migrations keep the DB schema and app model classes in sync.
-    - Commands: `get-help about_entityframeworkcore` `Add-Migration` `Update-Database`
-  - Seed Data to Database [🔗]()
-  - Keeping _domain models_ and _database schema_ in sync [🔗](https://youtu.be/MhvOKHUWgiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 52
-    - `Remove-Migration`
-    - This video also explains how to remove migration that has already been applied to the database.
+
+### **SERVER SIDE VALIDATION**
+
+- Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 42
+- Custom validation attributes [🔗](https://youtu.be/o_AH2MGti0A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 76
+- Select list validation [🔗](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 43
+
+### **BOOTSTRAP**
+
+- Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 39
+
+### **ENTITY FRAMEWORK CORE**
+
+- Introduction [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 45
+- Notes:
+  - ORM, Domain Classes, Code/Database First, Database Provider Models
+  - `Domain & DBContext Classes` → `EF Core` → `DB Provider` → `Actual DB`
+- Installation & Multilayer Web Application [🔗](https://youtu.be/8aHzSx-inDE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 46
+  - `Presentation Layer` → `Business Layer` → `Data Access Layer`
+- `DbContext` [🔗](https://youtu.be/nN9jOORIFtc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 47
+- Using with SQL Server [🔗](https://youtu.be/xMktEpPmadI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 48
+  - Connection string
+- Repository Pattern [🔗](https://youtu.be/qJmEI2LtXIY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 49
+  - Abstraction of the Data Access Layer, for CRUD operations. How to use `AddScoped` with SQL Server.
+- Migrations [🔗](https://youtu.be/G14lmWS-h4k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 50
+  - Migrations keep the DB schema and app model classes in sync.
+  - Commands: `get-help about_entityframeworkcore` `Add-Migration` `Update-Database`
+- Seed Data to Database [🔗]()
+- Keeping _domain models_ and _database schema_ in sync [🔗](https://youtu.be/MhvOKHUWgiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 52
+  - `Remove-Migration`
+  - This video also explains how to remove migration that has already been applied to the database.
 - File upoad [🔗](https://youtu.be/aoxEJii70_I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 53
   - `IFormFile`, the video includes jQuery code for `.custom-file-label`.
   - Notes:
@@ -146,40 +164,53 @@
   - Basics, Logging from console, Built-in Logging Providers [🔗](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 61
   - Logging Exceptions [🔗](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 62
   - Logging to a file [🔗](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63
-- **ASP.NET Core Identity** - Authentication & Authorization [🔎](https://www.google.com/search?q=asp+net+core+identity+documentation) [📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
-  - Inherit from `IdentityDbContext`, add services, add middleware, generate tables [🔗](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 65
-  - Register new user [🔗](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 66
-  - Services: `UserManager` and `SignInManager` [🔗](https://youtu.be/TfarnVqnhX0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 67
-  - Password complexity [🔗](https://youtu.be/kC9qrUcy2Js?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 68
-  - Show/hide view elements using `@if (SignInManager.IsSignedIn(User)) { }` [🔗](https://youtu.be/YLAHIZmO2PI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 69
-  - Implementing log in functionality [🔗](https://youtu.be/9d8DXXc71RI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 70
-    - `LoginViewModel`, Login View, Login Actions in Account Controller.
-  - Authorizacion implementation - Types: Simple authorization, Role based, Claims based, Policy based.
-    - Implementation as a service, _Simple Authorization_ [🔗](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 71
-    - Redirection after login [🔗](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 72
-      - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73
-  - Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
-  - Roles:
-    - Create Roles [🔗](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
-    - Get list of roles [🔗](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
-    - Edit existing role [🔗](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
-    - Add or remove users [🔗](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
-      - Tables for: Users, Roles, UserRoles
-    - _Role based authorization_ [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
-      - Show or hide navigation menu based on user [🔗](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83
-  - Users:
-    - List users, register new user and redirect correctly [🔗](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
-    - Edit user information, roles and claims [🔗](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
-    - Delete user [🔗](https://youtu.be/MhNfyZGfY-A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 86
-      - Display delete confirmation [🔗](https://youtu.be/hKLjt9GzYM8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 87
-    - Delete role [🔗](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
-    - [🔗]() - Part
-    - [🔗]() - Part
-- **CLIENT SIDE VALIDATION**
-  - Client side validation implementation [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
-    - Requirements (in this order): `jquery.js`, `jquery.validate.js`, `jquery.validate.unobtrusive.js`
-  - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
-- [🔗]() - Part
+
+### **ASP.NET Core Identity** - Authentication & Authorization
+
+- Google search [🔎](https://www.google.com/search?q=asp+net+core+identity+documentation)
+- Official documentation [📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
+
+Content:
+
+- Inherit from `IdentityDbContext`, add services, add middleware, generate tables [🔗](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 65
+- Register new user [🔗](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 66
+- Services: `UserManager` and `SignInManager` [🔗](https://youtu.be/TfarnVqnhX0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 67
+- Password complexity [🔗](https://youtu.be/kC9qrUcy2Js?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 68
+- Show/hide view elements using `@if (SignInManager.IsSignedIn(User)) { }` [🔗](https://youtu.be/YLAHIZmO2PI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 69
+- Implementing log in functionality [🔗](https://youtu.be/9d8DXXc71RI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 70
+  - `LoginViewModel`, Login View, Login Actions in Account Controller.
+- Authorizacion implementation - Types: Simple authorization, Role based, Claims based, Policy based.
+  - Implementation as a service, _Simple Authorization_ [🔗](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 71
+  - Redirection after login [🔗](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 72
+    - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73
+- Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
+- Roles:
+  - Create Roles [🔗](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
+  - Get list of roles [🔗](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
+  - Edit existing role [🔗](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
+  - Add or remove users [🔗](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
+    - Tables for: Users, Roles, UserRoles
+  - _Role based authorization_ [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
+    - Show or hide navigation menu based on user [🔗](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83
+- Users:
+  - List users, register new user and redirect correctly [🔗](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
+  - Edit user information, roles and claims [🔗](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
+  - Delete user [🔗](https://youtu.be/MhNfyZGfY-A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 86
+    - Display delete confirmation [🔗](https://youtu.be/hKLjt9GzYM8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 87
+  - Delete role [🔗](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
+  - [🔗]() - Part
+  - [🔗]() - Part
+
+### **CLIENT SIDE VALIDATION**
+
+- Client side validation implementation [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
+  - Requirements (in this order): `jquery.js`, `jquery.validate.js`, `jquery.validate.unobtrusive.js`
+- Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
+
+### MSSQL SERVER
+
+- Enforce `ON DELETE NO ACTION` [🔗](https://youtu.be/txTZAFut9mA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 89
+  - _Cascading referential integrity constraint_
 - [🔗]() - Part
 - [🔗]() - Part
 
@@ -207,6 +238,13 @@ The SSL connection could not be established, see inner exception.
 
 - Extension methods [🔗](https://youtu.be/VkrKNXscoto?list=PL6n9fhu94yhWi8K02Eqxp3Xyh_OmQ0Rp6)
 
+## SQL Tutorials
+
+- [SQL Server Performance Tuning and Query Optimization 🔗](https://www.youtube.com/playlist?list=PL6n9fhu94yhXg5A0Fl3CQAo1PbOcRPjd0)
+- [SQL Server Interview Questions and Answers 🔗](https://www.youtube.com/playlist?list=PL6n9fhu94yhXcztdLO7i6mdyaegC8CJwR)
+- [SQL Server tutorial for beginners 🔗](https://www.youtube.com/playlist?list=PL08903FB7ACA1C2FB)
+  - Cascading referential integrity constraint [🔗](https://youtu.be/ETepOVi7Xk8?list=PL08903FB7ACA1C2FB) - Part 5
+
 ---
 
 # Other Topics
@@ -214,3 +252,20 @@ The SSL connection could not be established, see inner exception.
 - [How to (Quickly) Incorporate Sass Run-Time Compilation to ASP.NET Core Project 🔗](https://finees1985.wordpress.com/2023/04/08/how-to-quickly-incorporate-sass-run-time-compilation-to-asp-net-core-project/)
   - <https://bootswatch.com/>
     - <https://bootswatch.com/spacelab/>
+
+---
+
+# NOTES
+
+## Delete Rule
+
+| **SQL Server** | **EF Core**           | **Behavior**                                                                                                                                     |
+| -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _Delete rule_  | enum `DeleteBehavior` | The enumeration representing the delete behavior in EF Core.                                                                                     |
+| **NoAction**   | `.ClientSetNull`(0)   | If a parent entity is deleted, the dependent entity's foreign key is set to `null` in the client memory but throws if the database disallows it. |
+| -              | `.Restrict`(1)        | Prevents deletion of the parent entity if related entities exist.                                                                                |
+| **SetNull**    | `.SetNull`(2)         | When a parent entity is deleted, foreign keys in dependent entities are set to `null`.                                                           |
+| **Cascade**    | `.Cascade`(3)         | DEFAULT. When a parent entity is deleted, related child entities are also deleted.                                                               |
+| -              | `.ClientCascade`(4)   | The dependent entities are deleted in client-side memory but require a save to propagate to the database.                                        |
+| **NoAction**   | `.NoAction`(5)        | EF Core does not perform any action, and the database enforces referential integrity constraints.                                                |
+| **SetDefault** | `.ClientNoAction`(6)  | No action is performed on the dependent entities in the client; the database handles `SET DEFAULT`.                                              |
