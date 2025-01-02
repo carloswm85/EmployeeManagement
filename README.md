@@ -141,7 +141,7 @@
 - Migrations [🔗](https://youtu.be/G14lmWS-h4k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 50
   - Migrations keep the DB schema and app model classes in sync.
   - Commands: `get-help about_entityframeworkcore` `Add-Migration` `Update-Database`
-- Seed Data to Database [🔗]()
+- Seed Data to Database [🔗](https://youtu.be/qDUS8ocavBU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 51
 - Keeping _domain models_ and _database schema_ in sync [🔗](https://youtu.be/MhvOKHUWgiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 52
   - `Remove-Migration`
   - This video also explains how to remove migration that has already been applied to the database.
@@ -173,6 +173,7 @@
 - Basics, Logging from console, Built-in Logging Providers [🔗](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 61
 - Logging Exceptions [🔗](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 62
 - Logging to a file [🔗](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63
+- `LogLevel` configuration [🔗](https://youtu.be/bTPnT13Efd4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 64
 
 ### **ASP.NET Core Identity** - Authentication & Authorization
 

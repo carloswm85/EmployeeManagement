@@ -3,6 +3,7 @@ using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagement.Controllers
 {
@@ -16,13 +17,15 @@ namespace EmployeeManagement.Controllers
     {
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly ILogger<AdministrationController> logger;
 
         // Constructor to inject RoleManager and UserManager dependencies
         public AdministrationController(RoleManager<IdentityRole> roleManager,
-            UserManager<ApplicationUser> userManager) // ApplicationUser extends IdentityUser
+            UserManager<ApplicationUser> userManager, ILogger<AdministrationController> logger) // ApplicationUser extends IdentityUser
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
+            this.logger = logger;
         }
 
         [HttpPost]
@@ -70,19 +73,41 @@ namespace EmployeeManagement.Controllers
             }
             else
             {
-                var result = await roleManager.DeleteAsync(role);
-
-                if (result.Succeeded)
+                // Wrap the code in a try/catch block
+                try
                 {
-                    return RedirectToAction("ListRoles");
-                }
+                    //throw new Exception("Test Exception");
 
-                foreach (var error in result.Errors)
+                    var result = await roleManager.DeleteAsync(role);
+
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("ListRoles");
+                    }
+
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+
+                    return View("ListRoles");
+                }
+                // If the exception is DbUpdateException, we know we NOT able to
+                // delete the role as there are users in the role being deleted
+                catch (DbUpdateException ex)
                 {
-                    ModelState.AddModelError("", error.Description);
+                    //Log the exception to a file. We discussed logging to a file
+                    // using Nlog in Part 63 of ASP.NET Core tutorial
+                    logger.LogError($"Exception Occured : {ex}");
+                    // Pass the ErrorTitle and ErrorMessage that you want to show to
+                    // the user using ViewBag. The Error view retrieves this data
+                    // from the ViewBag and displays to the user.
+                    ViewBag.ErrorTitle = $"{role.Name} role is in use";
+                    ViewBag.ErrorMessage = $"{role.Name} role cannot be deleted as there are users " + 
+                        "in this role. If you want to delete this role, please remove the users from " +
+                        "the role and then try to delete";
+                    return View("ErrorPragim");
                 }
-
-                return View("ListRoles");
             }
         }
 
