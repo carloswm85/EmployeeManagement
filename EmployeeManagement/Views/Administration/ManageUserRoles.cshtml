@@ -11,6 +11,12 @@
             <h2>Manage User Roles</h2>
         </div>
         <div class="card-body">
+            <!--
+                **Model Binding Not Working**
+                    - **With a FOR loop**, the generated input element names are unique and contain an integer indexer in the name.
+                    - **So**, the model binder knows it has to map the values from these input elements to the list parameter on the controller action.
+                    - **With a FOREACH loop**, the names are not unique, and hence the model binder does not know it has to map the values to the list parameter.
+            -->
             @for (int i = 0; i < Model.Count; i++)
             {
                 <div class="form-check m-1">
