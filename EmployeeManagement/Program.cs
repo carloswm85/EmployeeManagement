@@ -57,6 +57,8 @@ try
         ;
 
     //---------------------------------------- CLAIMS POLICY BASED AUTHORIZATION
+    builder.Services.AddAuthorizationBuilder();
+
     builder.Services.AddAuthorization(options =>
     {
         // User for protecting controllers or routes
@@ -65,6 +67,13 @@ try
             policy => policy.RequireClaim("Delete Role")
                             .RequireClaim("Create Role")
             );
+
+        // Require multiple roles
+        options.AddPolicy("AdminRolePolicy",
+            policy => policy.RequireRole("Admin", "Verano", "Role 23"));
+
+        options.AddPolicy("SuperAdminPolicy", policy =>
+                  policy.RequireRole("Admin", "User", "Manager"));
     });
 
     //--------------------------------------------------------------------- NLog

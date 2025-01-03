@@ -8,12 +8,7 @@ using System.Security.Claims;
 
 namespace EmployeeManagement.Controllers
 {
-    [Authorize(Roles = "Admin,User")] // Member of admin OR role
-    //[Authorize(Roles = "Admin")] // Member of admin AND role
-    //[Authorize(Roles = "User")] // Member of admin AND role
-    /// <summary>
-    /// 
-    /// </summary>
+    [Authorize(Policy = "AdminRolePolicy")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -113,6 +108,10 @@ namespace EmployeeManagement.Controllers
         [HttpGet]
         public async Task<IActionResult> ManageUserRoles(string userId)
         {
+            // If you want to see ALL user roles, as claims, place a breackpoing here.
+            // And execute in the Immediate Window:
+            //      User.Claims.Where(c=> c.Type == ClaimTypes.Role).ToList()
+            
             ViewBag.userId = userId;
 
             var user = await userManager.FindByIdAsync(userId);

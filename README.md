@@ -225,7 +225,7 @@ Main elements:
   - Edit existing role [🔗](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
   - Add or remove users [🔗](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
     - Tables for: Users, Roles, UserRoles
-  - _Role based authorization_ [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
+  - _Role based authorization_ (RBAC) [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
     - Show or hide navigation menu based on user [🔗](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83
   - User role membership: Add/remove roles for user [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - USERS:
@@ -238,9 +238,13 @@ Main elements:
 - CLAIMS:
   - Manage User Claims [🔗](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93
     - "Claim": Name-value pair used for making _access control decisions_.
-  - Claims Based Authorization [🔗](https://youtu.be/LJQBBvJ6tL0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 94
+    - They are a piece of information about the user, NOT what the user can or cannot do.
+    - Claims are "policy based".
+  - Claims Based Authorization (CBAC) [🔗](https://youtu.be/LJQBBvJ6tL0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 94
     - _What are they?_ • `Services.AddAuthorization` • `AddPolicy` • `RequireClaim` • Use in controllers and actions • Combination of _roles_ and _policies_.
-  - [🔗]() - Part
+  - **Role Based Authorization** (RBAC) Vs **Claim Base Authorization** (CBAC) [🔗](https://youtu.be/Uw2ujXvN3i4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 95
+    - `[Authorize(Roles = "Admin")]` is role based.
+    - `[Authorize(Policy = "DeleteRolePolicy")]` is claim based.
   - [🔗]() - Part
 
 ### **CLIENT SIDE VALIDATION**
