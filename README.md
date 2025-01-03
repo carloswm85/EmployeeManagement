@@ -238,6 +238,8 @@ Main elements:
 - CLAIMS:
   - Manage User Claims [🔗](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93
     - "Claim": Name-value pair used for making _access control decisions_.
+  - Claims Based Authorization [🔗](https://youtu.be/LJQBBvJ6tL0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 94
+    - _What are they?_ • `Services.AddAuthorization` • `AddPolicy` • `RequireClaim` • Use in controllers and actions • Combination of _roles_ and _policies_.
   - [🔗]() - Part
   - [🔗]() - Part
 

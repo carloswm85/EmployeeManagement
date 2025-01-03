@@ -56,7 +56,18 @@ try
         .AddXmlDataContractSerializerFormatters() //
         ;
 
-    // NLog: Setup NLog for Dependency injection
+    //---------------------------------------- CLAIMS POLICY BASED AUTHORIZATION
+    builder.Services.AddAuthorization(options =>
+    {
+        // User for protecting controllers or routes
+        // NOTE: The DeleteRolePolicy requires this 2 claims
+        options.AddPolicy("DeleteRolePolicy",
+            policy => policy.RequireClaim("Delete Role")
+                            .RequireClaim("Create Role")
+            );
+    });
+
+    //--------------------------------------------------------------------- NLog
     builder.Logging.ClearProviders();
     builder.Host.UseNLog();
 

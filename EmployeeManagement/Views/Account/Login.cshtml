@@ -26,7 +26,7 @@
             <div class="form-group mb-2">
                 <div class="checkbox">
                     <label asp-for="RememberMe">
-                        <input asp-for="RememberMe" />
+                        <input asp-for="RememberMe" id="rememberInput" />
                         @Html.DisplayNameFor(m => m.RememberMe)
                     </label>
                 </div>
@@ -71,6 +71,7 @@
     function insertUserAndPassword(selection) {
         const emailInput = document.getElementById('emailInput');
         const passwordInput = document.getElementById('passwordInput');
+        const rememberInput = document.getElementById('rememberInput');
         var content = '';
 
         console.log(selection);
@@ -95,6 +96,7 @@
         // Set the same value for email and password fields
         emailInput.value = content;
         passwordInput.value = content;
+        rememberInput.checked = true;
 
         // Optional: Log action or provide feedback
         console.log("Credentials autofilled.");
