@@ -248,11 +248,13 @@ Main elements:
     - `[Authorize(Policy = "DeleteRolePolicy")]` is claim based.
   - Authorization in views [🔗](https://youtu.be/72zYJw0nF-k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 96
     - _Claim based_ authorization checks in views.
+    - See part-83 for more
+- AUTHORIZATION POLICY:
+  - Using "claim type" and "claim value" in policy based authorization [🔗](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
 
 Other:
 
 - Change default access denied route [🔗](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
-- [🔗]() - Part
 - [🔗]() - Part
 - [🔗]() - Part
 - [🔗]() - Part

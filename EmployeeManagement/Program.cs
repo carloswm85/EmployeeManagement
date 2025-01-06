@@ -66,14 +66,19 @@ try
 
     builder.Services.AddAuthorization(options =>
     {
+        // FOR CLAIMS
         // User for protecting controllers or routes
         // NOTE: The DeleteRolePolicy requires this 2 claims
         options.AddPolicy("DeleteRolePolicy",
             policy => policy.RequireClaim("Delete Role"));
 
         options.AddPolicy("EditRolePolicy",
-            policy => policy.RequireClaim("Edit Role"));
+            policy => policy.RequireClaim("Edit Role", "true"));
 
+        options.AddPolicy("AllowedCountryPolicy",
+            policy => policy.RequireClaim("Country", "USA", "India", "UK"));
+
+        // FOR ROLES
         // Require multiple roles
         options.AddPolicy("AdminRolePolicy",
             policy => policy.RequireRole("Admin", "Verano", "Role 23"));
