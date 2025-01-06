@@ -48,9 +48,19 @@
 
     <div class="d-flex align-content-center align-items-center">
         <p>
-            <b>User</b> role: <i>NoAdmin1@pragimtech.com</i>
+            <b>User only</b> role: <i>NoAdmin1@pragimtech.com</i>
             <a href="#" class="link-primary hover-link"
                onclick="insertUserAndPassword('userNoAdmin')" title="Automatically paste username and password.">
+                <i class="bi bi-person-circle"></i> <!-- Clipboard icon -->
+            </a>
+        </p>
+    </div>
+
+    <div class="d-flex align-content-center align-items-center">
+        <p>
+            For different tests: <i>Test1@pragimtech.com</i>
+            <a href="#" class="link-primary hover-link"
+               onclick="insertUserAndPassword('multipleTests')" title="Automatically paste username and password.">
                 <i class="bi bi-person-circle"></i> <!-- Clipboard icon -->
             </a>
         </p>
@@ -75,6 +85,9 @@
                 break;
             case 'userNoAdmin':
                 content = 'NoAdmin1@pragimtech.com';
+                break;
+            case 'multipleTests':
+                content = 'Test1@pragimtech.com';
                 break;
             default:
                 content = 'Something went wrong';

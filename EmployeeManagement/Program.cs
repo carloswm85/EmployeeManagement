@@ -50,6 +50,7 @@ try
             var policy = new AuthorizationPolicyBuilder()
             .RequireAuthenticatedUser()
             .Build();
+
             options.Filters.Add(new AuthorizeFilter(policy));
 
         }) // In this case, MVC services with views are added.
@@ -64,9 +65,10 @@ try
         // User for protecting controllers or routes
         // NOTE: The DeleteRolePolicy requires this 2 claims
         options.AddPolicy("DeleteRolePolicy",
-            policy => policy.RequireClaim("Delete Role")
-                            .RequireClaim("Create Role")
-            );
+            policy => policy.RequireClaim("Delete Role"));
+
+        options.AddPolicy("EditRolePolicy",
+            policy => policy.RequireClaim("Edit Role"));
 
         // Require multiple roles
         options.AddPolicy("AdminRolePolicy",

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 using System.Security.Claims;
 
 namespace EmployeeManagement.Controllers
@@ -202,19 +203,28 @@ namespace EmployeeManagement.Controllers
             }
             else
             {
-                var result = await userManager.DeleteAsync(user);
-
-                if (result.Succeeded)
+                try
                 {
-                    return RedirectToAction("ListUsers");
-                }
+                    var result = await userManager.DeleteAsync(user);
 
-                foreach (var error in result.Errors)
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("ListUsers");
+                    }
+
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+
+                    return View("ListUsers");
+                }
+                catch (Exception ex)
                 {
-                    ModelState.AddModelError("", error.Description);
+                    Debug.WriteLine(ex);
+                    logger.LogError(ex.Message);
+                    throw;
                 }
-
-                return View("ListUsers");
             }
         }
 
@@ -418,6 +428,7 @@ namespace EmployeeManagement.Controllers
         /// <param name="id">The ID of the role to edit</param>
         /// <returns>A view to edit the role, or NotFound view if the role does not exist</returns>
         [HttpGet]
+        [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> EditRole(string id)
         {
             // Find the role by ID

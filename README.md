@@ -227,6 +227,7 @@ Main elements:
     - Tables for: Users, Roles, UserRoles
   - _Role based authorization_ (RBAC) [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
     - Show or hide navigation menu based on user [🔗](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83
+      - See part-94 for more.
   - User role membership: Add/remove roles for user [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 - USERS:
   - List users, register new user and redirect correctly [🔗](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
@@ -245,7 +246,16 @@ Main elements:
   - **Role Based Authorization** (RBAC) Vs **Claim Base Authorization** (CBAC) [🔗](https://youtu.be/Uw2ujXvN3i4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 95
     - `[Authorize(Roles = "Admin")]` is role based.
     - `[Authorize(Policy = "DeleteRolePolicy")]` is claim based.
-  - [🔗]() - Part
+  - Authorization in views [🔗](https://youtu.be/72zYJw0nF-k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 96
+    - _Claim based_ authorization checks in views.
+
+Other:
+
+- Change default access denied route [🔗](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
+- [🔗]() - Part
+- [🔗]() - Part
+- [🔗]() - Part
+- [🔗]() - Part
 
 ### **CLIENT SIDE VALIDATION**
 
