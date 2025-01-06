@@ -57,6 +57,10 @@ try
         .AddXmlDataContractSerializerFormatters() //
         ;
 
+    builder.Services.ConfigureApplicationCookie(options => {
+        options.AccessDeniedPath = new PathString("/Administration/AccessDenied");
+    });
+
     //---------------------------------------- CLAIMS POLICY BASED AUTHORIZATION
     builder.Services.AddAuthorizationBuilder();
 
