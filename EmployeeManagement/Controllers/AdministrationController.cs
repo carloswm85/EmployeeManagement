@@ -10,13 +10,21 @@ using System.Security.Claims;
 namespace EmployeeManagement.Controllers
 {
     //[Authorize(Policy = "AdminRolePolicy")]
+    /// <summary>
+    /// 
+    /// </summary>
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly ILogger<AdministrationController> logger;
 
-        // Constructor to inject RoleManager and UserManager dependencies
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="roleManager"></param>
+        /// <param name="userManager"></param>
+        /// <param name="logger"></param>
         public AdministrationController(RoleManager<IdentityRole> roleManager,
             UserManager<ApplicationUser> userManager, ILogger<AdministrationController> logger) // ApplicationUser extends IdentityUser
         {
@@ -25,6 +33,11 @@ namespace EmployeeManagement.Controllers
             this.logger = logger;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> ManageUserClaims(string userId)
         {
@@ -66,6 +79,11 @@ namespace EmployeeManagement.Controllers
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> ManageUserClaims(UserClaimsViewModel model)
         {
@@ -583,6 +601,10 @@ namespace EmployeeManagement.Controllers
             return RedirectToAction("EditRole", new { Id = roleId });
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult AccessDenied()

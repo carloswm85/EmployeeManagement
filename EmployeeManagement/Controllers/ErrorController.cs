@@ -4,15 +4,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ErrorController : Controller
     {
         private readonly ILogger<ErrorController> logger;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
         public ErrorController(ILogger<ErrorController> logger)
         {
             this.logger = logger;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="statusCode"></param>
+        /// <returns></returns>
         [Route("Error/{statusCode}")]
         public IActionResult HttpStatusCodeHandler(int statusCode)
         {
@@ -40,6 +52,10 @@ namespace EmployeeManagement.Controllers
             return View("NotFound");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [Route("Error")]
         [AllowAnonymous]
         public ActionResult Error()

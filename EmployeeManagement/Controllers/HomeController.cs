@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     // [Route("[controller]/[action]")]
     [Authorize]
     public class HomeController : Controller
@@ -16,6 +19,12 @@ namespace EmployeeManagement.Controllers
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IWebHostEnvironment _hostingEnvironment;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="employeeRepository"></param>
+        /// <param name="hostingEnvironment"></param>
         public HomeController(
             ILogger<HomeController> logger,
             IEmployeeRepository employeeRepository,
@@ -28,6 +37,10 @@ namespace EmployeeManagement.Controllers
 
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         // [Route("")]
         // [Route("~/")]
         [AllowAnonymous]
@@ -37,6 +50,11 @@ namespace EmployeeManagement.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // [Route("{id?}")]
         [AllowAnonymous]
         public ViewResult Details(int? id)
@@ -66,12 +84,21 @@ namespace EmployeeManagement.Controllers
             return View(homeDetailsViewModel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ViewResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public ViewResult Edit(int id)
         {
@@ -89,6 +116,11 @@ namespace EmployeeManagement.Controllers
             return View(employeeEditViewModel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Edit(EmployeeEditViewModel model)
         {
@@ -116,6 +148,11 @@ namespace EmployeeManagement.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Create(EmployeeCreateViewModel model)
         {
@@ -140,6 +177,11 @@ namespace EmployeeManagement.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         private string? ProcessUploadedFile(EmployeeCreateViewModel model)
         {
             string? uniqueFileName = null;
@@ -182,11 +224,19 @@ namespace EmployeeManagement.Controllers
             return uniqueFileName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Privacy()
         {
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
