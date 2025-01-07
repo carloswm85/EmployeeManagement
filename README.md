@@ -14,6 +14,11 @@
     - [**Error Handling**](#error-handling)
     - [**Logging**](#logging)
     - [**ASP.NET Core Identity** - Authentication \& Authorization](#aspnet-core-identity---authentication--authorization)
+      - [SET UP FOR IDENTITY](#set-up-for-identity)
+      - [ROLES](#roles)
+      - [USERS](#users)
+      - [CLAIMS](#claims)
+      - [AUTHORIZATION POLICY](#authorization-policy)
     - [**CLIENT SIDE VALIDATION**](#client-side-validation)
     - [MSSQL SERVER](#mssql-server)
 - [C# Programming Language](#c-programming-language)
@@ -202,7 +207,7 @@
 - Google search [🔎](https://www.google.com/search?q=asp+net+core+identity+documentation)
 - Official documentation [📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
 
-Set up:
+#### SET UP FOR IDENTITY
 
 - Inherit from `IdentityDbContext`, add services, add middleware, generate tables [🔗](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 65
 - Register new user [🔗](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 66
@@ -217,57 +222,64 @@ Set up:
     - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73
 - Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
 
-Main elements:
+#### ROLES
 
-- ROLES:
-  - Create Roles [🔗](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
-  - Get list of roles [🔗](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
-  - Edit existing role [🔗](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
-  - Add or remove users [🔗](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
-    - Tables for: Users, Roles, UserRoles
-  - _Role based authorization_ (RBAC) [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
-    - Show or hide navigation menu based on user [🔗](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83
-      - See part-94 for more.
-  - User role membership: Add/remove roles for user [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
-- USERS:
-  - List users, register new user and redirect correctly [🔗](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
-  - Edit user information, roles and claims [🔗](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
-  - Delete user [🔗](https://youtu.be/MhNfyZGfY-A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 86
-    - Display delete confirmation [🔗](https://youtu.be/hKLjt9GzYM8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 87
-  - Delete role [🔗](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
-  - Manager user roles [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 91
-- CLAIMS:
-  - Manage User Claims [🔗](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93
-    - "Claim": Name-value pair used for making _access control decisions_.
-    - They are a piece of information about the user, NOT what the user can or cannot do.
-    - Claims are "policy based".
-  - Claims Based Authorization (CBAC) [🔗](https://youtu.be/LJQBBvJ6tL0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 94
-    - _What are they?_ • `Services.AddAuthorization` • `AddPolicy` • `RequireClaim` • Use in controllers and actions • Combination of _roles_ and _policies_.
-  - **Role Based Authorization** (RBAC) Vs **Claim Base Authorization** (CBAC) [🔗](https://youtu.be/Uw2ujXvN3i4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 95
-    - `[Authorize(Roles = "Admin")]` is role based.
-    - `[Authorize(Policy = "DeleteRolePolicy")]` is claim based.
-  - Authorization in views [🔗](https://youtu.be/72zYJw0nF-k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 96
-    - _Claim based_ authorization checks in views.
-    - See part-83 for related information.
-- AUTHORIZATION POLICY:
-  - Using "claim type" and "claim value" in policy based authorization [🔗](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
-  - Create custom authorization policy (Policy with multiple requirements) [🔗](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99
-    - See "Part 100 Func delegate in C#" for related information.
-  - Custom authorization requirements and handlers - EXPLANATION [🔗](https://youtu.be/1qdtjlKDJJ0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 100
-    1. BUILT-IN Authorization Requirement
-       1. Policies with one requirement. → `RequireClaim`
-       1. Policies with multiple requirements:
-          1. Simple relationships → `RequireClaim` + `RequireRole`
-          2. Complex relationships → `RequireAssertion`
-    2. CUSTOM Authorization Requirement
-       1. Implement `IAuthorizationRequirement` → `IAuthorizationHandler<T>` where T is the requirement
-  - Custom authorization requirements and handlers - EXAMPLE [🔗](https://youtu.be/cXsYer31UPo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 101
-  - [🔗]() - Part
-  - [🔗]() - Part
-  - [🔗]() - Part
-  - [🔗]() - Part
-  - [🔗]() - Part
-  - [🔗]() - Part
+- Create Roles [🔗](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
+- Get list of roles [🔗](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
+- Edit existing role [🔗](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
+- Add or remove users [🔗](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
+  - Tables for: Users, Roles, UserRoles
+- _Role based authorization_ (RBAC) [🔗](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
+  - Show or hide navigation menu based on user [🔗](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83
+    - See part-94 for more.
+- User role membership: Add/remove roles for user [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+
+#### USERS
+
+- List users, register new user and redirect correctly [🔗](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
+- Edit user information, roles and claims [🔗](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
+- Delete user [🔗](https://youtu.be/MhNfyZGfY-A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 86
+  - Display delete confirmation [🔗](https://youtu.be/hKLjt9GzYM8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 87
+- Delete role [🔗](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
+- Manager user roles [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 91
+
+#### CLAIMS
+
+- Manage User Claims [🔗](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93
+  - "Claim": Name-value pair used for making _access control decisions_.
+  - They are a piece of information about the user, NOT what the user can or cannot do.
+  - Claims are "policy based".
+- Claims Based Authorization (CBAC) [🔗](https://youtu.be/LJQBBvJ6tL0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 94
+  - _What are they?_ • `Services.AddAuthorization` • `AddPolicy` • `RequireClaim` • Use in controllers and actions • Combination of _roles_ and _policies_.
+- **Role Based Authorization** (RBAC) Vs **Claim Base Authorization** (CBAC) [🔗](https://youtu.be/Uw2ujXvN3i4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 95
+  - `[Authorize(Roles = "Admin")]` is role based.
+  - `[Authorize(Policy = "DeleteRolePolicy")]` is claim based.
+- Authorization in views [🔗](https://youtu.be/72zYJw0nF-k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 96
+  - _Claim based_ authorization checks in views.
+  - See part-83 for related information.
+
+#### AUTHORIZATION POLICY
+
+- Using "claim type" and "claim value" in policy based authorization [🔗](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
+- Create custom authorization policy (Policy with multiple requirements) [🔗](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99
+  - See "Part 100 Func delegate in C#" for related information.
+- Custom authorization requirements and handlers - EXPLANATION [🔗](https://youtu.be/1qdtjlKDJJ0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 100
+  1. BUILT-IN Authorization Requirement
+      1. Policies with one requirement. → `RequireClaim`
+      1. Policies with multiple requirements:
+         1. Simple relationships → `RequireClaim` + `RequireRole`
+         2. Complex relationships → `RequireAssertion`
+  2. CUSTOM Authorization Requirement
+      1. Implement `IAuthorizationRequirement` → `IAuthorizationHandler<T>` where T is the requirement
+- Custom authorization requirements and handlers - EXAMPLE [🔗](https://youtu.be/cXsYer31UPo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 101
+- Multiple authorization handlers for a requirement [🔗](https://youtu.be/aKEN2Z-jfgc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 102
+
+- [🔗]() - Part
+- [🔗]() - Part
+- [🔗]() - Part
+- [🔗]() - Part
+- [🔗]() - Part
+- [🔗]() - Part
 
 Other:
 
