@@ -72,16 +72,26 @@ try
         options.AddPolicy("DeleteRolePolicy",
             policy => policy.RequireClaim("Delete Role"));
 
+        // Explanation: 3 conditions are met
+        /*
         options.AddPolicy("EditRolePolicy",
-            policy => policy.RequireClaim("Edit Role", "true"));
+            policy => policy.RequireClaim("Edit Role", "true")
+                            .RequireRole("Admin")
+                            .RequireRole("Super Admin"));
+        */
+
+        // Explanation: One condition or the other
+        options.AddPolicy("EditRolePolicy", // CUSTOM POLICY using Func type
+            policy => policy.RequireAssertion(context => AuthorizeAccess(context)));
 
         options.AddPolicy("AllowedCountryPolicy",
+            // "allowed values" is an array of string
             policy => policy.RequireClaim("Country", "USA", "India", "UK"));
 
         // FOR ROLES
         // Require multiple roles
         options.AddPolicy("AdminRolePolicy",
-            policy => policy.RequireRole("Admin", "Verano", "Role 23"));
+            policy => policy.RequireRole("Admin", "OtherRole"));
 
         options.AddPolicy("SuperAdminPolicy", policy =>
                   policy.RequireRole("Admin", "User", "Manager"));
@@ -216,4 +226,9 @@ finally
     NLog.LogManager.Shutdown();
 }
 
-
+bool AuthorizeAccess(AuthorizationHandlerContext context)
+{
+    return context.User.IsInRole("Admin") &&
+    context.User.HasClaim(claim => claim.Type == "Edit Role" && claim.Value == "true") ||
+    context.User.IsInRole("Super Admin");
+}

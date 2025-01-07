@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace EmployeeManagement.Controllers
 {
-    [Authorize(Policy = "AdminRolePolicy")]
+    //[Authorize(Policy = "AdminRolePolicy")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -466,6 +466,7 @@ namespace EmployeeManagement.Controllers
         /// <param name="model">The model containing updated role information</param>
         /// <returns>Redirects to ListRoles view if successful; otherwise returns the EditRole view with errors</returns>
         [HttpPost]
+        [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
         {
             var role = await roleManager.FindByIdAsync(model.Id);

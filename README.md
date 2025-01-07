@@ -248,14 +248,17 @@ Main elements:
     - `[Authorize(Policy = "DeleteRolePolicy")]` is claim based.
   - Authorization in views [🔗](https://youtu.be/72zYJw0nF-k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 96
     - _Claim based_ authorization checks in views.
-    - See part-83 for more
+    - See part-83 for related information.
 - AUTHORIZATION POLICY:
   - Using "claim type" and "claim value" in policy based authorization [🔗](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
+  - Create custom authorization policy (Policy with multiple requirements) [🔗](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99
+    - See "Part 100 Func delegate in C#" for related information.
+  - [🔗]() - Part
+  - [🔗]() - Part
 
 Other:
 
 - Change default access denied route [🔗](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
-- [🔗]() - Part
 - [🔗]() - Part
 - [🔗]() - Part
 
@@ -282,10 +285,11 @@ The SSL connection could not be established, see inner exception.
 [Full tutorial 🔗](https://www.youtube.com/playlist?list=PLAC325451207E3105)
 
 - Some topics related to the main tutorial of this file:
-  - Delegates [🔗](https://youtu.be/D2h46fvQX04?list=PLAC325451207E3105)
-  - Lambda Expressions [🔗](https://youtu.be/LDgQ-spnrYY?list=PLAC325451207E3105)
-  - `Task`, `async`, `await` [🔗](https://youtu.be/C5VhaxQWcpE?list=PLAC325451207E3105)
-    - `Thread`, `Action` [🔗](https://youtu.be/SgHYVPKJRX8?list=PLAC325451207E3105)
+  - Delegates [🔗](https://youtu.be/D2h46fvQX04?list=PLAC325451207E3105) - Part 36
+  - Lambda Expressions [🔗](https://youtu.be/LDgQ-spnrYY?list=PLAC325451207E3105) - Part 99
+  - `Task`, `async`, `await` [🔗](https://youtu.be/C5VhaxQWcpE?list=PLAC325451207E3105) - Part 101
+    - `Thread`, `Action` [🔗](https://youtu.be/SgHYVPKJRX8?list=PLAC325451207E3105) - Part 102
+  - Func Delegates [🔗](https://youtu.be/3Q4LKCIYrzQ?list=PLAC325451207E3105) - Part 100
 
 ## LINQ Tutorials
 
