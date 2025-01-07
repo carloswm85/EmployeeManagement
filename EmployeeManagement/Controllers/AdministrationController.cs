@@ -126,6 +126,7 @@ namespace EmployeeManagement.Controllers
         /// <param name="userId"></param>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> ManageUserRoles(string userId)
         {
             // If you want to see ALL user roles, as claims, place a breackpoing here.
@@ -174,6 +175,7 @@ namespace EmployeeManagement.Controllers
         /// <param name="userId"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> ManageUserRoles(List<UserRolesViewModel> model, string userId)
         {
             var user = await userManager.FindByIdAsync(userId);
@@ -447,7 +449,6 @@ namespace EmployeeManagement.Controllers
         /// <param name="id">The ID of the role to edit</param>
         /// <returns>A view to edit the role, or NotFound view if the role does not exist</returns>
         [HttpGet]
-        [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> EditRole(string id)
         {
             // Find the role by ID
@@ -483,8 +484,7 @@ namespace EmployeeManagement.Controllers
         /// </summary>
         /// <param name="model">The model containing updated role information</param>
         /// <returns>Redirects to ListRoles view if successful; otherwise returns the EditRole view with errors</returns>
-        [HttpPost]
-        [Authorize(Policy = "EditRolePolicy")]
+        [HttpPost]        
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
         {
             var role = await roleManager.FindByIdAsync(model.Id);

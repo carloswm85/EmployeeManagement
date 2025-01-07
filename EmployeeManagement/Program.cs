@@ -1,4 +1,5 @@
 using EmployeeManagement.Models;
+using EmployeeManagement.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -38,10 +39,7 @@ try
     {
         options.Password.RequiredUniqueChars = 3;
     });
-
-    //builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
-    builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
-
+    
     // Add services to the container. This is where you configure services to be used by the app.
     builder.Services
         .AddControllersWithViews(options =>
@@ -82,7 +80,8 @@ try
 
         // Explanation: One condition or the other
         options.AddPolicy("EditRolePolicy", // CUSTOM POLICY using Func type
-            policy => policy.RequireAssertion(context => AuthorizeAccess(context)));
+                                            // Custom handler registry
+            policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
 
         options.AddPolicy("AllowedCountryPolicy",
             // "allowed values" is an array of string
@@ -96,6 +95,12 @@ try
         options.AddPolicy("SuperAdminPolicy", policy =>
                   policy.RequireRole("Admin", "User", "Manager"));
     });
+
+    //builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+    builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
+
+    // Custom handler registry
+    builder.Services.AddSingleton<IAuthorizationHandler, CanEditOnlyOtherAdminRolesAndClaimsHandler>();
 
     //--------------------------------------------------------------------- NLog
     builder.Logging.ClearProviders();

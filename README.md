@@ -253,6 +253,19 @@ Main elements:
   - Using "claim type" and "claim value" in policy based authorization [🔗](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
   - Create custom authorization policy (Policy with multiple requirements) [🔗](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99
     - See "Part 100 Func delegate in C#" for related information.
+  - Custom authorization requirements and handlers - EXPLANATION [🔗](https://youtu.be/1qdtjlKDJJ0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 100
+    1. BUILT-IN Authorization Requirement
+       1. Policies with one requirement. → `RequireClaim`
+       1. Policies with multiple requirements:
+          1. Simple relationships → `RequireClaim` + `RequireRole`
+          2. Complex relationships → `RequireAssertion`
+    2. CUSTOM Authorization Requirement
+       1. Implement `IAuthorizationRequirement` → `IAuthorizationHandler<T>` where T is the requirement
+  - Custom authorization requirements and handlers - EXAMPLE [🔗](https://youtu.be/cXsYer31UPo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 101
+  - [🔗]() - Part
+  - [🔗]() - Part
+  - [🔗]() - Part
+  - [🔗]() - Part
   - [🔗]() - Part
   - [🔗]() - Part
 
