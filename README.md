@@ -1,7 +1,7 @@
 ﻿- [Kudvenkat](#kudvenkat)
   - [ASP.NET Core For Beginners](#aspnet-core-for-beginners)
-    - [Web Server Hosting](#web-server-hosting)
-    - [Set up](#set-up)
+    - [**WEB SERVER HOSTING**](#web-server-hosting)
+    - [**SET UP**](#set-up)
     - [**MVC**](#mvc)
     - [**DEPENDENCY INJECTION**](#dependency-injection)
     - [**PAGE VIEWS**](#page-views)
@@ -14,13 +14,14 @@
     - [**Error Handling**](#error-handling)
     - [**Logging**](#logging)
     - [**ASP.NET Core Identity** - Authentication \& Authorization](#aspnet-core-identity---authentication--authorization)
-      - [SET UP FOR IDENTITY](#set-up-for-identity)
-      - [ROLES](#roles)
-      - [USERS](#users)
-      - [CLAIMS](#claims)
-      - [AUTHORIZATION POLICY](#authorization-policy)
+      - [_IDENTITY SET UP_](#identity-set-up)
+      - [_ROLES_](#roles)
+      - [_USERS_](#users)
+      - [_CLAIMS_](#claims)
+      - [_AUTHORIZATION POLICY_](#authorization-policy)
+      - [_EXTERNAL IDENTITY PROVIDERS_](#external-identity-providers)
     - [**CLIENT SIDE VALIDATION**](#client-side-validation)
-    - [MSSQL SERVER](#mssql-server)
+    - [**MSSQL SERVER**](#mssql-server)
 - [C# Programming Language](#c-programming-language)
   - [C# Tutorial For Beginners](#c-tutorial-for-beginners)
   - [LINQ Tutorials](#linq-tutorials)
@@ -41,7 +42,7 @@
 
 ## ASP.NET Core For Beginners
 
-### Web Server Hosting
+### **WEB SERVER HOSTING**
 
 ![Web Server](images/web-server.png)
 
@@ -54,7 +55,7 @@
   - Internal server: Kestrel
   - External web server (or _reverse proxy server_): IIS (Express), Nginx or Apache
 
-### Set up
+### **SET UP**
 
 - `IConfiguration` service:
   - `appsettings.json` [🔗](https://youtu.be/m_BevGi7zBw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 9
@@ -207,7 +208,7 @@
 - Google search [🔎](https://www.google.com/search?q=asp+net+core+identity+documentation)
 - Official documentation [📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
 
-#### SET UP FOR IDENTITY
+#### _IDENTITY SET UP_
 
 - Inherit from `IdentityDbContext`, add services, add middleware, generate tables [🔗](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 65
 - Register new user [🔗](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 66
@@ -222,7 +223,7 @@
     - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73
 - Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
 
-#### ROLES
+#### _ROLES_
 
 - Create Roles [🔗](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
 - Get list of roles [🔗](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
@@ -234,7 +235,7 @@
     - See part-94 for more.
 - User role membership: Add/remove roles for user [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 
-#### USERS
+#### _USERS_
 
 - List users, register new user and redirect correctly [🔗](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
 - Edit user information, roles and claims [🔗](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
@@ -243,7 +244,7 @@
 - Delete role [🔗](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
 - Manager user roles [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 91
 
-#### CLAIMS
+#### _CLAIMS_
 
 - Manage User Claims [🔗](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93
   - "Claim": Name-value pair used for making _access control decisions_.
@@ -258,34 +259,54 @@
   - _Claim based_ authorization checks in views.
   - See part-83 for related information.
 
-#### AUTHORIZATION POLICY
+#### _AUTHORIZATION POLICY_
 
 - Using "claim type" and "claim value" in policy based authorization [🔗](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
 - Create custom authorization policy (Policy with multiple requirements) [🔗](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99
   - See "Part 100 Func delegate in C#" for related information.
 - Custom authorization requirements and handlers - EXPLANATION [🔗](https://youtu.be/1qdtjlKDJJ0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 100
   1. BUILT-IN Authorization Requirement
-      1. Policies with one requirement. → `RequireClaim`
-      1. Policies with multiple requirements:
-         1. Simple relationships → `RequireClaim` + `RequireRole`
-         2. Complex relationships → `RequireAssertion`
+     1. Policies with one requirement. → `RequireClaim`
+     1. Policies with multiple requirements:
+        1. Simple relationships → `RequireClaim` + `RequireRole`
+        2. Complex relationships → `RequireAssertion`
   2. CUSTOM Authorization Requirement
-      1. Implement `IAuthorizationRequirement` → `IAuthorizationHandler<T>` where T is the requirement
+     1. Implement `IAuthorizationRequirement` → `IAuthorizationHandler<T>` where T is the requirement
 - Custom authorization requirements and handlers - EXAMPLE [🔗](https://youtu.be/cXsYer31UPo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 101
 - Multiple authorization handlers for a requirement [🔗](https://youtu.be/aKEN2Z-jfgc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 102
+- Custom authorization handler: SUCCESS Vs FAILURE, and NOTHING (`Task.CompletedTask`) [🔗](https://youtu.be/119eY23O-RE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 103
 
-- [🔗]() - Part
-- [🔗]() - Part
-- [🔗]() - Part
-- [🔗]() - Part
-- [🔗]() - Part
-- [🔗]() - Part
+#### _EXTERNAL IDENTITY PROVIDERS_
+
+- Introduction, how it works [🔗](https://youtu.be/ZgPK51X5BGw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 104
+- Create Google OAuth Credentials - Client Id & Secret [🔗](https://youtu.be/V4KqpIX6pdI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 105
+  - <https://console.cloud.google.com/>
+  - Delete resource: <https://console.cloud.google.com/cloud-resource-manager?organizationId=0>
+  - Google Auth: <https://console.cloud.google.com/auth/audience>
+  - Credentials: <https://console.cloud.google.com/apis/credentials>
+- Google Authentication, setting up the UI [🔗](https://youtu.be/fgzRnlB992s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 106
+- [🔗]() - Part 107
+- [🔗]() - Part 108
+- [🔗]() - Part 109
+- [🔗]() - Part 110
+- [🔗]() - Part 111
+- [🔗]() - Part 112
+- [🔗]() - Part 113
+- [🔗]() - Part 114
+- [🔗]() - Part 115
+- [🔗]() - Part 116
+- [🔗]() - Part 117
+- [🔗]() - Part 118
+- [🔗]() - Part 119
+- [🔗]() - Part 120
+- [🔗]() - Part 121
+- [🔗]() - Part 122
+- [🔗]() - Part 123
+- [🔗]() - Part 124
 
 Other:
 
 - Change default access denied route [🔗](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
-- [🔗]() - Part
-- [🔗]() - Part
 
 ### **CLIENT SIDE VALIDATION**
 
@@ -293,7 +314,7 @@ Other:
   - Requirements (in this order): `jquery.js`, `jquery.validate.js`, `jquery.validate.unobtrusive.js`
 - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
 
-### MSSQL SERVER
+### **MSSQL SERVER**
 
 - Enforce `ON DELETE NO ACTION` [🔗](https://youtu.be/txTZAFut9mA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 89
   - _Cascading referential integrity constraint_
