@@ -99,8 +99,9 @@ try
     //builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
     builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
-    // Custom handler registry
+    // Custom handler registries
     builder.Services.AddSingleton<IAuthorizationHandler, CanEditOnlyOtherAdminRolesAndClaimsHandler>();
+    builder.Services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
 
     //--------------------------------------------------------------------- NLog
     builder.Logging.ClearProviders();
