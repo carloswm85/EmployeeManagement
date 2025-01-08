@@ -113,9 +113,15 @@ namespace EmployeeManagement.Controllers
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login()
+        public async Task<IActionResult> LoginAsync(string returnUrl)
         {
-            return View();
+            LoginViewModel model = new LoginViewModel
+            {
+                ReturnUrl = returnUrl,
+                ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList(),
+            };
+
+            return View(model);
         }
 
         /// <summary>
@@ -157,6 +163,31 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
+        /// Initiates the external login process by redirecting the user to the specified external provider's login page.
+        /// Every call handles one single provider at the time.
+        /// </summary>
+        /// <param name="provider">The name of the external authentication provider (e.g., Google, Facebook).</param>
+        /// <param name="returnUrl">The URL to which the user should be redirected after a successful login.</param>
+        /// <returns>
+        /// A ChallengeResult that triggers the external authentication process with the specified provider.
+        /// Notice the resulting callback is set in it ("ExternalLoginCallback").
+        /// </returns>
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            // Build the URL for the external login callback, including the return URL parameter
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
+
+            // Configure the properties for the external authentication process, including the redirect URL
+            var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+            // Return a ChallengeResult to trigger the external login with the specified provider
+            return new ChallengeResult(provider, properties);
+        }
+
+
+        /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
@@ -164,7 +195,6 @@ namespace EmployeeManagement.Controllers
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {
-
             return View();
         }
     }

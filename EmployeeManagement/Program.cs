@@ -55,6 +55,13 @@ try
         .AddXmlDataContractSerializerFormatters() //
         ;
 
+    // Microsoft.AspNetCore.Authentication.Google
+    builder.Services.AddAuthentication()
+        .AddGoogle(options => { 
+            options.ClientId = "847703839060-mjpji359cp8og2dig5130lnmp9i75vud.apps.googleusercontent.com";
+            options.ClientSecret = "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";
+        });  
+
     builder.Services.ConfigureApplicationCookie(options => {
         options.AccessDeniedPath = new PathString("/Administration/AccessDenied");
     });
