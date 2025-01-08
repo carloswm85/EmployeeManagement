@@ -16,7 +16,7 @@ namespace EmployeeManagement.ViewModels
         [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
 
-        public string ReturnUrl { get; set; }
+        public string? ReturnUrl { get; set; }
 
         // AuthenticationScheme is in Microsoft.AspNetCore.Authentication namespace
         public IList<AuthenticationScheme> ExternalLogins { get; set; }

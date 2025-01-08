@@ -3,6 +3,7 @@ using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using EmployeeManagement.Models;
+using System.Security.Claims;
 
 namespace EmployeeManagement.Controllers
 {
@@ -113,7 +114,7 @@ namespace EmployeeManagement.Controllers
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> LoginAsync(string returnUrl)
+        public async Task<IActionResult> LoginAsync(string? returnUrl)
         {
             LoginViewModel model = new LoginViewModel
             {
@@ -174,18 +175,119 @@ namespace EmployeeManagement.Controllers
         /// </returns>
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult ExternalLogin(string provider, string returnUrl)
+        public IActionResult ExternalLogin(string provider, string? returnUrl)
         {
             // Build the URL for the external login callback, including the return URL parameter
-            var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl })
+                  ?? throw new InvalidOperationException("Callback URL generation failed.");
 
             // Configure the properties for the external authentication process, including the redirect URL
-            var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            var properties = signInManager?.ConfigureExternalAuthenticationProperties(provider, redirectUrl)
+                  ?? throw new NullReferenceException("SignInManager is not initialized.");
 
             // Return a ChallengeResult to trigger the external login with the specified provider
             return new ChallengeResult(provider, properties);
         }
 
+        /// <summary>
+        /// Handles the callback after an external login attempt.
+        /// </summary>
+        /// <param name="returnUrl">The URL to return to after a successful login.</param>
+        /// <param name="error">An error message returned by the external login provider, if any.</param>
+        /// <returns>An IActionResult that redirects the user or shows an error page.</returns>
+        [AllowAnonymous]
+        public async Task<IActionResult>
+            ExternalLoginCallback(string? returnUrl = null, string? error = null)
+        {
+            // If returnUrl is null, default to the home page
+            returnUrl = returnUrl ?? Url.Content("~/");
+
+            // Prepare the LoginViewModel with the return URL and external login schemes
+            LoginViewModel loginViewModel = new LoginViewModel
+            {
+                ReturnUrl = returnUrl,
+                ExternalLogins =
+                        (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
+
+            // ERROR #1: Handle any errors from the external login provider
+            if (error != null)
+            {
+                // Add an error to the model state to be displayed on the login page
+                ModelState
+                    .AddModelError(string.Empty, $"Error from external provider: {error}");
+
+                // Return the login view with the error message
+                return View("Login", loginViewModel);
+            }
+
+            // Get the login information about the user from the external login provider
+            // User claims from the provider are contained here
+            var info = await signInManager.GetExternalLoginInfoAsync();
+
+            // ERROR #2: Handle cases where external login information is not available
+            if (info == null)
+            {
+                // Add an error to the model state and return the login view
+                ModelState
+                    .AddModelError(string.Empty, "Error loading external login information.");
+
+                return View("Login", loginViewModel);
+            }
+
+            // Check if the user already has a login associated with this external provider
+            var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider,
+                info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            // `isPersistent` determines whether the session is maintained across browser restarts
+            // `bypassTwoFactor` allows bypassing two-factor authentication during this login attempt
+
+            if (signInResult.Succeeded)
+            {
+                // Redirect the user to the specified return URL upon successful sign-in
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                // Handle the case where the user does not have a local account
+
+                // Get the user's email from the external login claims
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+                if (email != null)
+                {
+                    // Check if a user with this email already exists
+                    var user = await userManager.FindByEmailAsync(email);
+
+                    // If the user does not exist, create a new one without a password
+                    if (user == null)
+                    {
+                        user = new ApplicationUser
+                        {
+                            UserName = info.Principal.FindFirstValue(ClaimTypes.Email),
+                            Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        };
+
+                        // Create the new user in the database
+                        await userManager.CreateAsync(user);
+                    }
+
+                    // Link the external login to the newly created or existing user
+                    await userManager.AddLoginAsync(user, info);
+
+                    // Sign in the user with the new login credentials
+                    await signInManager.SignInAsync(user, isPersistent: false);
+
+                    // Redirect the user to the specified return URL
+                    return LocalRedirect(returnUrl);
+                }
+
+                // If no email claim is received, display an error page
+                ViewBag.ErrorTitle = $"Email claim not received from: {info.LoginProvider}";
+                ViewBag.ErrorMessage = "Please contact support on Pragim@PragimTech.com";
+
+                return View("Error");
+            }
+        }
 
         /// <summary>
         /// 

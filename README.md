@@ -19,7 +19,7 @@
       - [_USERS_](#users)
       - [_CLAIMS_](#claims)
       - [_AUTHORIZATION POLICY_](#authorization-policy)
-      - [_EXTERNAL IDENTITY PROVIDERS_](#external-identity-providers)
+      - [_EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc.](#external-identity-providers---google-facebook-etc)
     - [**CLIENT SIDE VALIDATION**](#client-side-validation)
     - [**MSSQL SERVER**](#mssql-server)
 - [C# Programming Language](#c-programming-language)
@@ -276,16 +276,30 @@
 - Multiple authorization handlers for a requirement [🔗](https://youtu.be/aKEN2Z-jfgc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 102
 - Custom authorization handler: SUCCESS Vs FAILURE, and NOTHING (`Task.CompletedTask`) [🔗](https://youtu.be/119eY23O-RE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 103
 
-#### _EXTERNAL IDENTITY PROVIDERS_
+#### _EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc.
 
+- [OFFICIAL DOCUMENTATION 📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/social/?view=aspnetcore-8.0)
 - Introduction, how it works [🔗](https://youtu.be/ZgPK51X5BGw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 104
 - Create Google OAuth Credentials - Client Id & Secret [🔗](https://youtu.be/V4KqpIX6pdI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 105
   - <https://console.cloud.google.com/>
-  - Delete resource: <https://console.cloud.google.com/cloud-resource-manager?organizationId=0>
-  - Google Auth: <https://console.cloud.google.com/auth/audience>
-  - Credentials: <https://console.cloud.google.com/apis/credentials>
-- Google Authentication, setting up the UI [🔗](https://youtu.be/fgzRnlB992s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 106
-- [🔗]() - Part 107
+  - Google+ API: <https://console.cloud.google.com/marketplace/product/google/plus.googleapis.com>
+    - <https://developers.google.com/+/api-shutdown>
+  - Console work:
+    - Delete resource: <https://console.cloud.google.com/cloud-resource-manager?organizationId=0>
+    - Google Auth: <https://console.cloud.google.com/auth/audience>
+    - Credentials: <https://console.cloud.google.com/apis/credentials>
+  - NOTES for Visual Studio 2022:
+    - Visual Studio 2022 → Project properties → Debug
+      - Enable SSL. From here copy `https://localhost:44370/` and paste it in...
+      - App URL: `https://localhost:44370/`
+      - Copy, paste the same address in the followin section...
+  - NOTES for Google Cloud:
+    - Project name: `Employee Mgmt STS` - STS, stands for "Security Token Service"
+    - Credentials for Web Application → OAuth 2.0 Client name: `Employee Mgmt Client`
+      - Authorized JavaScript origins: `https://localhost:44370` - The HTTP origins that host your web application.
+      - Authorized redirect URIs: `https://localhost:44370/signin-google` - Users will be redirected to this path after they have authenticated with Google.
+- Google Authentication, setting up the UI and the authentication service (part 1) [🔗](https://youtu.be/fgzRnlB992s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 106
+- Setting up the authentication service (part 2): `ExternalLoginCallback` Action [🔗](https://youtu.be/vkB2yaV7_LQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 107
 - [🔗]() - Part 108
 - [🔗]() - Part 109
 - [🔗]() - Part 110
