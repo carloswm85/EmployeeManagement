@@ -166,6 +166,7 @@ namespace EmployeeManagement.Controllers
         /// <summary>
         /// Initiates the external login process by redirecting the user to the specified external provider's login page.
         /// Every call handles one single provider at the time.
+        /// This works the same for Google, Facebook.
         /// </summary>
         /// <param name="provider">The name of the external authentication provider (e.g., Google, Facebook).</param>
         /// <param name="returnUrl">The URL to which the user should be redirected after a successful login.</param>
@@ -191,6 +192,7 @@ namespace EmployeeManagement.Controllers
 
         /// <summary>
         /// Handles the callback after an external login attempt.
+        /// This works the same for Google, Facebook.
         /// </summary>
         /// <param name="returnUrl">The URL to return to after a successful login.</param>
         /// <param name="error">An error message returned by the external login provider, if any.</param>
@@ -267,11 +269,13 @@ namespace EmployeeManagement.Controllers
                             Email = info.Principal.FindFirstValue(ClaimTypes.Email)
                         };
 
-                        // Create the new user in the database
+                        // CREATE THE NEW USER IN THE DATABASE IF IT DOES NOT EXIST
                         await userManager.CreateAsync(user);
                     }
 
                     // Link the external login to the newly created or existing user
+                    // This means that one single user may have Google, Facebook, etc accounts
+                    // link together, as long as they have the same email.
                     await userManager.AddLoginAsync(user, info);
 
                     // Sign in the user with the new login credentials

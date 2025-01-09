@@ -97,8 +97,9 @@ try
                   policy.RequireRole("Admin", "User", "Manager"));
     });
 
-    // Microsoft.AspNetCore.Authentication.Google
+    // >> Remember to generate your own Ids and secrets <<
     builder.Services.AddAuthentication()
+        // Microsoft.AspNetCore.Authentication.Google
         .AddGoogle(options => { 
             options.ClientId = "847703839060-mjpji359cp8og2dig5130lnmp9i75vud.apps.googleusercontent.com";
             //options.ClientId = Environment.GetEnvironmentVariable("google:clientid");
@@ -106,7 +107,12 @@ try
             //options.ClientSecret = Environment.GetEnvironmentVariable("google:clientsecret");
             //options.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
             //options.CallbackPath = "";
+        }).AddFacebook(options =>
+        {
+            options.AppId = "640033055116902";
+            options.AppSecret = "6ed6111c4cc29d9b92386153c8c1ec8e";
         });
+
 
     //builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
     builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();

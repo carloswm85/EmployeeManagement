@@ -1,27 +1,30 @@
 ﻿- [Kudvenkat](#kudvenkat)
-  - [ASP.NET Core For Beginners](#aspnet-core-for-beginners)
-    - [**WEB SERVER HOSTING**](#web-server-hosting)
-    - [**SET UP**](#set-up)
-    - [**MVC**](#mvc)
-    - [**DEPENDENCY INJECTION**](#dependency-injection)
-    - [**PAGE VIEWS**](#page-views)
-    - [**ROUTING**](#routing)
-    - [**TAG HELPERS**](#tag-helpers)
-    - [**MODELS**](#models)
-    - [**SERVER SIDE VALIDATION**](#server-side-validation)
-    - [**BOOTSTRAP**](#bootstrap)
-    - [**ENTITY FRAMEWORK CORE**](#entity-framework-core)
-    - [**Error Handling**](#error-handling)
-    - [**Logging**](#logging)
-    - [**ASP.NET Core Identity** - Authentication \& Authorization](#aspnet-core-identity---authentication--authorization)
-      - [_IDENTITY SET UP_](#identity-set-up)
-      - [_ROLES_](#roles)
-      - [_USERS_](#users)
-      - [_CLAIMS_](#claims)
-      - [_AUTHORIZATION POLICY_](#authorization-policy)
-      - [_EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc.](#external-identity-providers---google-facebook-etc)
-    - [**CLIENT SIDE VALIDATION**](#client-side-validation)
-    - [**MSSQL SERVER**](#mssql-server)
+- [ASP.NET Core For Beginners](#aspnet-core-for-beginners)
+  - [**WEB SERVER HOSTING**](#web-server-hosting)
+  - [**SET UP**](#set-up)
+  - [**MVC**](#mvc)
+  - [**DEPENDENCY INJECTION**](#dependency-injection)
+  - [**PAGE VIEWS**](#page-views)
+  - [**ROUTING**](#routing)
+  - [**TAG HELPERS**](#tag-helpers)
+  - [**MODELS**](#models)
+  - [**SERVER SIDE VALIDATION**](#server-side-validation)
+  - [**BOOTSTRAP**](#bootstrap)
+  - [**ENTITY FRAMEWORK CORE**](#entity-framework-core)
+  - [**Error Handling**](#error-handling)
+  - [**Logging**](#logging)
+  - [**ASP.NET Core Identity** - Authentication \& Authorization](#aspnet-core-identity---authentication--authorization)
+    - [_IDENTITY SET UP_](#identity-set-up)
+    - [_ROLES_](#roles)
+    - [_USERS_](#users)
+    - [_CLAIMS_](#claims)
+    - [_AUTHORIZATION POLICY_](#authorization-policy)
+    - [_EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc](#external-identity-providers---google-facebook-etc)
+      - [Google](#google)
+      - [Facebook](#facebook)
+  - [**CLIENT SIDE VALIDATION**](#client-side-validation)
+  - [**MSSQL SERVER**](#mssql-server)
+  - [**Other**](#other)
 - [C# Programming Language](#c-programming-language)
   - [C# Tutorial For Beginners](#c-tutorial-for-beginners)
   - [LINQ Tutorials](#linq-tutorials)
@@ -29,7 +32,8 @@
 - [Other Topics](#other-topics)
 - [NOTES](#notes)
   - [Libraries](#libraries)
-  - [Delete Rule](#delete-rule)
+  - [Delete Rule At SQL Server \& EF Core](#delete-rule-at-sql-server--ef-core)
+  - [Proxy Variables Example](#proxy-variables-example)
 
 ---
 
@@ -40,9 +44,9 @@
 
 ---
 
-## ASP.NET Core For Beginners
+# ASP.NET Core For Beginners
 
-### **WEB SERVER HOSTING**
+## **WEB SERVER HOSTING**
 
 ![Web Server](images/web-server.png)
 
@@ -55,7 +59,7 @@
   - Internal server: Kestrel
   - External web server (or _reverse proxy server_): IIS (Express), Nginx or Apache
 
-### **SET UP**
+## **SET UP**
 
 - `IConfiguration` service:
   - `appsettings.json` [🔗](https://youtu.be/m_BevGi7zBw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 9
@@ -69,7 +73,7 @@
 - Using `libman` [🔗](https://youtu.be/5qzzjvZ4w0c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 34
   - Use LibMan with ASP\.NET Core in Visual Studio [📑](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-9.0#add-library-files)
 
-### **MVC**
+## **MVC**
 
 - MVC Design [🔗](https://youtu.be/f72ookCWhsQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 15
   - MVC Model = Model class and class repository
@@ -95,7 +99,7 @@
   - ViewModels [🔗](https://youtu.be/Lu24lZsUreg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 26
     - We create a ViewModel when a Model object does not contain all the data a view needs.
 
-### **DEPENDENCY INJECTION**
+## **DEPENDENCY INJECTION**
 
 - Dependency Injection [🔗](https://youtu.be/BPGtVpu81ek?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 19
   - Benefits: Loose coupling, Easier unit testing
@@ -105,7 +109,7 @@
     - `builder.Services.AddScoped()` - A new instance of a Scoped service is created once per request within the scope. For example, in a web application it creates 1 instance per each http request but uses the same instance in the other calls within that same web request. - _3 4 4 4 4 4... So on and so foth._
     - `builder.Services.AddTransient()` - A new instance of a Transient service is created each time it is requested. - _3 3 3 3 3... So on and so foth._
 
-### **PAGE VIEWS**
+## **PAGE VIEWS**
 
 - Layout View [🔗](https://youtu.be/Px8nwoO7FO8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 28
 - ListView [🔗](https://youtu.be/nHAMDUtiV6w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 27
@@ -116,7 +120,7 @@
   - Used to include common namespaces.
   - View directives: `@addTagHelper` `@removeTagHelper` `@tagHelperPrefix` `@model` `@inherits` `@inject`
 
-### **ROUTING**
+## **ROUTING**
 
 - Conventional Routing [🔗](https://youtu.be/ZoxrbrHjj2g?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 32
 - Attribute Routing [🔗](https://youtu.be/prNptonJAiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 33
@@ -124,7 +128,7 @@
   - NOTE: The _controller route template_ is not combined with _action method route template_, if the route template on the action method begins with `/` or `~/`
   - Tokens in attribute routing: `[Route("[controller]/[action]")]`
 
-### **TAG HELPERS**
+## **TAG HELPERS**
 
 - Notes: Similar to _HTML Helpers_. Server side components for HTML rendering. Use: Link generation, form creation, asset load, etc.
 - Tag Helpers & HTML Helpers [🔗](https://youtu.be/iaSdTMdReWg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 35
@@ -135,7 +139,7 @@
 - Form Tag Helpers [🔗](https://youtu.be/mU4hV50rkVE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 40
   - `Form Tag Helper`, `Input Tag Helper`, `Label Tag Helper`, `Select Tag Helper`, `TextArea Tag Helper`, `Validation Tag Helper`
 
-### **MODELS**
+## **MODELS**
 
 - Model Binding [🔗](https://youtu.be/-GkZERrqEQo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 41
   - "Model binding maps data in an HTTP request to controller action method parameters. The action parameters say be simple or complext types."
@@ -147,17 +151,17 @@
   - Edit View - POST [🔗](https://youtu.be/wamToyK4x7I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 56
 - Model Binding Not Working with FOREACH loop [🔗](https://youtu.be/Qobkh8gEP6Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 92
 
-### **SERVER SIDE VALIDATION**
+## **SERVER SIDE VALIDATION**
 
 - Model Validation [🔗](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 42
 - Custom validation attributes [🔗](https://youtu.be/o_AH2MGti0A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 76
 - Select list validation [🔗](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 43
 
-### **BOOTSTRAP**
+## **BOOTSTRAP**
 
 - Navigation Menu [🔗](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 39
 
-### **ENTITY FRAMEWORK CORE**
+## **ENTITY FRAMEWORK CORE**
 
 - Introduction [🔗](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 45
 - Notes:
@@ -184,7 +188,7 @@
     - The file uploaded to the server can be accessed through Model Binding using the IFormFile interface.
   - Upload multiple files at once [🔗](https://youtu.be/14ZqBoQIW-Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 54
 
-### **Error Handling**
+## **Error Handling**
 
 - Handling `404` Not Found Errors:
   - Type 1: Resource with ID not found [🔗](https://youtu.be/QiF3eJ4Zb0o?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 57
@@ -196,19 +200,19 @@
   - Not production: `UseExceptionHandler` [🔗](https://youtu.be/jeBttUIqpuc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 60
 - Custom Error Page (for `ON DELETE NO ACTION`) [🔗](https://youtu.be/0jqZ63ybeRY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 90
 
-### **Logging**
+## **Logging**
 
 - Basics, Logging from console, Built-in Logging Providers [🔗](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 61
 - Logging Exceptions [🔗](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 62
 - Logging to a file [🔗](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63
 - `LogLevel` configuration [🔗](https://youtu.be/bTPnT13Efd4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 64
 
-### **ASP.NET Core Identity** - Authentication & Authorization
+## **ASP.NET Core Identity** - Authentication & Authorization
 
 - Google search [🔎](https://www.google.com/search?q=asp+net+core+identity+documentation)
 - Official documentation [📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
 
-#### _IDENTITY SET UP_
+### _IDENTITY SET UP_
 
 - Inherit from `IdentityDbContext`, add services, add middleware, generate tables [🔗](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 65
 - Register new user [🔗](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 66
@@ -223,7 +227,7 @@
     - NOTE: _Security risk_ - Open redirect attack/vulnerability [🔗](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73
 - Extend `IdentityUser` class [🔗](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
 
-#### _ROLES_
+### _ROLES_
 
 - Create Roles [🔗](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
 - Get list of roles [🔗](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
@@ -235,7 +239,7 @@
     - See part-94 for more.
 - User role membership: Add/remove roles for user [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 
-#### _USERS_
+### _USERS_
 
 - List users, register new user and redirect correctly [🔗](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
 - Edit user information, roles and claims [🔗](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
@@ -244,7 +248,7 @@
 - Delete role [🔗](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
 - Manager user roles [🔗](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 91
 
-#### _CLAIMS_
+### _CLAIMS_
 
 - Manage User Claims [🔗](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93
   - "Claim": Name-value pair used for making _access control decisions_.
@@ -259,7 +263,7 @@
   - _Claim based_ authorization checks in views.
   - See part-83 for related information.
 
-#### _AUTHORIZATION POLICY_
+### _AUTHORIZATION POLICY_
 
 - Using "claim type" and "claim value" in policy based authorization [🔗](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
 - Create custom authorization policy (Policy with multiple requirements) [🔗](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99
@@ -276,11 +280,15 @@
 - Multiple authorization handlers for a requirement [🔗](https://youtu.be/aKEN2Z-jfgc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 102
 - Custom authorization handler: SUCCESS Vs FAILURE, and NOTHING (`Task.CompletedTask`) [🔗](https://youtu.be/119eY23O-RE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 103
 
-#### _EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc.
+### _EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc
 
 - [OFFICIAL DOCUMENTATION 📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/social/?view=aspnetcore-8.0)
+- Error when connecting from behind a bypassed proxy: You may need to unset [these Windows environment variables](#proxy-variables-example).
+
+#### Google
+
 - Introduction, how it works [🔗](https://youtu.be/ZgPK51X5BGw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 104
-- Create Google OAuth Credentials - Client Id & Secret [🔗](https://youtu.be/V4KqpIX6pdI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 105
+- Create Google OAuth Credentials - Obtain Client Id & Secret [🔗](https://youtu.be/V4KqpIX6pdI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 105
   - <https://console.cloud.google.com/>
   - Google+ API: <https://console.cloud.google.com/marketplace/product/google/plus.googleapis.com>
     - <https://developers.google.com/+/api-shutdown>
@@ -298,10 +306,27 @@
     - Credentials for Web Application → OAuth 2.0 Client name: `Employee Mgmt Client`
       - Authorized JavaScript origins: `https://localhost:44370` - The HTTP origins that host your web application.
       - Authorized redirect URIs: `https://localhost:44370/signin-google` - Users will be redirected to this path after they have authenticated with Google.
-- Google Authentication, setting up the UI and the authentication service (part 1) [🔗](https://youtu.be/fgzRnlB992s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 106
-- Setting up the authentication service (part 2): `ExternalLoginCallback` Action [🔗](https://youtu.be/vkB2yaV7_LQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 107
-- [🔗]() - Part 108
-- [🔗]() - Part 109
+- Google Authentication, setting up the UI and the authentication service [🔗](https://youtu.be/fgzRnlB992s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 106
+- Handle authenticated user information received from Google: `ExternalLoginCallback` Action [🔗](https://youtu.be/vkB2yaV7_LQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 107
+
+#### Facebook
+
+- Register application with Facebook [🔗](https://youtu.be/uAymQERp90w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 108
+  - <https://developers.facebook.com/apps/>
+    - App Name: `Employee Mgmt Client`
+    - Use case: `Authenticate and request data from users with Facebook login`
+  - <https://developers.facebook.com/apps/-app-id-/add/> - Add Facebook login product, change settings
+    - Settings:
+      - `Client OAuth login`: On
+      - `Valid OAuth Redirect URIs`: `https://localhost:44370/signin-facebook` - Base URL comes from project properties → Debug → General → App URL
+  - <https://developers.facebook.com/apps/640033055116902/use_cases/customize/>
+    - Facebook Login → Permissions → email → `Add`
+  - <https://developers.facebook.com/apps/-app-id-/settings/basic/>
+    - Privacy Policy URL: `https://localhost:44370/Home/Privacy`
+    - User Data Deletion → Data deletion callback URL: `https://localhost:44370/Administration/DeleteUserData/Facebook` (The method has not been added)
+    - Category: `Education`
+    - App icon: `EmployeeManagement/EmployeeManagement/wwwroot/images/employees_1024x1024.png`
+- Facebook authentication code integration [🔗](https://youtu.be/R_1OW8PyiRI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 109
 - [🔗]() - Part 110
 - [🔗]() - Part 111
 - [🔗]() - Part 112
@@ -318,19 +343,19 @@
 - [🔗]() - Part 123
 - [🔗]() - Part 124
 
-Other:
-
-- Change default access denied route [🔗](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
-
-### **CLIENT SIDE VALIDATION**
+## **CLIENT SIDE VALIDATION**
 
 - Client side validation implementation [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
   - Requirements (in this order): `jquery.js`, `jquery.validate.js`, `jquery.validate.unobtrusive.js`
 - Remote validation [🔗](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
 
-### **MSSQL SERVER**
+## **MSSQL SERVER**
 
 - Enforce `ON DELETE NO ACTION` [🔗](https://youtu.be/txTZAFut9mA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 89
+
+## **Other**
+
+- Change default access denied route [🔗](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
   - _Cascading referential integrity constraint_
 - [🔗]() - Part
 
@@ -383,7 +408,7 @@ The SSL connection could not be established, see inner exception.
 - <https://cdnjs.com/>
 - [jquery-validate 🔗](https://jqueryvalidation.org/)
 
-## Delete Rule
+## Delete Rule At SQL Server & EF Core
 
 | **SQL Server** | **EF Core**           | **Behavior**                                                                                                                                     |
 | -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -395,3 +420,13 @@ The SSL connection could not be established, see inner exception.
 | -              | `.ClientCascade`(4)   | The dependent entities are deleted in client-side memory but require a save to propagate to the database.                                        |
 | **NoAction**   | `.NoAction`(5)        | EF Core does not perform any action, and the database enforces referential integrity constraints.                                                |
 | **SetDefault** | `.ClientNoAction`(6)  | No action is performed on the dependent entities in the client; the database handles `SET DEFAULT`.                                              |
+
+## Proxy Variables Example
+
+- For Windows enviroment variables:
+
+```terminal
+HTTP_PROXY = http://10.1.33.254:80
+HTTPS_PROXY = https://10.1.33.254:80
+NO_PROXY = localhost,127.0.0.1,::1,LOCALHOST
+```

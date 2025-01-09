@@ -91,7 +91,7 @@
                         <div>
                             @foreach (var provider in Model.ExternalLogins)
                             {
-                                <button type="submit" class="btn btn-danger"
+                                <button type="submit" class="btn @(provider.DisplayName == "Google" ? "btn-outline-danger" : "btn-outline-primary" ) mb-1"
                                         name="provider" value="@provider.Name"
                                         title="Log in using your @provider.DisplayName account">
                                     @provider.DisplayName ↗

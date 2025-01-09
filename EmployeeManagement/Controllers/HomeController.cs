@@ -228,6 +228,7 @@ namespace EmployeeManagement.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return View();
