@@ -34,6 +34,8 @@
   - [Libraries](#libraries)
   - [Delete Rule At SQL Server \& EF Core](#delete-rule-at-sql-server--ef-core)
   - [Proxy Variables Example](#proxy-variables-example)
+  - [Configuration Sources](#configuration-sources)
+    - [System Variables](#system-variables)
 
 ---
 
@@ -44,7 +46,7 @@
 
 ---
 
-# ASP.NET Core For Beginners
+# ASP\.NET Core For Beginners
 
 ## **WEB SERVER HOSTING**
 
@@ -67,7 +69,7 @@
 - Middlewares introduction [🔗](https://youtu.be/ALu4jtvjSYw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 10
   - Pipeline configuration [🔗](https://youtu.be/nt6anXAwfYI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 11
 - Static files and default files [🔗](https://youtu.be/yt6bzZoovgM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 12
-- Development environments [🔗](https://youtu.be/x8jNX1nb_og?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 14
+- Development environments: Environment variables from OS [🔗](https://youtu.be/x8jNX1nb_og?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 14
   - _Development_, _Staging_, _Production_
   - `ASPNETCORE_ENVIRONMENT` for selecting the run environment.
 - Using `libman` [🔗](https://youtu.be/5qzzjvZ4w0c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 34
@@ -207,7 +209,7 @@
 - Logging to a file [🔗](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63
 - `LogLevel` configuration [🔗](https://youtu.be/bTPnT13Efd4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 64
 
-## **ASP.NET Core Identity** - Authentication & Authorization
+## **ASP\.NET Core Identity** - Authentication & Authorization
 
 - Google search [🔎](https://www.google.com/search?q=asp+net+core+identity+documentation)
 - Official documentation [📑](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
@@ -327,21 +329,6 @@
     - Category: `Education`
     - App icon: `EmployeeManagement/EmployeeManagement/wwwroot/images/employees_1024x1024.png`
 - Facebook authentication code integration [🔗](https://youtu.be/R_1OW8PyiRI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 109
-- [🔗]() - Part 110
-- [🔗]() - Part 111
-- [🔗]() - Part 112
-- [🔗]() - Part 113
-- [🔗]() - Part 114
-- [🔗]() - Part 115
-- [🔗]() - Part 116
-- [🔗]() - Part 117
-- [🔗]() - Part 118
-- [🔗]() - Part 119
-- [🔗]() - Part 120
-- [🔗]() - Part 121
-- [🔗]() - Part 122
-- [🔗]() - Part 123
-- [🔗]() - Part 124
 
 ## **CLIENT SIDE VALIDATION**
 
@@ -357,9 +344,22 @@
 
 - Change default access denied route [🔗](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
   - _Cascading referential integrity constraint_
-- [🔗]() - Part
-
-The SSL connection could not be established, see inner exception.
+- Secret Manager in ASP\.NET Core [🔗](https://youtu.be/TVF9o5qbrkI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 110 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-secret-manager.html)
+  - Use: "Keep production secrets like database connection string, API and encryption keys out of source control."
+- [🔗]() - Part 111
+- [🔗]() - Part 112
+- [🔗]() - Part 113
+- [🔗]() - Part 114
+- [🔗]() - Part 115
+- [🔗]() - Part 116
+- [🔗]() - Part 117
+- [🔗]() - Part 118
+- [🔗]() - Part 119
+- [🔗]() - Part 120
+- [🔗]() - Part 121
+- [🔗]() - Part 122
+- [🔗]() - Part 123
+- [🔗]() - Part 124
 
 ---
 
@@ -430,3 +430,22 @@ HTTP_PROXY = http://10.1.33.254:80
 HTTPS_PROXY = https://10.1.33.254:80
 NO_PROXY = localhost,127.0.0.1,::1,LOCALHOST
 ```
+
+## Configuration Sources
+
+| Configuration Source                     | Course<br>Part | Override |
+| ---------------------------------------- | -------------- | -------- |
+| `appsettings.json`                       | 9              | 1st      |
+| `appsettings.{env.EnvironmentName}.json` | -              | 2nd      |
+| User secrets                             | 110            | 3rd      |
+| Environment variables                    | 14             | 4th      |
+| Command-line arguments                   | -              | 5th      |
+
+- `env.EnvironmentName`: `Development`
+
+### System Variables
+
+- Environment variables are configured at operating system level.
+- Example:
+  - `Variable name`: `ConnectionString:EmployeeDBConnection`
+  - `Variable value`: `Server=localhost;Database=EmployeeDB;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;Encrypt=False`
