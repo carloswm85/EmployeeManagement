@@ -34,11 +34,29 @@ try
     {
         options.Password.RequiredLength = 10;
         options.Password.RequiredUniqueChars = 3;
+
         options.SignIn.RequireConfirmedEmail = true;
 
+        options.Tokens.EmailConfirmationTokenProvider = "CustomEmailConfirmation";
     })
         .AddEntityFrameworkStores<AppDbContext>()
-        .AddDefaultTokenProviders();
+        .AddDefaultTokenProviders()
+        // CUSTOM TOKEN PROVIDER OPTIONS
+        .AddTokenProvider<CustomEmailConfirmationTokenProvider
+            <ApplicationUser>>("CustomEmailConfirmation")
+        ;
+
+    // BUILT-IN TOKEN PROVIDER OPTIONS
+    builder.Services.Configure<DataProtectionTokenProviderOptions>(options => {
+        // Set the lifespan of ALL tokens to 5 hours
+        options.TokenLifespan = TimeSpan.FromHours(5);
+    });
+
+    // CUSTOM TOKEN PROVIDER OPTIONS
+    builder.Services.Configure<CustomEmailConfirmationTokenProviderOptions>(options => {
+        // Set the lifespan of EMAIL tokens to...
+        options.TokenLifespan = TimeSpan.FromDays(3);
+    });
 
     // Add services to the container. This is where you configure services to be used by the app.
     builder.Services

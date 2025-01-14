@@ -23,7 +23,8 @@
     - [_EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc](#external-identity-providers---google-facebook-etc)
       - [Google](#google)
       - [Facebook](#facebook)
-    - [Email Confirmation](#email-confirmation)
+    - [Email Management](#email-management)
+  - [**PASSWORD/TOKENS/ENCRYPTION/DECRyPTION MANAGEMENT**](#passwordtokensencryptiondecryption-management)
   - [**CLIENT SIDE VALIDATION**](#client-side-validation)
   - [**MSSQL SERVER**](#mssql-server)
   - [**Other**](#other)
@@ -343,7 +344,7 @@
     - App icon: `EmployeeManagement/EmployeeManagement/wwwroot/images/employees_1024x1024.png`
 - Facebook authentication code integration [🔗](https://youtu.be/R_1OW8PyiRI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 109
 
-### Email Confirmation
+### Email Management
 
 - Why email confirmation is important for app security [🔗](https://youtu.be/MChbBMLS2FQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 111 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/why-email-confirmation-is-important.html)
 - Block log in if email is not confirmed [🔗](https://youtu.be/4XugKqgwGnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 112 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/block-login-if-email-is-not-confirmed.html)
@@ -351,6 +352,23 @@
   - Using token providers.
 - External login email confirmation [🔗](https://youtu.be/k_q5ZSh07t4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 114 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/external-login-email-confirmation-in.html)
   - External registration is allowed, but external login is blocked until email confirmation is performed.
+
+## **PASSWORD/TOKENS/ENCRYPTION/DECRyPTION MANAGEMENT**
+
+- Password:
+  - Forgot password [🔗](https://youtu.be/0W0yAz7fu04?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 115 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/forgot-password-in-aspnet-core.html)
+  - Reset password [🔗](https://youtu.be/72Eu92ZkgCg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 116 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/reset-password-in-aspnet-core.html)
+- Tokens:
+  - How Tokens are generated and validated [🔗](https://youtu.be/fOQjWUokhn8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 117 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/how-tokens-are-generated-and-validated.html)
+    - Generated token contains:
+      - (`Token Creation Time` + `User ID` + `Token Purpose` + `Security Stamp`) ← Encrypted and then Base64 Encoded
+  - Password reset token lifetime (_built-in_ method) [🔗](https://youtu.be/gX6CW8c4Huw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 118 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-password-reset-token.html)
+  - Password reset token lifetime (_CUSTOM_ method) [🔗](https://youtu.be/lYTXJrJGg0U?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 119 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-custom-token-provider.html)
+- [🔗]() - Part 120 [📑]()
+- [🔗]() - Part 121 [📑]()
+- [🔗]() - Part 122 [📑]()
+- [🔗]() - Part 123 [📑]()
+- [🔗]() - Part 124 [📑]()
 
 ## **CLIENT SIDE VALIDATION**
 
@@ -368,16 +386,6 @@
   - _Cascading referential integrity constraint_
 - Secret Manager in ASP\.NET Core [🔗](https://youtu.be/TVF9o5qbrkI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 110 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-secret-manager.html)
   - Use: "Keep production secrets like database connection string, API and encryption keys out of source control."
-- [🔗]() - Part 115 [📑]()
-- [🔗]() - Part 116 [📑]()
-- [🔗]() - Part 117 [📑]()
-- [🔗]() - Part 118 [📑]()
-- [🔗]() - Part 119 [📑]()
-- [🔗]() - Part 120 [📑]()
-- [🔗]() - Part 121 [📑]()
-- [🔗]() - Part 122 [📑]()
-- [🔗]() - Part 123 [📑]()
-- [🔗]() - Part 124 [📑]()
 
 ---
 
