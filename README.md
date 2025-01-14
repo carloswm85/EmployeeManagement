@@ -364,7 +364,8 @@
       - (`Token Creation Time` + `User ID` + `Token Purpose` + `Security Stamp`) ← Encrypted and then Base64 Encoded
   - Password reset token lifetime (_built-in_ method) [🔗](https://youtu.be/gX6CW8c4Huw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 118 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-password-reset-token.html)
   - Password reset token lifetime (_CUSTOM_ method) [🔗](https://youtu.be/lYTXJrJGg0U?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 119 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-custom-token-provider.html)
-- [🔗]() - Part 120 [📑]()
+- Encryption and Decryption:
+  - Encryption and Decryption Examples [🔗](https://youtu.be/HlHDTQhVYoI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 120 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-encryption-and-decryption.html)
 - [🔗]() - Part 121 [📑]()
 - [🔗]() - Part 122 [📑]()
 - [🔗]() - Part 123 [📑]()

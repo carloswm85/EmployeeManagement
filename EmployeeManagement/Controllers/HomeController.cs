@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
 using EmployeeManagement.Models;
+using EmployeeManagement.Security;
 using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
@@ -18,21 +20,34 @@ namespace EmployeeManagement.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IWebHostEnvironment _hostingEnvironment;
+        // It is through IDataProtector interface Protect and Unprotect methods,
+        // we encrypt and decrypt respectively
+        private readonly IDataProtector protector;
 
+        // It is the CreateProtector() method of IDataProtectionProvider interface
+        // that creates an instance of IDataProtector. CreateProtector() requires
+        // a purpose string. So both IDataProtectionProvider and the class that
+        // contains our purpose strings are injected using the contructor
         /// <summary>
         /// 
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="employeeRepository"></param>
         /// <param name="hostingEnvironment"></param>
+        /// <param name="dataProtectionProvider"></param>
+        /// <param name="dataProtectionPurposeStrings"></param>
         public HomeController(
             ILogger<HomeController> logger,
             IEmployeeRepository employeeRepository,
-            IWebHostEnvironment hostingEnvironment)
+            IWebHostEnvironment hostingEnvironment,
+            IDataProtectionProvider dataProtectionProvider,
+            DataProtectionPurposeStrings dataProtectionPurposeStrings)
         {
             _logger = logger;
             _employeeRepository = employeeRepository;
             _hostingEnvironment = hostingEnvironment;
+            // https://youtu.be/HlHDTQhVYoI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&t=339
+            protector = dataProtectionProvider.CreateProtector(dataProtectionPurposeStrings.EmployeeIdRouteValue);
         }
 
         #endregion
@@ -46,7 +61,13 @@ namespace EmployeeManagement.Controllers
         [AllowAnonymous]
         public ViewResult Index()
         {
-            var model = _employeeRepository.GetAllEmployee();
+            var model = _employeeRepository.GetAllEmployee()
+                .Select(e =>
+                {
+                    // Encrypt the ID value and store in EncryptedId property
+                    e.EncryptedId = protector.Protect(e.Id.ToString());
+                    return e;
+                });
             return View(model);
         }
 
@@ -57,9 +78,13 @@ namespace EmployeeManagement.Controllers
         /// <returns></returns>
         // [Route("{id?}")]
         [AllowAnonymous]
-        public ViewResult Details(int? id)
+        public ViewResult Details(string id)
         {
             //throw new Exception("Error in Details View");
+
+            string decryptedId = protector.Unprotect(id);
+            int decryptedIntId = Convert.ToInt32(decryptedId);
+
 
             _logger.LogTrace("Trace Log");
             _logger.LogDebug("Debug Log");
@@ -68,12 +93,12 @@ namespace EmployeeManagement.Controllers
             _logger.LogError("Error Log");
             _logger.LogCritical("Critical Log");
 
-            Employee employee = _employeeRepository.GetEmployee(id.Value);
-            
+            Employee employee = _employeeRepository.GetEmployee(decryptedIntId);
+
             if (employee == null)
             {
                 Response.StatusCode = 404;
-                return View("EmployeeNotFound", id.Value);
+                return View("EmployeeNotFound", id);
             }
 
             var homeDetailsViewModel = new HomeDetailsViewModel()
@@ -244,6 +269,6 @@ namespace EmployeeManagement.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        
+
     }
 }

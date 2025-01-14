@@ -21,7 +21,7 @@
 
             <!-- Card Footer with Action Buttons -->
             <div class="card-footer text-center">
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@employee.Id"
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@employee.EncryptedId"
                    class="btn btn-primary m-1" target="_blank">View</a>
                 <a asp-controller="Home" asp-action="Edit" asp-route-id="@employee.Id"
                    class="btn btn-info m-1">Edit</a>

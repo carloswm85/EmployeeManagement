@@ -139,6 +139,8 @@ try
     builder.Services.AddSingleton<IAuthorizationHandler, CanEditOnlyOtherAdminRolesAndClaimsHandler>();
     builder.Services.AddSingleton<IAuthorizationHandler, SuperAdminHandler>();
 
+    builder.Services.AddSingleton<DataProtectionPurposeStrings>();
+
     //--------------------------------------------------------------------- NLog
     builder.Logging.ClearProviders();
     builder.Host.UseNLog();
