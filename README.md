@@ -1,7 +1,8 @@
-﻿- [Kudvenkat](#kudvenkat)
+- [Kudvenkat](#kudvenkat)
 - [ASP.NET Core For Beginners](#aspnet-core-for-beginners)
+  - [**Introduction**](#introduction)
   - [**WEB SERVER HOSTING**](#web-server-hosting)
-  - [**SET UP**](#set-up)
+  - [**WEB APP CONFIGURATION**](#web-app-configuration)
   - [**MVC**](#mvc)
   - [**DEPENDENCY INJECTION**](#dependency-injection)
   - [**PAGE VIEWS**](#page-views)
@@ -36,37 +37,48 @@
   - [Proxy Variables Example](#proxy-variables-example)
   - [Configuration Sources](#configuration-sources)
     - [System Variables](#system-variables)
+  - [Framework Update/Upgrade](#framework-updateupgrade)
 
 ---
 
 # Kudvenkat
 
-1. [Creating asp net core web application 🔗](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 1
-   1. The course is for NET Core 2.2
+- <https://www.youtube.com/@Csharp-video-tutorialsBlogspot>
+- <https://www.pragimtech.com/>
 
 ---
 
 # ASP\.NET Core For Beginners
 
+## **Introduction**
+
+- [Creating asp net core web application 🔗](https://www.youtube.com/watch?v=4IgC2Q5-yDE&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 01 [📑](https://csharp-video-tutorials.blogspot.com/2018/12/aspnet-core-tutorial.html)
+  - The course is for NET Core 2.2
+- Setting up machine for ASP.NET Core Development [🔗](https://youtu.be/wKUWYOi442I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 02 [📑](https://csharp-video-tutorials.blogspot.com/2018/12/setting-up-machine-for-aspnet-core.html)
+- Creating a ASP.NET Core Web Application [🔗](https://youtu.be/KWidSz17tks?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 03 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/creating-aspnet-core-web-application.html)
+- Project file [🔗](https://youtu.be/6gnsUsjRTVo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 04 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/aspnet-core-project-file.html)
+- Main method [🔗](https://youtu.be/X60RR34gKy0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 05 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/main-method-in-aspnet-core.html)
+
 ## **WEB SERVER HOSTING**
 
 ![Web Server](images/web-server.png)
 
-- InProcess Hosting [🔗](https://youtu.be/ydR2jd3ZaEA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 6
+- InProcess Hosting [🔗](https://youtu.be/ydR2jd3ZaEA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 06
   - `WebApplication.CreateBuilder(args);` - One web server: Kestrel or IIS Express
     - IIS worker process (_w3wp.exe_ or _iisexpress.exe_)
     - No proxy request penalties
-- OutOfProcess Hosting (_default_) [🔗](https://youtu.be/QsXsOX6qq2c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 7
+- OutOfProcess Hosting (_default_) [🔗](https://youtu.be/QsXsOX6qq2c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 07
   - `dotnet.exe` process
   - Internal server: Kestrel
   - External web server (or _reverse proxy server_): IIS (Express), Nginx or Apache
 
-## **SET UP**
+## **WEB APP CONFIGURATION**
 
+- `launchsettings.json` file [🔗](https://youtu.be/u2S4TkkACVc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 08 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/aspnet-core-launchsettingsjson-file.html)
 - `IConfiguration` service:
-  - `appsettings.json` [🔗](https://youtu.be/m_BevGi7zBw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 9
+  - `appsettings.json` [🔗](https://youtu.be/m_BevGi7zBw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 09 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/aspnet-core-appsettingsjson-file.html)
   - Reading order: `appsettings.json`, `appsettings.{Environment}.json`, User secrets, Environment variables, lastly, CLI arguments.
-- Middlewares introduction [🔗](https://youtu.be/ALu4jtvjSYw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 10
+- Middlewares introduction [🔗](https://youtu.be/ALu4jtvjSYw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 10 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/middleware-in-aspnet-core.html)
   - Pipeline configuration [🔗](https://youtu.be/nt6anXAwfYI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 11
 - Static files and default files [🔗](https://youtu.be/yt6bzZoovgM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 12
 - Development environments: Environment variables from OS [🔗](https://youtu.be/x8jNX1nb_og?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 14
@@ -449,3 +461,11 @@ NO_PROXY = localhost,127.0.0.1,::1,LOCALHOST
 - Example:
   - `Variable name`: `ConnectionString:EmployeeDBConnection`
   - `Variable value`: `Server=localhost;Database=EmployeeDB;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;Encrypt=False`
+
+## Framework Update/Upgrade
+
+- .NET Standard: <https://learn.microsoft.com/en-us/dotnet/standard/net-standard>
+- UPDATE/UPGRADE:
+  - Upgrade to a new .NET version: <https://learn.microsoft.com/en-us/dotnet/core/install/upgrade>
+  - Migrate from Windows Forms .NET Framework to .NET: <https://learn.microsoft.com/en-us/dotnet/desktop/winforms/migration/>
+  - Overview of porting from .NET Framework to .NET: <https://learn.microsoft.com/en-us/dotnet/core/porting/>
