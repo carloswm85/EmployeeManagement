@@ -33,13 +33,13 @@ try
     builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     {
         options.Password.RequiredLength = 10;
-    }).AddEntityFrameworkStores<AppDbContext>();
-
-    builder.Services.Configure<IdentityOptions>(options =>
-    {
         options.Password.RequiredUniqueChars = 3;
-    });
-    
+        options.SignIn.RequireConfirmedEmail = true;
+
+    })
+        .AddEntityFrameworkStores<AppDbContext>()
+        .AddDefaultTokenProviders();
+
     // Add services to the container. This is where you configure services to be used by the app.
     builder.Services
         .AddControllersWithViews(options =>

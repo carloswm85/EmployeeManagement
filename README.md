@@ -1,4 +1,4 @@
-- [Kudvenkat](#kudvenkat)
+﻿- [Kudvenkat](#kudvenkat)
 - [ASP.NET Core For Beginners](#aspnet-core-for-beginners)
   - [**Introduction**](#introduction)
   - [**WEB SERVER HOSTING**](#web-server-hosting)
@@ -23,6 +23,7 @@
     - [_EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc](#external-identity-providers---google-facebook-etc)
       - [Google](#google)
       - [Facebook](#facebook)
+    - [Email Confirmation](#email-confirmation)
   - [**CLIENT SIDE VALIDATION**](#client-side-validation)
   - [**MSSQL SERVER**](#mssql-server)
   - [**Other**](#other)
@@ -342,6 +343,15 @@
     - App icon: `EmployeeManagement/EmployeeManagement/wwwroot/images/employees_1024x1024.png`
 - Facebook authentication code integration [🔗](https://youtu.be/R_1OW8PyiRI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 109
 
+### Email Confirmation
+
+- Why email confirmation is important for app security [🔗](https://youtu.be/MChbBMLS2FQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 111 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/why-email-confirmation-is-important.html)
+- Block log in if email is not confirmed [🔗](https://youtu.be/4XugKqgwGnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 112 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/block-login-if-email-is-not-confirmed.html)
+- Email confirmation for internal accounts [🔗](https://youtu.be/yRP6C7fhAuE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 113 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-email-confirmation.html)
+  - Using token providers.
+- External login email confirmation [🔗](https://youtu.be/k_q5ZSh07t4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 114 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/external-login-email-confirmation-in.html)
+  - External registration is allowed, but external login is blocked until email confirmation is performed.
+
 ## **CLIENT SIDE VALIDATION**
 
 - Client side validation implementation [🔗](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
@@ -358,20 +368,16 @@
   - _Cascading referential integrity constraint_
 - Secret Manager in ASP\.NET Core [🔗](https://youtu.be/TVF9o5qbrkI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 110 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-secret-manager.html)
   - Use: "Keep production secrets like database connection string, API and encryption keys out of source control."
-- [🔗]() - Part 111
-- [🔗]() - Part 112
-- [🔗]() - Part 113
-- [🔗]() - Part 114
-- [🔗]() - Part 115
-- [🔗]() - Part 116
-- [🔗]() - Part 117
-- [🔗]() - Part 118
-- [🔗]() - Part 119
-- [🔗]() - Part 120
-- [🔗]() - Part 121
-- [🔗]() - Part 122
-- [🔗]() - Part 123
-- [🔗]() - Part 124
+- [🔗]() - Part 115 [📑]()
+- [🔗]() - Part 116 [📑]()
+- [🔗]() - Part 117 [📑]()
+- [🔗]() - Part 118 [📑]()
+- [🔗]() - Part 119 [📑]()
+- [🔗]() - Part 120 [📑]()
+- [🔗]() - Part 121 [📑]()
+- [🔗]() - Part 122 [📑]()
+- [🔗]() - Part 123 [📑]()
+- [🔗]() - Part 124 [📑]()
 
 ---
 

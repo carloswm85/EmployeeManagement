@@ -18,7 +18,7 @@ namespace EmployeeManagement.ViewModels
 
         public string? ReturnUrl { get; set; }
 
-        // AuthenticationScheme is in Microsoft.AspNetCore.Authentication namespace
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        // AuthenticationScheme is from Microsoft.AspNetCore.Authentication namespace
+        public IList<AuthenticationScheme>? ExternalLogins { get; set; }
     }
 }

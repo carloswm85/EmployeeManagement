@@ -14,16 +14,22 @@ namespace EmployeeManagement.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly ILogger<AccountController> logger;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="userManager"></param>
         /// <param name="signInManager"></param>
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountController(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            ILogger<AccountController> logger
+            )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -71,42 +77,63 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Handles the user registration process.
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">The registration data provided by the user.</param>
+        /// <returns>Returns an IActionResult based on the success or failure of the registration process.</returns>
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            // Check if the model state is valid before processing registration
             if (ModelState.IsValid)
             {
+                // Create a new ApplicationUser instance with the provided registration details
+                // ApplicationUser inherits from IdentityUser in ASP.NET Identity framework
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, City = model.City };
+
+                // Attempt to create the user in the identity system using the provided password
                 var result = await userManager.CreateAsync(user, model.Password);
 
+                // If the user creation was successful
                 if (result.Succeeded)
                 {
-                    // If user is signed in and it is admin
+                    // Generate an email confirmation token for the newly created user
+                    var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                    // Create a confirmation link to be sent to the user's email
+                    var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = token }, Request.Scheme);
+
+                    // Log the confirmation link for debugging purposes
+                    logger.Log(LogLevel.Warning, confirmationLink);
+
+                    // Check if the current user is signed in and has an admin role
                     if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                     {
+                        // Redirect the admin user to the list of users
                         return RedirectToAction("ListUsers", "Administration");
                     }
 
-                    // `isPersistent` specifies if we want to create a session cookie
-                    // or a permanent cookie
-                    await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
+                    // Set success message details for the view
+                    ViewBag.SuccessTitle = "Registration successful";
+                    ViewBag.SuccessMessage = "Before you can Login, please confirm your email, by clicking on the confirmation link we have emailed you";
+
+                    // Return the Success view to the user
+                    return View("Success");
                 }
 
-                // Displayed in asp-validation-summary tag helper
+                // If user creation failed, iterate through the errors and add them to the ModelState
+                // These errors will be displayed using the asp-validation-summary tag helper in the view
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
 
+            // If model state is invalid or registration fails, return the view with the model data
             return View();
         }
+
 
         /// <summary>
         /// 
@@ -126,6 +153,48 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
+        /// Confirms the email address of a user based on the provided user ID and confirmation token.
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user.</param>
+        /// <param name="token">The email confirmation token.</param>
+        /// <returns>Returns a view based on the success or failure of the email confirmation process.</returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            // Check if the userId or token is null, and redirect to the home page if either is missing
+            if (userId == null || token == null)
+            {
+                return RedirectToAction("index", "home");
+            }
+
+            // Attempt to find the user in the identity system using the provided userId
+            var user = await userManager.FindByIdAsync(userId);
+
+            // If the user is not found, display an error message and return the NotFound view
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"The User ID {userId} is invalid";
+                return View("NotFound");
+            }
+
+            // Attempt to confirm the user's email using the provided token
+            // If successful, the EmailConfirmed field in the AspNetUsers table is set to True
+            var result = await userManager.ConfirmEmailAsync(user, token);
+
+            // If email confirmation is successful, return the default confirmation view
+            if (result.Succeeded)
+            {
+                return View();
+            }
+
+            // If email confirmation fails, set an error title and return the ErrorPragim view
+            ViewBag.ErrorTitle = "Email cannot be confirmed";
+            return View("ErrorPragim");
+        }
+
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="model"></param>
@@ -135,18 +204,27 @@ namespace EmployeeManagement.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl)
         {
-            if (ModelState.IsValid) // When client-side validation is correctly implemented, this break-point is never hit
+            model.ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            if (ModelState.IsValid)
             {
-                
-                var result = await signInManager.PasswordSignInAsync(userName: model.Email, password: model.Password,
-                    isPersistent: model.RememberMe, lockoutOnFailure: false);
+                var user = await userManager.FindByEmailAsync(model.Email);
+
+                if (user != null && !user.EmailConfirmed &&
+                            (await userManager.CheckPasswordAsync(user, model.Password)))
+                {
+                    ModelState.AddModelError(string.Empty, "Email not confirmed yet");
+                    return View(model);
+                }
+
+                var result = await signInManager.PasswordSignInAsync(model.Email,
+                                        model.Password, model.RememberMe, false);
 
                 if (result.Succeeded)
                 {
-                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl)) // Without Url.IsLocalUrl, it will redirect to malicious site example
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
-                        //return LocalRedirect(returnUrl); // Use without Url.IsLocalUrl(returnUrl)
                     }
                     else
                     {
@@ -154,13 +232,10 @@ namespace EmployeeManagement.Controllers
                     }
                 }
 
-                ModelState.AddModelError(
-                    key: string.Empty,
-                    errorMessage: "Invalid Login Attempt"
-                 );
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
 
-            return View();
+            return View(model);
         }
 
         /// <summary>
@@ -237,6 +312,25 @@ namespace EmployeeManagement.Controllers
                 return View("Login", loginViewModel);
             }
 
+            // Handle the case where the user does not have a local account
+            // Get the user's email from the external login claims
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+            ApplicationUser user = null;
+
+            if (email != null)
+            {
+                // Find the user
+                user = await userManager.FindByEmailAsync(email);
+
+                // If email is not confirmed, display login view with validation error
+                if (user != null && !user.EmailConfirmed)
+                {
+                    ModelState.AddModelError(string.Empty, "Email not confirmed yet");
+                    return View("Login", loginViewModel);
+                }
+            }
+
             // Check if the user already has a login associated with this external provider
             var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider,
                 info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
@@ -250,16 +344,8 @@ namespace EmployeeManagement.Controllers
             }
             else
             {
-                // Handle the case where the user does not have a local account
-
-                // Get the user's email from the external login claims
-                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-
                 if (email != null)
                 {
-                    // Check if a user with this email already exists
-                    var user = await userManager.FindByEmailAsync(email);
-
                     // If the user does not exist, create a new one without a password
                     if (user == null)
                     {
@@ -271,6 +357,20 @@ namespace EmployeeManagement.Controllers
 
                         // CREATE THE NEW USER IN THE DATABASE IF IT DOES NOT EXIST
                         await userManager.CreateAsync(user);
+
+                        // After a local user account is created, generate and log the
+                        // email confirmation link
+                        var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                        var confirmationLink = Url.Action("ConfirmEmail", "Account",
+                                        new { userId = user.Id, token = token }, Request.Scheme);
+
+                        logger.Log(LogLevel.Warning, confirmationLink);
+
+                        ViewBag.ErrorTitle = "Registration successful";
+                        ViewBag.ErrorMessage = "Before you can Login, please confirm your " +
+                            "email, by clicking on the confirmation link we have emailed you";
+                        return View("ErrorPragim");
                     }
 
                     // Link the external login to the newly created or existing user
