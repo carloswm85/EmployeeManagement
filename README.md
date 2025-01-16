@@ -1,5 +1,5 @@
 ﻿- [Kudvenkat](#kudvenkat)
-- [ASP.NET Core For Beginners](#aspnet-core-for-beginners)
+- [ASP.NET Core MVC For Beginners](#aspnet-core-mvc-for-beginners)
   - [**Introduction**](#introduction)
   - [**WEB SERVER HOSTING**](#web-server-hosting)
   - [**WEB APP CONFIGURATION**](#web-app-configuration)
@@ -50,7 +50,14 @@
 
 ---
 
-# ASP\.NET Core For Beginners
+# ASP\.NET Core MVC For Beginners
+
+- Learn how to build applications that are:
+  - Real world enterprise class.
+  - Data driven web applications.
+- +20hs videos, 124 videos.
+- This project is compatible with NET Core 8.0
+  - Source code for .NET Core app 2.2: <https://drive.google.com/drive/folders/1GM6gYJYQcMjf1WdGvK0z0wp1t69dESyW>
 
 ## **Introduction**
 
@@ -370,7 +377,7 @@
   - With block user access to action controller example.
 - Add password to local account linked to external login (Facebook, Google) [🔗](https://youtu.be/mCKdMgFv8MI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 122 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/add-password-to-local-account-linked-to.html)
 - Account lockout [🔗](https://youtu.be/jHRWR36UC2s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 123 [📑](https://csharp-video-tutorials.blogspot.com/2019/11/aspnet-core-account-lockout.html)
-- [🔗]() - Part 124 [📑]()
+- ASP.NET Core MVC Course Wrap Up [🔗](https://youtu.be/pVV4v6Fpa_s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 124 [📑](https://csharp-video-tutorials.blogspot.com/2019/11/aspnet-core-mvc-course-wrap-up.html)
 
 ## **CLIENT SIDE VALIDATION**
 
