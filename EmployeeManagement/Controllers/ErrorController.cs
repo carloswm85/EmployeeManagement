@@ -5,26 +5,26 @@ using Microsoft.AspNetCore.Mvc;
 namespace EmployeeManagement.Controllers
 {
     /// <summary>
-    /// 
+    /// Controller responsible for handling error scenarios in the application.
     /// </summary>
     public class ErrorController : Controller
     {
         private readonly ILogger<ErrorController> logger;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ErrorController"/> class.
         /// </summary>
-        /// <param name="logger"></param>
+        /// <param name="logger">The logger instance to log error details.</param>
         public ErrorController(ILogger<ErrorController> logger)
         {
             this.logger = logger;
         }
 
         /// <summary>
-        /// 
+        /// Handles HTTP status code errors such as 404 and 405.
         /// </summary>
-        /// <param name="statusCode"></param>
-        /// <returns></returns>
+        /// <param name="statusCode">The HTTP status code.</param>
+        /// <returns>A view displaying error details.</returns>
         [Route("Error/{statusCode}")]
         public IActionResult HttpStatusCodeHandler(int statusCode)
         {
@@ -53,19 +53,23 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Handles application-level exceptions by logging error details and displaying a custom error page.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A view displaying error details, using a custom "ErrorPragim" view.</returns>
         [Route("Error")]
         [AllowAnonymous]
         public ActionResult Error()
         {
+            // Retrieve exception details from the HttpContext features.
             var exceptionDetails = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
 
+            // Log the path that caused the exception and the exception message.
             logger.LogError($"The path {exceptionDetails.Path} threw an exception " +
                 $" {exceptionDetails.Error}");
 
+            // Return a view showing a custom error page (ErrorPragim).
             return View("ErrorPragim");
         }
+
     }
 }
