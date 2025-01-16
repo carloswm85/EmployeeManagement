@@ -393,6 +393,8 @@
 
 # C# Programming Language
 
+Videos and tutorials mentioned in this course.
+
 ## C# Tutorial For Beginners
 
 [Full tutorial 🔗](https://www.youtube.com/playlist?list=PLAC325451207E3105)
