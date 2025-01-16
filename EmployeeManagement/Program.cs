@@ -38,6 +38,10 @@ try
         options.SignIn.RequireConfirmedEmail = true;
 
         options.Tokens.EmailConfirmationTokenProvider = "CustomEmailConfirmation";
+
+        // https://youtu.be/jHRWR36UC2s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU
+        options.Lockout.MaxFailedAccessAttempts = 5;
+        options.Lockout.DefaultLockoutTimeSpan= TimeSpan.FromMinutes(15);
     })
         .AddEntityFrameworkStores<AppDbContext>()
         .AddDefaultTokenProviders()
