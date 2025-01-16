@@ -8,29 +8,39 @@ using System.Security.Claims;
 namespace EmployeeManagement.Controllers
 {
     /// <summary>
-    /// 
+    /// Manages user authentication, registration, password management, and external login processes.
+    /// Provides actions for handling user accounts, including login, logout, registration, password reset, and email confirmation.
     /// </summary>
+
     public class AccountController : Controller
     {
+        // Private fields to manage user accounts and logging
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ILogger<AccountController> logger;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the AccountController class.
         /// </summary>
-        /// <param name="userManager"></param>
-        /// <param name="signInManager"></param>
+        /// <param name="userManager">Manages user-related operations such as creating, updating, and finding users.</param>
+        /// <param name="signInManager">Handles user sign-in and sign-out processes.</param>
+        /// <param name="logger">Provides logging capabilities for the controller.</param>
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<AccountController> logger
-            )
+        )
         {
+            // Initialize the UserManager to manage user-related tasks
             this.userManager = userManager;
+
+            // Initialize the SignInManager for handling sign-in and sign-out
             this.signInManager = signInManager;
+
+            // Initialize the Logger for logging information and errors
             this.logger = logger;
         }
+
 
         /// <summary>
         /// Handles the logic for displaying the AddPassword view if the user does not have a password.

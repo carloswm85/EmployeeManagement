@@ -11,7 +11,7 @@ namespace EmployeeManagement.Controllers
 {
     //[Authorize(Policy = "AdminRolePolicy")]
     /// <summary>
-    /// 
+    /// Controller responsible for administration tasks such as managing roles, users, and claims.
     /// </summary>
     public class AdministrationController : Controller
     {
@@ -20,13 +20,13 @@ namespace EmployeeManagement.Controllers
         private readonly ILogger<AdministrationController> logger;
 
         /// <summary>
-        /// 
+        /// Constructor for initializing dependencies for AdministrationController.
         /// </summary>
-        /// <param name="roleManager"></param>
-        /// <param name="userManager"></param>
-        /// <param name="logger"></param>
+        /// <param name="roleManager">Role manager service for managing roles.</param>
+        /// <param name="userManager">User manager service for managing users.</param>
+        /// <param name="logger">Logger service for logging activities and errors.</param>
         public AdministrationController(RoleManager<IdentityRole> roleManager,
-            UserManager<ApplicationUser> userManager, ILogger<AdministrationController> logger) // ApplicationUser extends IdentityUser
+            UserManager<ApplicationUser> userManager, ILogger<AdministrationController> logger)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
@@ -34,10 +34,10 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Displays the Manage User Claims view for a specific user.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <param name="userId">ID of the user whose claims are being managed.</param>
+        /// <returns>A view displaying the user's claims and their selection status.</returns>
         [HttpGet]
         public async Task<IActionResult> ManageUserClaims(string userId)
         {
@@ -80,10 +80,10 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Handles the update of user claims.
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">ViewModel containing user claims and their selection status.</param>
+        /// <returns>Redirects to EditUser view if successful; otherwise returns ManageUserClaims view with errors.</returns>
         [HttpPost]
         public async Task<IActionResult> ManageUserClaims(UserClaimsViewModel model)
         {
@@ -121,10 +121,10 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Displays the Manage User Roles view for a specific user.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <param name="userId">ID of the user whose roles are being managed.</param>
+        /// <returns>A view displaying the user's roles and their selection status.</returns>
         [HttpGet]
         [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> ManageUserRoles(string userId)
@@ -169,43 +169,56 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Updates the roles assigned to a user based on the selection made in the UI.
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <param name="model">A list of roles and their selection status for the user.</param>
+        /// <param name="userId">The ID of the user whose roles are being managed.</param>
+        /// <returns>
+        /// Redirects to the EditUser view if successful. 
+        /// Returns the current view with errors if role assignment fails.
+        /// </returns>
         [HttpPost]
         [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> ManageUserRoles(List<UserRolesViewModel> model, string userId)
         {
+            // Find the user by ID
             var user = await userManager.FindByIdAsync(userId);
 
             if (user == null)
             {
+                // Display an error if the user is not found
                 ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
                 return View("NotFound");
             }
 
+            // Retrieve the roles currently assigned to the user
             var roles = await userManager.GetRolesAsync(user);
+
+            // Remove all roles currently assigned to the user
             var result = await userManager.RemoveFromRolesAsync(user, roles);
 
             if (!result.Succeeded)
             {
+                // Handle errors in removing roles
                 ModelState.AddModelError("", "Cannot remove user existing roles");
                 return View(model);
             }
 
+            // Add the roles selected in the UI to the user
             result = await userManager.AddToRolesAsync(user,
                 model.Where(x => x.IsSelected).Select(y => y.RoleName));
 
             if (!result.Succeeded)
             {
+                // Handle errors in adding roles
                 ModelState.AddModelError("", "Cannot add selected roles to user");
                 return View(model);
             }
 
+            // Redirect to the EditUser view to reflect the changes
             return RedirectToAction("EditUser", new { Id = userId });
         }
+
 
         /// <summary>
         /// 
