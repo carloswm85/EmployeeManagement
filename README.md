@@ -10,7 +10,6 @@
   - [**TAG HELPERS**](#tag-helpers)
   - [**MODELS**](#models)
   - [**SERVER SIDE VALIDATION**](#server-side-validation)
-  - [**BOOTSTRAP**](#bootstrap)
   - [**ENTITY FRAMEWORK CORE**](#entity-framework-core)
   - [**Error Handling**](#error-handling)
   - [**Logging**](#logging)
@@ -73,11 +72,11 @@
 
 ![Web Server](images/web-server.png)
 
-- InProcess Hosting [📺](https://youtu.be/ydR2jd3ZaEA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 06
+- InProcess Hosting [📺](https://youtu.be/ydR2jd3ZaEA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 06 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/aspnet-core-in-process-hosting.html)
   - `WebApplication.CreateBuilder(args);` - One web server: Kestrel or IIS Express
     - IIS worker process (_w3wp.exe_ or _iisexpress.exe_)
     - No proxy request penalties
-- OutOfProcess Hosting (_default_) [📺](https://youtu.be/QsXsOX6qq2c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 07
+- OutOfProcess Hosting (_default_) [📺](https://youtu.be/QsXsOX6qq2c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 07 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/aspnet-core-out-of-process-hosting.html)
   - `dotnet.exe` process
   - Internal server: Kestrel
   - External web server (or _reverse proxy server_): IIS (Express), Nginx or Apache
@@ -89,45 +88,49 @@
   - `appsettings.json` [📺](https://youtu.be/m_BevGi7zBw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 09 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/aspnet-core-appsettingsjson-file.html)
   - Reading order: `appsettings.json`, `appsettings.{Environment}.json`, User secrets, Environment variables, lastly, CLI arguments.
 - Middlewares introduction [📺](https://youtu.be/ALu4jtvjSYw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 10 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/middleware-in-aspnet-core.html)
-  - Pipeline configuration [📺](https://youtu.be/nt6anXAwfYI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 11
-- Static files and default files [📺](https://youtu.be/yt6bzZoovgM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 12
-- Development environments: Environment variables from OS [📺](https://youtu.be/x8jNX1nb_og?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 14
+  - Pipeline configuration [📺](https://youtu.be/nt6anXAwfYI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 11 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/configure-aspnet-core-request.html)
+- Static files and default files [📺](https://youtu.be/yt6bzZoovgM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 12 [📑](https://csharp-video-tutorials.blogspot.com/2019/01/static-files-in-aspnet-core.html)
+- Developer Exception Page [📺](https://youtu.be/UGG2-oV9iQ8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 13 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/aspnet-core-developer-exception-page.html)
+- Development environments: Environment variables from OS [📺](https://youtu.be/x8jNX1nb_og?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 14 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/aspnet-core-environment-variables.html)
   - _Development_, _Staging_, _Production_
   - `ASPNETCORE_ENVIRONMENT` for selecting the run environment.
-- Using `libman` [📺](https://youtu.be/5qzzjvZ4w0c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 34
+- Using `libman` [📺](https://youtu.be/5qzzjvZ4w0c?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 34 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/install-and-use-bootstrap-in-aspnet-core.html)
   - Use LibMan with ASP\.NET Core in Visual Studio [📑](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-9.0#add-library-files)
 
 ## **MVC**
 
-- MVC Design [📺](https://youtu.be/f72ookCWhsQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 15
+- MVC Design [📺](https://youtu.be/f72ookCWhsQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 15 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/aspnet-core-mvc-tutorial.html)
   - MVC Model = Model class and class repository
-- NET Core MVC project set up (2.2 version) [📺](https://youtu.be/KQH51Yip0K0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 16
+- NET Core MVC project set up (2.2 version) [📺](https://youtu.be/KQH51Yip0K0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 16 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/setup-mvc-in-aspnet-core.html)
 - MVC Implementation:
-  - Model [📺](https://youtu.be/KXPbJ9I4ce0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 18
+  - AddMvc Vs AddMvcCore [📺](https://youtu.be/sNpeNyaDCTo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 17 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/aspnet-core-addmvc-vs-addmvccore.html)
+    - It works differently with older versions of NET Core.
+  - Model [📺](https://youtu.be/KXPbJ9I4ce0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 18 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/model-in-aspnet-core-mvc.html)
     - And simple use case for Dependency Injection
-  - Controller [📺](https://youtu.be/-O0UYM0ZIIc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 20
+  - Part 19 - See Dependency Injection section.
+  - Controller [📺](https://youtu.be/-O0UYM0ZIIc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 20 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/controller-in-aspnet-core-mvc.html)
     - Using Telerik Fiddler, receiving XML format
-  - View [📺](https://youtu.be/SWIcHLBnJUg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 21
+  - View [📺](https://youtu.be/SWIcHLBnJUg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 21 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/views-in-aspnet-core-mvc.html)
     - Contains logic to display the Model data
-    - Customize view discovery [📺](https://youtu.be/gXiYrUoiinY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 22
+    - Customize view discovery [📺](https://youtu.be/gXiYrUoiinY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 22 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/customize-view-discovery-in-aspnet-core.html)
 - Passing data from controller to view:
   - Looslie typed views:
-    - `ViewData` [📺](https://youtu.be/tz4q6q0_JwQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 23
+    - `ViewData` [📺](https://youtu.be/tz4q6q0_JwQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 23 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/passing-data-to-view-in-aspnet-core-mvc.html)
       - Dictionary of weakly typed objects as `ViewData["PageTitle"]`
-    - `ViewBag` [📺](https://youtu.be/FBvNz00o7jg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 24
+    - `ViewBag` [📺](https://youtu.be/FBvNz00o7jg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 24 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/viewbag-in-aspnet-core-mvc.html)
       - Use dynamic properties of type `ViewBag.PageTitle`
     - Features:
       - _ViewBag_ is a wrapper to _ViewData_
       - Dynamically resolved at runtime. No type checking at compile time nor intellisense.
-  - Strongly typed view [📺](https://youtu.be/5auO0iXrOs4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 25
-  - ViewModels [📺](https://youtu.be/Lu24lZsUreg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 26
+  - Strongly typed view [📺](https://youtu.be/5auO0iXrOs4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 25 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/strongly-typed-view-in-aspnet-core-mvc.html)
+  - ViewModels [📺](https://youtu.be/Lu24lZsUreg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 26 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/viewmodel-in-aspnet-core-mvc.html)
     - We create a ViewModel when a Model object does not contain all the data a view needs.
 
 ## **DEPENDENCY INJECTION**
 
-- Dependency Injection [📺](https://youtu.be/BPGtVpu81ek?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 19
+- Dependency Injection [📺](https://youtu.be/BPGtVpu81ek?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 19 [📑](https://csharp-video-tutorials.blogspot.com/2019/02/aspnet-core-dependency-injection.html)
   - Benefits: Loose coupling, Easier unit testing
-  - Lifetime service registration [📺](https://youtu.be/v6Nr7Zman_Y?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 44
+  - Lifetime service registration [📺](https://youtu.be/v6Nr7Zman_Y?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 44 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/addsingleton-vs-addscoped-vs.html)
     - Notes [📺](https://csharp-video-tutorials.blogspot.com/2019/04/addsingleton-vs-addscoped-vs.html) [🖼️](./images/service-registration.png) - Consider: Service instance within current HTTP request.
     - `builder.Services.AddSingleton()` - Creates a single instance of the service when it is first requested, and reuses that same instance in all the places where that service is needed - _3 4 5 6 7... So on and so foth._
     - `builder.Services.AddScoped()` - A new instance of a Scoped service is created once per request within the scope. For example, in a web application it creates 1 instance per each http request but uses the same instance in the other calls within that same web request. - _3 4 4 4 4 4... So on and so foth._
@@ -135,101 +138,99 @@
 
 ## **PAGE VIEWS**
 
-- Layout View [📺](https://youtu.be/Px8nwoO7FO8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 28
-- ListView [📺](https://youtu.be/nHAMDUtiV6w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 27
-- Render Sections in Layout Page [📺](https://youtu.be/9OyrzRVZT8o?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 29
+- ListView [📺](https://youtu.be/nHAMDUtiV6w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 27 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/list-view-in-aspnet-core-mvc.html)
+- Layout View [📺](https://youtu.be/Px8nwoO7FO8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 28 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/layout-view-in-aspnet-core-mvc.html)
+- Render Sections in Layout Page [📺](https://youtu.be/9OyrzRVZT8o?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 29 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/sections-in-layout-page-in-aspnet-core.html)
   - For the organization of page elements. They can be optional or mandatory.
-- `_ViewStart.cshtml` [📺](https://youtu.be/r7WgjrTSlO8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 30
-- `_ViewImports.cshtml` [📺](https://youtu.be/5HskoMcun9A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 31
+- `_ViewStart.cshtml` [📺](https://youtu.be/r7WgjrTSlO8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 30 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/viewstartcshtml-in-aspnet-core-mvc.html)
+- `_ViewImports.cshtml` [📺](https://youtu.be/5HskoMcun9A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 31 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/viewimportscshtml-in-aspnet-core-mvc.html)
   - Used to include common namespaces.
   - View directives: `@addTagHelper` `@removeTagHelper` `@tagHelperPrefix` `@model` `@inherits` `@inject`
 
 ## **ROUTING**
 
-- Conventional Routing [📺](https://youtu.be/ZoxrbrHjj2g?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 32
-- Attribute Routing [📺](https://youtu.be/prNptonJAiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 33
+- Conventional Routing [📺](https://youtu.be/ZoxrbrHjj2g?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 32 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/routing-in-aspnet-core-mvc.html)
+- Attribute Routing [📺](https://youtu.be/prNptonJAiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 33 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/attribute-routing-in-aspnet-core-mvc.html)
   - Applied to the controllers or to the controller actions methods.
   - NOTE: The _controller route template_ is not combined with _action method route template_, if the route template on the action method begins with `/` or `~/`
   - Tokens in attribute routing: `[Route("[controller]/[action]")]`
+- Video 34 is above.
 
 ## **TAG HELPERS**
 
 - Notes: Similar to _HTML Helpers_. Server side components for HTML rendering. Use: Link generation, form creation, asset load, etc.
-- Tag Helpers & HTML Helpers [📺](https://youtu.be/iaSdTMdReWg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 35
-- Why use Tag Helpers [📺](https://youtu.be/pXvizSVe-eQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 36
-- Image Tag Helper [📺](https://youtu.be/4jW9T-TLPTM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 37
+- Tag Helpers & HTML Helpers [📺](https://youtu.be/iaSdTMdReWg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 35 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/tag-helpers-in-aspnet-core.html)
+- Why use Tag Helpers [📺](https://youtu.be/pXvizSVe-eQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 36 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/why-use-tag-helpers.html)
+- Image Tag Helper [📺](https://youtu.be/4jW9T-TLPTM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 37 [📑](https://csharp-video-tutorials.blogspot.com/2019/03/aspnet-core-image-tag-helper.html)
   - Provide cache-busting behaviour for static image files.
-- Environment Tag Helper [📺](https://youtu.be/-E4zP2L-R_U?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 38
-- Form Tag Helpers [📺](https://youtu.be/mU4hV50rkVE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 40
+- Environment Tag Helper [📺](https://youtu.be/-E4zP2L-R_U?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 38 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/aspnet-core-environment-tag-helper.html)
+- Navigation Menu [📺](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 39 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/bootstrap-navigation-menu-in-aspnet.html)
+- Form Tag Helpers [📺](https://youtu.be/mU4hV50rkVE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 40 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/form-tag-helpers-in-aspnet-core.html)
   - `Form Tag Helper`, `Input Tag Helper`, `Label Tag Helper`, `Select Tag Helper`, `TextArea Tag Helper`, `Validation Tag Helper`
 
 ## **MODELS**
 
-- Model Binding [📺](https://youtu.be/-GkZERrqEQo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 41
+- Model Binding [📺](https://youtu.be/-GkZERrqEQo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 41 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/aspnet-core-model-binding.html)
   - "Model binding maps data in an HTTP request to controller action method parameters. The action parameters say be simple or complext types."
   - `name` input attribute value is used for mapping.
   - Data available in the HTTP request (with preeminence order): `Form values` → `Route values` → `Query strings`
 - Update a model:
-  - Edit View - GET [📺](https://youtu.be/lhiIvx7jMaY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 55
+  - Edit View - GET [📺](https://youtu.be/lhiIvx7jMaY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 55 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/edit-view-in-aspnet-core-mvc.html)
     - `Edit.cshtml` with controller and viewmodel.
-  - Edit View - POST [📺](https://youtu.be/wamToyK4x7I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 56
-- Model Binding Not Working with FOREACH loop [📺](https://youtu.be/Qobkh8gEP6Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 92
+  - Edit View - POST [📺](https://youtu.be/wamToyK4x7I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 56 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/httppost-edit-action-in-aspnet-core-mvc.html)
+- Model Binding Not Working with FOREACH loop [📺](https://youtu.be/Qobkh8gEP6Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 92 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/model-binding-not-working-on-submitting.html)
 
 ## **SERVER SIDE VALIDATION**
 
-- Model Validation [📺](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 42
-- Custom validation attributes [📺](https://youtu.be/o_AH2MGti0A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 76
-- Select list validation [📺](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 43
-
-## **BOOTSTRAP**
-
-- Navigation Menu [📺](https://youtu.be/l2dzzuxvmxk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 39
+- Model Validation [📺](https://youtu.be/aDRC_IgwmH8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 42 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/aspnet-core-model-validation.html)
+- Custom validation attributes [📺](https://youtu.be/o_AH2MGti0A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 76 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/custom-validation-attribute-in-aspnet.html)
+- Select list validation [📺](https://youtu.be/woFHR3iNEEI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 43 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/select-list-validation-in-aspnet-core.html)
 
 ## **ENTITY FRAMEWORK CORE**
 
-- Introduction [📺](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 45
+- Introduction [📺](https://youtu.be/OE0_9c-K-Ow?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 45 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/introduction-to-entity-framework-core.html)
 - Notes:
   - ORM, Domain Classes, Code/Database First, Database Provider Models
   - `Domain & DBContext Classes` → `EF Core` → `DB Provider` → `Actual DB`
-- Installation & Multilayer Web Application [📺](https://youtu.be/8aHzSx-inDE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 46
+- Installation & Multilayer Web Application [📺](https://youtu.be/8aHzSx-inDE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 46 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/install-entity-framework-core-in-visual.html)
   - `Presentation Layer` → `Business Layer` → `Data Access Layer`
-- `DbContext` [📺](https://youtu.be/nN9jOORIFtc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 47
-- Using with SQL Server [📺](https://youtu.be/xMktEpPmadI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 48
+- `DbContext` [📺](https://youtu.be/nN9jOORIFtc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 47 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/dbcontext-in-entity-framework-core_23.html)
+- Using with SQL Server [📺](https://youtu.be/xMktEpPmadI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 48 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/using-sql-server-with-entity-framework.html)
   - Connection string
-- Repository Pattern [📺](https://youtu.be/qJmEI2LtXIY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 49
+- Repository Pattern [📺](https://youtu.be/qJmEI2LtXIY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 49 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/repository-pattern-in-aspnet-core.html)
   - Abstraction of the Data Access Layer, for CRUD operations. How to use `AddScoped` with SQL Server.
-- Migrations [📺](https://youtu.be/G14lmWS-h4k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 50
+- Migrations [📺](https://youtu.be/G14lmWS-h4k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 50 [📑](https://csharp-video-tutorials.blogspot.com/2019/04/entity-framework-core-migrations.html)
   - Migrations keep the DB schema and app model classes in sync.
   - Commands: `get-help about_entityframeworkcore` `Add-Migration` `Update-Database`
-- Seed Data to Database [📺](https://youtu.be/qDUS8ocavBU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 51
-- Keeping _domain models_ and _database schema_ in sync [📺](https://youtu.be/MhvOKHUWgiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 52
+- Seed Data to Database [📺](https://youtu.be/qDUS8ocavBU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 51 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/entity-framework-core-seed-data.html)
+- Keeping _domain models_ and _database schema_ in sync [📺](https://youtu.be/MhvOKHUWgiY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 52 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/keeping-domain-models-and-database.html)
   - `Remove-Migration`
   - This video also explains how to remove migration that has already been applied to the database.
-- File upoad [📺](https://youtu.be/aoxEJii70_I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 53
+- File upoad [📺](https://youtu.be/aoxEJii70_I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 53 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/file-upload-in-aspnet-core-mvc.html)
   - `IFormFile`, the video includes jQuery code for `.custom-file-label`.
   - Notes:
     - File is saved to the web server location `wwwroot/images`
     - The file uploaded to the server can be accessed through Model Binding using the IFormFile interface.
-  - Upload multiple files at once [📺](https://youtu.be/14ZqBoQIW-Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 54
+  - Upload multiple files at once [📺](https://youtu.be/14ZqBoQIW-Q?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 54 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/upload-multiple-files-in-aspnet-core-mvc.html)
 
 ## **Error Handling**
 
 - Handling `404` Not Found Errors:
-  - Type 1: Resource with ID not found [📺](https://youtu.be/QiF3eJ4Zb0o?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 57
+  - Type 1: Resource with ID not found [📺](https://youtu.be/QiF3eJ4Zb0o?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 57 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/handling-404-not-found-in-aspnet-core.html)
   - Type 2: URL does not match any route.
     - Centralized `404` Error Handling (`400`-`599`):
-      - `UseStatusCodePages` [📺](https://youtu.be/DVo138knAHQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 58
-      - User facing: `UseStatusCodePagesWithRedirects` and `UseStatusCodePagesWithReExecute` [📺](https://youtu.be/9CwgiSxrkeQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 59
+      - `UseStatusCodePages` [📺](https://youtu.be/DVo138knAHQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 58 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/centralised-404-error-handling-in.html)
+      - User facing: `UseStatusCodePagesWithRedirects` and `UseStatusCodePagesWithReExecute` [📺](https://youtu.be/9CwgiSxrkeQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 59 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/usestatuscodepageswithredirects-vs.html)
 - Correct Global Exception handling:
-  - Not production: `UseExceptionHandler` [📺](https://youtu.be/jeBttUIqpuc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 60
-- Custom Error Page (for `ON DELETE NO ACTION`) [📺](https://youtu.be/0jqZ63ybeRY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 90
+  - Not production: `UseExceptionHandler` [📺](https://youtu.be/jeBttUIqpuc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 60 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/global-exception-handling-in-aspnet.html)
+- Custom Error Page (for `ON DELETE NO ACTION`) [📺](https://youtu.be/0jqZ63ybeRY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 90 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/custom-error-page-in-aspnet-core.html)
 
 ## **Logging**
 
-- Basics, Logging from console, Built-in Logging Providers [📺](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 61
-- Logging Exceptions [📺](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 62
-- Logging to a file [📺](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63
-- `LogLevel` configuration [📺](https://youtu.be/bTPnT13Efd4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 64
+- Basics, Logging from console, Built-in Logging Providers [📺](https://youtu.be/WyAJe6lA-bY?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 61 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/logging-in-aspnet-core.html)
+- Logging Exceptions [📺](https://youtu.be/LhpO2sgxqfw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 62 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/logging-exceptions-in-aspnet-core.html)
+- Logging to a file [📺](https://youtu.be/o5u4fE0t79k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 63 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/logging-to-file-in-aspnet-core-using.html)
+- `LogLevel` configuration [📺](https://youtu.be/bTPnT13Efd4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 64 [📑](https://csharp-video-tutorials.blogspot.com/2019/05/aspnet-core-loglevel-configuration.html)
 
 ## **ASP\.NET Core Identity** - Authentication & Authorization
 
@@ -238,61 +239,61 @@
 
 ### _IDENTITY SET UP_
 
-- Inherit from `IdentityDbContext`, add services, add middleware, generate tables [📺](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 65
-- Register new user [📺](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 66
-- Services: `UserManager` and `SignInManager` [📺](https://youtu.be/TfarnVqnhX0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 67
-- Password complexity [📺](https://youtu.be/kC9qrUcy2Js?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 68
-- Show/hide view elements using `@if (SignInManager.IsSignedIn(User)) { }` [📺](https://youtu.be/YLAHIZmO2PI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 69
-- Implementing log in functionality [📺](https://youtu.be/9d8DXXc71RI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 70
+- Inherit from `IdentityDbContext`, add services, add middleware, generate tables [📺](https://youtu.be/egITMrwMOPU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 65 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/aspnet-core-identity-tutorial-from.html)
+- Register new user [📺](https://youtu.be/sPbDrqpme_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 66 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/register-new-user-using-aspnet-core.html)
+- Services: `UserManager` and `SignInManager` [📺](https://youtu.be/TfarnVqnhX0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 67 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/aspnet-core-identity-usermanager-and.html)
+- Password complexity [📺](https://youtu.be/kC9qrUcy2Js?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 68 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/aspnet-core-identity-password-complexity.html)
+- Show/hide view elements using `@if (SignInManager.IsSignedIn(User)) { }` [📺](https://youtu.be/YLAHIZmO2PI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 69 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/show-or-hide-login-and-logout-links.html)
+- Implementing log in functionality [📺](https://youtu.be/9d8DXXc71RI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 70 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/implementing-login-functionality-in.html)
   - `LoginViewModel`, Login View, Login Actions in Account Controller.
 - Authorizacion implementation - Types: Simple authorization, Role based, Claims based, Policy based.
-  - Implementation as a service, _Simple Authorization_ [📺](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 71
-  - Redirection after login [📺](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 72
-    - NOTE: _Security risk_ - Open redirect attack/vulnerability [📺](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73
-- Extend `IdentityUser` class [📺](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77
+  - Implementation as a service, _Simple Authorization_ [📺](https://youtu.be/uET7MjhUeY4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 71 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/authorization-in-aspnet-core.html)
+  - Redirection after login [📺](https://youtu.be/-asykt9Zo_w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 72 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/redirect-user-to-original-url-after.html)
+    - NOTE: _Security risk_ - Open redirect attack/vulnerability [📺](https://youtu.be/0q0CZTliQ7A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 73 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/open-redirect-vulnerability-example.html)
+- Extend `IdentityUser` class [📺](https://youtu.be/NV734cJdZts?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 77 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/extend-identityuser-in-aspnet-core.html)
 
 ### _ROLES_
 
-- Create Roles [📺](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78
-- Get list of roles [📺](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79
-- Edit existing role [📺](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80
-- Add or remove users [📺](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81
+- Create Roles [📺](https://youtu.be/TuJd2Ez9i3I?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 78 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/creating-roles-in-aspnet-core.html)
+- Get list of roles [📺](https://youtu.be/KGIT8P29jf4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 79 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/get-list-of-roles-in-aspnet-core.html)
+- Edit existing role [📺](https://youtu.be/7ikyZk5fGzk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 80 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/edit-role-in-aspnet-core.html)
+- Add or remove users [📺](https://youtu.be/TzhqymQm5kw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 81 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/add-or-remove-users-from-role-in-aspnet.html)
   - Tables for: Users, Roles, UserRoles
-- _Role based authorization_ (RBAC) [📺](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82
-  - Show or hide navigation menu based on user [📺](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83
+- _Role based authorization_ (RBAC) [📺](https://youtu.be/DXVe6skc42k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 82 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/aspnet-core-role-based-authorization.html)
+  - Show or hide navigation menu based on user [📺](https://youtu.be/IPjK65ehQBg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 83 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/show-or-hide-navigation-menu-based-on.html)
     - See part-94 for more.
 - User role membership: Add/remove roles for user [📺](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
 
 ### _USERS_
 
-- List users, register new user and redirect correctly [📺](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84
-- Edit user information, roles and claims [📺](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85
-- Delete user [📺](https://youtu.be/MhNfyZGfY-A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 86
-  - Display delete confirmation [📺](https://youtu.be/hKLjt9GzYM8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 87
-- Delete role [📺](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88
-- Manager user roles [📺](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 91
+- List users, register new user and redirect correctly [📺](https://youtu.be/OMX0UiLpMSA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 84 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/list-all-users-from-aspnet-core.html)
+- Edit user information, roles and claims [📺](https://youtu.be/QYlIfH8qyrU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 85 [📑](https://csharp-video-tutorials.blogspot.com/2019/07/edit-identity-user-in-aspnet-core.html)
+- Delete user [📺](https://youtu.be/MhNfyZGfY-A?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 86 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/delete-identity-user-in-aspnet-core.html)
+  - Display delete confirmation [📺](https://youtu.be/hKLjt9GzYM8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 87 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/aspnet-core-delete-confirmation.html)
+- Delete role [📺](https://youtu.be/pj3GCelrIGM?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 88 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/delete-identity-role-in-aspnet-core.html)
+- Manager user roles [📺](https://youtu.be/1OaVUy1pRXA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 91 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/manage-user-roles-in-aspnet-core.html)
 
 ### _CLAIMS_
 
-- Manage User Claims [📺](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93
+- Manage User Claims [📺](https://youtu.be/5XA4Z-SOif8?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 93 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/manage-user-claims-in-aspnet-core.html)
   - "Claim": Name-value pair used for making _access control decisions_.
   - They are a piece of information about the user, NOT what the user can or cannot do.
   - Claims are "policy based".
-- Claims Based Authorization (CBAC) [📺](https://youtu.be/LJQBBvJ6tL0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 94
+- Claims Based Authorization (CBAC) [📺](https://youtu.be/LJQBBvJ6tL0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 94 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/claims-based-authorization-in-aspnet.html)
   - _What are they?_ • `Services.AddAuthorization` • `AddPolicy` • `RequireClaim` • Use in controllers and actions • Combination of _roles_ and _policies_.
-- **Role Based Authorization** (RBAC) Vs **Claim Base Authorization** (CBAC) [📺](https://youtu.be/Uw2ujXvN3i4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 95
+- **Role Based Authorization** (RBAC) Vs **Claim Base Authorization** (CBAC) [📺](https://youtu.be/Uw2ujXvN3i4?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 95 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/role-based-authorization-vs-claims.html)
   - `[Authorize(Roles = "Admin")]` is role based.
   - `[Authorize(Policy = "DeleteRolePolicy")]` is claim based.
-- Authorization in views [📺](https://youtu.be/72zYJw0nF-k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 96
+- Authorization in views [📺](https://youtu.be/72zYJw0nF-k?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 96 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/authorization-in-views-in-aspnet-core.html)
   - _Claim based_ authorization checks in views.
   - See part-83 for related information.
 
 ### _AUTHORIZATION POLICY_
 
-- Using "claim type" and "claim value" in policy based authorization [📺](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98
-- Create custom authorization policy (Policy with multiple requirements) [📺](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99
+- Using "claim type" and "claim value" in policy based authorization [📺](https://youtu.be/I2wgxzLbESA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 98 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/claim-type-and-claim-value-in-claims.html)
+- Create custom authorization policy (Policy with multiple requirements) [📺](https://youtu.be/KJprzM49NnU?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 99 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/create-custom-authorization-policy.html)
   - See "Part 100 Func delegate in C#" for related information.
-- Custom authorization requirements and handlers - EXPLANATION [📺](https://youtu.be/1qdtjlKDJJ0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 100
+- Custom authorization requirements and handlers - EXPLANATION [📺](https://youtu.be/1qdtjlKDJJ0?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 100 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/custom-authorization-requirements-and.html)
   1. BUILT-IN Authorization Requirement
      1. Policies with one requirement. → `RequireClaim`
      1. Policies with multiple requirements:
@@ -300,9 +301,9 @@
         2. Complex relationships → `RequireAssertion`
   2. CUSTOM Authorization Requirement
      1. Implement `IAuthorizationRequirement` → `IAuthorizationHandler<T>` where T is the requirement
-- Custom authorization requirements and handlers - EXAMPLE [📺](https://youtu.be/cXsYer31UPo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 101
-- Multiple authorization handlers for a requirement [📺](https://youtu.be/aKEN2Z-jfgc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 102
-- Custom authorization handler: SUCCESS Vs FAILURE, and NOTHING (`Task.CompletedTask`) [📺](https://youtu.be/119eY23O-RE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 103
+- Custom authorization requirements and handlers - EXAMPLE [📺](https://youtu.be/cXsYer31UPo?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 101 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/custom-authorization-requirement-and.html)
+- Multiple authorization handlers for a requirement [📺](https://youtu.be/aKEN2Z-jfgc?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 102 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/multiple-custom-authorization-handlers.html)
+- Custom authorization handler: SUCCESS Vs FAILURE, and NOTHING (`Task.CompletedTask`) [📺](https://youtu.be/119eY23O-RE?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 103 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/custom-authorization-handler-success-vs.html)
 
 ### _EXTERNAL IDENTITY PROVIDERS_ - Google, Facebook, etc
 
@@ -311,8 +312,8 @@
 
 #### Google
 
-- Introduction, how it works [📺](https://youtu.be/ZgPK51X5BGw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 104
-- Create Google OAuth Credentials - Obtain Client Id & Secret [📺](https://youtu.be/V4KqpIX6pdI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 105
+- Introduction, how it works [📺](https://youtu.be/ZgPK51X5BGw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 104 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/external-identity-providers-in-aspnet.html)
+- Create Google OAuth Credentials - Obtain Client Id & Secret [📺](https://youtu.be/V4KqpIX6pdI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 105 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/create-google-oauth-credentials-client.html)
   - <https://console.cloud.google.com/>
   - Google+ API: <https://console.cloud.google.com/marketplace/product/google/plus.googleapis.com>
     - <https://developers.google.com/+/api-shutdown>
@@ -330,12 +331,12 @@
     - Credentials for Web Application → OAuth 2.0 Client name: `Employee Mgmt Client`
       - Authorized JavaScript origins: `https://localhost:44370` - The HTTP origins that host your web application.
       - Authorized redirect URIs: `https://localhost:44370/signin-google` - Users will be redirected to this path after they have authenticated with Google.
-- Google Authentication, setting up the UI and the authentication service [📺](https://youtu.be/fgzRnlB992s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 106
-- Handle authenticated user information received from Google: `ExternalLoginCallback` Action [📺](https://youtu.be/vkB2yaV7_LQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 107
+- Google Authentication, setting up the UI and the authentication service [📺](https://youtu.be/fgzRnlB992s?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 106 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/aspnet-core-google-authentication.html)
+- Handle authenticated user information received from Google: `ExternalLoginCallback` Action [📺](https://youtu.be/vkB2yaV7_LQ?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 107 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/externallogincallback-action-in-aspnet.html)
 
 #### Facebook
 
-- Register application with Facebook [📺](https://youtu.be/uAymQERp90w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 108
+- Register application with Facebook [📺](https://youtu.be/uAymQERp90w?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 108 [📑](https://csharp-video-tutorials.blogspot.com/2019/09/register-application-with-facebook.html)
   - <https://developers.facebook.com/apps/>
     - App Name: `Employee Mgmt Client`
     - Use case: `Authenticate and request data from users with Facebook login`
@@ -350,7 +351,7 @@
     - User Data Deletion → Data deletion callback URL: `https://localhost:44370/Administration/DeleteUserData/Facebook` (The method has not been added)
     - Category: `Education`
     - App icon: `EmployeeManagement/EmployeeManagement/wwwroot/images/employees_1024x1024.png`
-- Facebook authentication code integration [📺](https://youtu.be/R_1OW8PyiRI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 109
+- Facebook authentication code integration [📺](https://youtu.be/R_1OW8PyiRI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 109 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-facebook-authentication_1.html)
 
 ### Email Management
 
@@ -382,17 +383,17 @@
 
 ## **CLIENT SIDE VALIDATION**
 
-- Client side validation implementation [📺](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74
+- Client side validation implementation [📺](https://youtu.be/PUX3PzyBofg?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 74 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/aspnet-core-client-side-validation.html)
   - Requirements (in this order): `jquery.js`, `jquery.validate.js`, `jquery.validate.unobtrusive.js`
-- Remote validation [📺](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75
+- Remote validation [📺](https://youtu.be/2jZc11l67Zk?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 75 [📑](https://csharp-video-tutorials.blogspot.com/2019/06/aspnet-core-remote-validation.html)
 
 ## **MSSQL SERVER**
 
-- Enforce `ON DELETE NO ACTION` [📺](https://youtu.be/txTZAFut9mA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 89
+- Enforce `ON DELETE NO ACTION` [📺](https://youtu.be/txTZAFut9mA?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 89 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/enforce-on-delete-no-action-in-entity.html)
 
 ## **Other**
 
-- Change default access denied route [📺](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97
+- Change default access denied route [📺](https://youtu.be/1Mi9Y9GAuCw?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 97 [📑](https://csharp-video-tutorials.blogspot.com/2019/08/change-accessdenied-route-in-aspnet-core.html)
   - _Cascading referential integrity constraint_
 - Secret Manager in ASP\.NET Core [📺](https://youtu.be/TVF9o5qbrkI?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU) - Part 110 [📑](https://csharp-video-tutorials.blogspot.com/2019/10/aspnet-core-secret-manager.html)
   - Use: "Keep production secrets like database connection string, API and encryption keys out of source control."
@@ -405,6 +406,8 @@ Videos and tutorials mentioned in this course.
 
 - Courses: <https://www.pragimtech.com/course-category/free-online-courses/>
 - Playlists for courses: <https://www.youtube.com/@Csharp-video-tutorialsBlogspot/playlists>
+
+Text version of the following tutorials, may be found in the video description.
 
 ## C# Tutorial For Beginners
 
@@ -474,13 +477,13 @@ NO_PROXY = localhost,127.0.0.1,::1,LOCALHOST
 
 ## Configuration Sources
 
-| Configuration Source                     | Course<br>Part | Override |
-| ---------------------------------------- | -------------- | -------- |
-| `appsettings.json`                       | 9              | 1st      |
-| `appsettings.{env.EnvironmentName}.json` | -              | 2nd      |
-| User secrets                             | 110            | 3rd      |
-| Environment variables                    | 14             | 4th      |
-| Command-line arguments                   | -              | 5th      |
+| Configuration Source                     | Course Part | Override Order |
+| ---------------------------------------- | ----------- | -------------- |
+| `appsettings.json`                       | 9           | 1st            |
+| `appsettings.{env.EnvironmentName}.json` | -           | 2nd            |
+| User secrets                             | 110         | 3rd            |
+| Environment variables                    | 14          | 4th            |
+| Command-line arguments                   | -           | 5th            |
 
 - `env.EnvironmentName`: `Development`
 
