@@ -33,6 +33,68 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
+        /// Displays the view for changing the user's password.
+        /// </summary>
+        /// <returns>Returns a view that allows the user to change their password.</returns>
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            // Renders and returns the associated view.
+            return View();
+        }
+
+
+        /// <summary>
+        /// Handles the logic for changing the user's password.
+        /// </summary>
+        /// <param name="model">The ChangePasswordViewModel containing the current and new password.</param>
+        /// <returns>An IActionResult that redirects, renders a view, or confirms the change.</returns>
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            // Check if the model is valid based on data annotations
+            if (ModelState.IsValid)
+            {
+                // Retrieve the currently logged-in user.
+                // If no user is logged in, redirect to the login page.
+                var user = await userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return RedirectToAction("Login");
+                }
+
+                // Attempt to change the user's password with the provided
+                // current and new passwords
+                var result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+
+                // The new password did not meet the complexity rules or
+                // the current password is incorrect. Add these errors to
+                // the ModelState and rerender ChangePassword view
+                if (!result.Succeeded)
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        // Add each error to the ModelState to display them in the view
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+
+                    // Re-render the ChangePassword view with the current model and error messages
+                    return View();
+                }
+
+                // If the password was changed successfully, refresh the sign-in cookie for the user
+                await signInManager.RefreshSignInAsync(user);
+
+                // Render the ChangePasswordConfirmation view to confirm success
+                return View("ChangePasswordConfirmation");
+            }
+
+            // If the model state is invalid, re-render the ChangePassword view with the current model
+            return View(model);
+        }
+
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="token"></param>
