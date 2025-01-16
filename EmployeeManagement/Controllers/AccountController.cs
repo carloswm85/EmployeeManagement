@@ -33,54 +33,70 @@ namespace EmployeeManagement.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Handles the logic for displaying the AddPassword view if the user does not have a password.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>An IActionResult that either redirects to ChangePassword or renders the AddPassword view.</returns>
         [HttpGet]
         public async Task<IActionResult> AddPassword()
         {
+            // Retrieve the currently logged-in user. This ensures that the method only applies to authenticated users.
             var user = await userManager.GetUserAsync(User);
 
+            // Check if the user already has a password associated with their account.
             var userHasPassword = await userManager.HasPasswordAsync(user);
 
+            // If the user already has a password, redirect them to the ChangePassword view.
             if (userHasPassword)
             {
                 return RedirectToAction("ChangePassword");
             }
 
+            // If the user does not have a password, display the AddPassword view to allow password setup.
             return View();
         }
 
+
         /// <summary>
-        /// 
+        /// Handles the process of adding a new password to a user account that does not currently have one.
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">The AddPasswordViewModel containing the new password to be added.</param>
+        /// <returns>An IActionResult that either confirms the addition of the password or re-renders the AddPassword view with error messages.</returns>
         [HttpPost]
         public async Task<IActionResult> AddPassword(AddPasswordViewModel model)
         {
+            // Check if the model is valid based on the provided data annotations
             if (ModelState.IsValid)
             {
+                // Retrieve the currently logged-in user. Ensure that this operation is only performed for authenticated users.
                 var user = await userManager.GetUserAsync(User);
 
+                // Attempt to add the new password to the user's account
                 var result = await userManager.AddPasswordAsync(user, model.NewPassword);
 
+                // If the password addition fails, handle errors and re-render the AddPassword view
                 if (!result.Succeeded)
                 {
                     foreach (var error in result.Errors)
                     {
+                        // Add each error to the ModelState to display them in the view
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
+
+                    // Re-render the AddPassword view with error messages
                     return View();
                 }
 
+                // Upon successfully adding the password, refresh the sign-in cookie to ensure the user is re-authenticated
                 await signInManager.RefreshSignInAsync(user);
 
+                // Render the AddPasswordConfirmation view to confirm the successful operation
                 return View("AddPasswordConfirmation");
             }
 
+            // If the model state is invalid, re-render the AddPassword view with the current model
             return View(model);
         }
+
 
         /// <summary>
         /// Displays the view for changing the user's password.
