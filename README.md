@@ -1,4 +1,4 @@
-﻿- [Kudvenkat](#kudvenkat)
+﻿- [Kudvenkat (the teacher)](#kudvenkat-the-teacher)
 - [ASP.NET Core MVC For Beginners](#aspnet-core-mvc-for-beginners)
   - [**Introduction**](#introduction)
   - [**WEB SERVER HOSTING**](#web-server-hosting)
@@ -42,7 +42,7 @@
 
 ---
 
-# Kudvenkat
+# Kudvenkat (Course Teacher)
 
 - <https://www.youtube.com/@Csharp-video-tutorialsBlogspot>
   - How to become a Full-Stack Web Developer: <https://youtu.be/RiKcSDbGVXw>
